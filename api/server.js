@@ -5,22 +5,28 @@ const Fingerprint = require('express-fingerprint');
 const MongoClient = require('mongodb').MongoClient;
 const Ajv = require('ajv');
 const morgan = require('morgan');
+const config = require('config-secrets');
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 
-const PORT = 3000;
-
-const DB_URL = 'mongodb://localhost:27017';
-const DB_NAME = 'ouatterrir';
+const PORT = config.get('port');
 
 let MONGO_CLIENT;
 let ANSWERS;
 
 function connect(callback) {
-  const client = new MongoClient(DB_URL);
+  const mongoConfig = config.get('mongo');
 
-  return client.connect((err) => {
+  const url = `mongodb://${encodeURIComponent(
+    mongoConfig.user
+  )}:${encodeURIComponent(mongoConfig.password)}@${mongoConfig.host}:${
+    mongoConfig.port
+  }`;
+
+  const client = new MongoClient(url, {useUnifiedTopology: true});
+
+  return client.connect(err => {
     if (err) return callback(err);
 
     return callback(null, client);
@@ -53,14 +59,15 @@ app.use(timestampMiddleware);
 function start(callback) {
   async.series(
     [
-      (next) => {
+      next => {
         connect((err, client) => {
           if (err) return next(err);
 
           MONGO_CLIENT = client;
-          const db = client.db(DB_NAME);
+          const db = client.db(mongoConfig.db);
 
           ANSWERS = db.collection('answers');
+          return next();
         });
       },
       async.apply(app.listen, PORT)
@@ -69,7 +76,7 @@ function start(callback) {
   );
 }
 
-start((err) => {
+start(err => {
   if (err) return console.error(err);
 
   console.log(`Server listening to port ${PORT}`);
