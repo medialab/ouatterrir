@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const Fingerprint = require('express-fingerprint');
 const MongoClient = require('mongodb').MongoClient;
 const Ajv = require('ajv');
+const morgan = require('morgan');
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
@@ -27,6 +28,8 @@ function connect(callback) {
 }
 
 const app = express();
+
+app.use(morgan('combined'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
