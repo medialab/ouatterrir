@@ -3,6 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Fingerprint = require('express-fingerprint');
 const MongoClient = require('mongodb').MongoClient;
+const Ajv = require('ajv');
+
+const ajv = new Ajv();
+const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 
 const PORT = 3000;
 

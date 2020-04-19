@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Answer",
+  "description": "One single answer to our questionnaire.",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "hello": {
+      "type": "string"
+    }
+  }
+}
