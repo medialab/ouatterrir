@@ -18,11 +18,7 @@ let ANSWERS;
 function connect(callback) {
   const mongoConfig = config.get('mongo');
 
-  const url = `mongodb://${encodeURIComponent(
-    mongoConfig.user
-  )}:${encodeURIComponent(mongoConfig.password)}@${mongoConfig.host}:${
-    mongoConfig.port
-  }`;
+  const url = `mongodb://${mongoConfig.host}:${mongoConfig.port}/admin`;
 
   const client = new MongoClient(url, {useUnifiedTopology: true});
 
@@ -64,7 +60,7 @@ function start(callback) {
           if (err) return next(err);
 
           MONGO_CLIENT = client;
-          const db = client.db(mongoConfig.db);
+          const db = client.db(config.get('mongo').db);
 
           ANSWERS = db.collection('answers');
           return next();

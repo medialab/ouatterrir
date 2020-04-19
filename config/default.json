@@ -4,7 +4,7 @@
     "db": "ouatterrir",
     "host": "localhost",
     "port": 27017,
-    "user": "root",
-    "password": "example"
+    "user": "admin",
+    "password": "password"
   }
 }
