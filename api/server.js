@@ -6,22 +6,22 @@ const MongoClient = require('mongodb').MongoClient;
 const Ajv = require('ajv');
 const morgan = require('morgan');
 const config = require('config-secrets');
+const basicAuth = require('express-basic-auth');
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 
 const PORT = config.get('port');
+const MONGO_CONFIG = config.get('mongo');
 
 let ANSWERS;
 
 function connect(callback) {
-  const mongoConfig = config.get('mongo');
-
-  const auth = `${encodeURIComponent(mongoConfig.user)}:${encodeURIComponent(
-    mongoConfig.password
+  const auth = `${encodeURIComponent(MONGO_CONFIG.user)}:${encodeURIComponent(
+    MONGO_CONFIG.password
   )}`;
 
-  const url = `mongodb://${auth}@${mongoConfig.host}:${mongoConfig.port}/admin`;
+  const url = `mongodb://${auth}@${MONGO_CONFIG.host}:${MONGO_CONFIG.port}/admin`;
 
   const client = new MongoClient(url, {useUnifiedTopology: true});
 
@@ -76,6 +76,17 @@ app.post('/answer', (req, res) => {
   });
 });
 
+const authMiddleware = basicAuth({
+  users: {
+    [MONGO_CONFIG.user]: MONGO_CONFIG.password
+  },
+  challenge: true
+});
+
+app.get('/data', authMiddleware, (req, res) => {
+  return res.send('Ok');
+});
+
 function start(callback) {
   async.series(
     [
@@ -83,7 +94,7 @@ function start(callback) {
         connect((err, client) => {
           if (err) return next(err);
 
-          const db = client.db(config.get('mongo').db);
+          const db = client.db(MONGO_CONFIG.db);
 
           ANSWERS = db.collection('answers');
           return next();
