@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ouatterrir/static/css/main.f9bb1330.chunk.css",
+    "main.js": "/ouatterrir/static/js/main.a99fbb9c.chunk.js",
+    "main.js.map": "/ouatterrir/static/js/main.a99fbb9c.chunk.js.map",
+    "runtime-main.js": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js",
+    "runtime-main.js.map": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js.map",
+    "static/js/2.6708b357.chunk.js": "/ouatterrir/static/js/2.6708b357.chunk.js",
+    "static/js/2.6708b357.chunk.js.map": "/ouatterrir/static/js/2.6708b357.chunk.js.map",
+    "index.html": "/ouatterrir/index.html",
+    "precache-manifest.7e28efc910fcce2ce107d96af72e4a3f.js": "/ouatterrir/precache-manifest.7e28efc910fcce2ce107d96af72e4a3f.js",
+    "service-worker.js": "/ouatterrir/service-worker.js",
+    "static/css/main.f9bb1330.chunk.css.map": "/ouatterrir/static/css/main.f9bb1330.chunk.css.map",
+    "static/js/2.6708b357.chunk.js.LICENSE.txt": "/ouatterrir/static/js/2.6708b357.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b0d5f4d1.js",
+    "static/js/2.6708b357.chunk.js",
+    "static/css/main.f9bb1330.chunk.css",
+    "static/js/main.a99fbb9c.chunk.js"
+  ]
+}
