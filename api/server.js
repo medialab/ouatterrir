@@ -84,7 +84,18 @@ const authMiddleware = basicAuth({
 });
 
 app.get('/data', authMiddleware, (req, res) => {
-  return res.send('Ok');
+  if ('json' in req.query) {
+    return ANSWERS.find({}).toArray((err, data) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Server error');
+      }
+
+      return res.json(data);
+    });
+  }
+
+  return res.send('Not implemented');
 });
 
 function start(callback) {
