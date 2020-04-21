@@ -1,0 +1,5 @@
+Profitons de la suspension forcée de nos activités pour dresser l'inventaire de celles que nous aimerions voir reprendre à l'identique (comme avant), mieux, ou qu'elles ne reprennent pas du tout. Le but est de faire la liste des activités dont vous vous sentez privées par la crise actuelle et qui vous donne la sensation d’une atteinte à vos conditions essentielles de subsistance. 
+
+Cet exercice sera d’autant plus utile qu’il portera sur une expérience personnelle directement vécue. On ne cherchera donc pas à nommer des entités abstraites sur lequel on n'a peu de prise (le capitalisme, le système, le pétrole en général etc...) mais de partir de cas extrêmement précis rencontrés dans le quotidien.
+
+Attention : ceci n’est pas un questionnaire, il ne s’agit pas d’un sondage. C’est une aide à l'auto-description, c'est -à-dire un exercice qui cherche à décrire vos moyens de subsistance et ce à quoi vous êtes attachés.

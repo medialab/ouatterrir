@@ -1,0 +1,49 @@
+{
+  "website-title": "where should we land?",
+  "questionnaire": "questionnaire",
+  "legal-mentions": "legal mentions",
+  "questionnaire-prompt": "start the auto-description exercize",
+
+  "sending": "Sending your propositions",
+  "error": "Oops ! the propositions could not be sent... can you check if you have an internet connection?",
+  "success": "Success ! your propositions are recorded, thank you and see you soon !",
+
+  "add-activity-to-stop": "What should we not resume ?",
+  "add-activity-to-develop": "What should we develop ?",
+  "go-to-submit": "share your propositions",
+  "previous-question": "previous question",
+  "next-question": "next question",
+  "validate proposition": "validate proposition",
+  "go-back-to-summary": "go back to overview",
+  "submit-form-title": "share my propositions with the 'where to land' team",
+  "submit-form-explanation": "Share my propositions the 'where to land' team",
+  "write-here": "write here",
+  "email-prompt": "enter your email here",
+  "add-proposition": "add a proposition",
+  "add-another-proposition": "add another proposition",
+  "reset-form": "reset form",
+  "thank-you": "Thank you !",
+  "summary-title": "Your propositions",
+  "submit": "send my propositions!",
+  "validate-proposition": "validate proposition",
+
+  "review-your-propositions": "review my propositions",
+  "hide-existing-propositions": "return",
+
+  "submit-form-with-contact": "send my propositions and get in touch",
+  "submit-form-with-contact-explanation": "If you give us an email, Bruno Latour and his colleagues will contact you to propose you to participate to web workshops in relation to your propositions. Your email will never be shared publicly.",
+  "submit-form-anonymously": "send my propositions anonymously",
+  "submit-form-anonymously-explanation": "We will add your response to our database and perform multiple textual analysis inquiries that we will share publicly.",
+
+
+  "to-stop-question-1": "Can you name a suspended activity that you would like to see not coming back? ",
+  "to-stop-question-2": "Describe why this activity seems to you to be noxious/superfluous/dangerous or incoherent.",
+  "to-stop-question-3": "Describe how the disappearance/putting on hold/substitution of this activity might render easier/more coherent other activities that you prefer.",
+  "to-stop-question-4": "What kinds of measures do you advocate so that workers/employees/agents/entrepreneurs, those who can no longer continue in the activities that you have eliminated, are able to facilitate the transition to other activities?",
+
+  "to-develop-question-1": "Can you name an activity, now suspended, that you hope might develop/begin again, or even that might be created from scratch?",
+  "to-develop-question-2": "Describe how this activity appears to be positive?",
+  "to-develop-question-3": "Describe how it can fight against those that you judge to be inappropriate.",
+  "to-develop-question-4": "Describe how it makes other activities that you prefer easier/more harmonious/coherent",
+  "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity ?"
+}
