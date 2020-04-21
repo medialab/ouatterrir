@@ -101,6 +101,8 @@ app.get('/data', authMiddleware, (req, res) => {
 
     if ('json' in req.query) return res.json(data);
 
+    res.header('Content-Type', 'text/csv; charset=utf-8');
+
     const writer = csvWriter();
     writer.pipe(res);
 
