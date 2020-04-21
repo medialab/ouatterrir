@@ -8,4 +8,4 @@ services:
       MONGO_INITDB_ROOT_USERNAME: "admin"
       MONGO_INITDB_ROOT_PASSWORD: "password"
     ports:
-      - "27117:27117"
+      - "27117:27017"
