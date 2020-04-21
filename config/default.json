@@ -3,7 +3,7 @@
   "mongo": {
     "db": "ouatterrir",
     "host": "localhost",
-    "port": 27018,
+    "port": 27117,
     "user": "admin",
     "password": "password"
   }
