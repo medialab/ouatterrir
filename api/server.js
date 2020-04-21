@@ -7,6 +7,7 @@ const Ajv = require('ajv');
 const morgan = require('morgan');
 const config = require('config-secrets');
 const basicAuth = require('express-basic-auth');
+const csvWriter = require('csv-write-stream');
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
@@ -83,19 +84,31 @@ const authMiddleware = basicAuth({
   challenge: true
 });
 
+function formatCsv(item) {
+  return {
+    id: item._id,
+    timestamp: item.timestamp,
+    fingerprint: item.fingerprint.hash
+  };
+}
+
 app.get('/data', authMiddleware, (req, res) => {
-  if ('json' in req.query) {
-    return ANSWERS.find({}).toArray((err, data) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send('Server error');
-      }
+  return ANSWERS.find({}).toArray((err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Server error');
+    }
 
-      return res.json(data);
-    });
-  }
+    if ('json' in req.query) return res.json(data);
 
-  return res.send('Not implemented');
+    res.header('Content-Type', 'text/csv; charset=utf-8');
+
+    const writer = csvWriter();
+    writer.pipe(res);
+
+    data.forEach(item => writer.write(formatCsv(item)));
+    writer.end();
+  });
 });
 
 function start(callback) {

@@ -25,6 +25,7 @@
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "config-secrets": "^1.0.6",
+    "csv-write-stream": "^2.0.0",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "express-fingerprint": "^1.1.3",
