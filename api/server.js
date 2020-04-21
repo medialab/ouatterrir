@@ -12,13 +12,16 @@ const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 
 const PORT = config.get('port');
 
-let MONGO_CLIENT;
 let ANSWERS;
 
 function connect(callback) {
   const mongoConfig = config.get('mongo');
 
-  const url = `mongodb://${mongoConfig.host}:${mongoConfig.port}/admin`;
+  const auth = `${encodeURIComponent(mongoConfig.user)}:${encodeURIComponent(
+    mongoConfig.password
+  )}`;
+
+  const url = `mongodb://${auth}@${mongoConfig.host}:${mongoConfig.port}/admin`;
 
   const client = new MongoClient(url, {useUnifiedTopology: true});
 
@@ -52,6 +55,27 @@ function timestampMiddleware(req, res, next) {
 
 app.use(timestampMiddleware);
 
+app.post('/answer', (req, res) => {
+  if (!req.body || !req.body.data || typeof req.body.data !== 'object') {
+    return res.status(400).send('Bad request');
+  }
+
+  const item = {
+    timestamp: req.timestamp,
+    fingerprint: req.fingerprint,
+    data: req.body.data
+  };
+
+  return ANSWERS.insertOne(item, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Server error');
+    }
+
+    return res.send('Ok');
+  });
+});
+
 function start(callback) {
   async.series(
     [
@@ -59,14 +83,13 @@ function start(callback) {
         connect((err, client) => {
           if (err) return next(err);
 
-          MONGO_CLIENT = client;
           const db = client.db(config.get('mongo').db);
 
           ANSWERS = db.collection('answers');
           return next();
         });
       },
-      async.apply(app.listen, PORT)
+      next => app.listen(PORT, next)
     ],
     callback
   );
