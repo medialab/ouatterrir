@@ -3,6 +3,7 @@ import {Helmet} from 'react-helmet';
 import Textarea from 'react-textarea-autosize';
 import {v4 as genId} from 'uuid';
 import {getOrInitObject, createProposition, cleanData} from '../helpers/misc';
+import {postAnswer} from '../helpers/client';
 
 const defaultData = {
   id: genId(),
@@ -203,24 +204,28 @@ export default function({
     if (e) {
       e.preventDefault();
     }
-    console.info('mock:: submit', {
+    const finalData = {
       ...data, 
       email: withEmail ? data.email : undefined,
       lang
-    })
+    }
     setSendStatus('sending');
-    // @todo replace with real api call
     // this is a mock for the actual request
-    setTimeout(() => {
-      if (Math.random() > .5) {
-        setSendStatus('error');
-      } else {
-        setSendStatus('success');
-      }
+    postAnswer(finalData)
+    .then(() => {
+      setSendStatus('success');
       setTimeout(() => {
         setSendStatus(undefined)
       }, 4000)
-    }, 2000)
+    })
+    .catch(e => {
+      console.error(e);
+      setSendStatus('error');
+      setTimeout(() => {
+        setSendStatus(undefined)
+      }, 4000)
+    })
+    
   }
   const handleSubmitWithEmail = (e) => {
     handleSubmit(e, true)
@@ -271,7 +276,7 @@ export default function({
           <div className="question-container">
             <h2>{questionsLabels[stage - 1]}</h2>
             
-            <Textarea value={currentText} onChange={handleActiveTextChange} placeHolder={translate('write-here')} />
+            <Textarea value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
             <ul className="buttons-row">
             {
               stage > 1 ?
@@ -318,9 +323,9 @@ export default function({
                   {/* <h2>{translate('submit-form-with-contact')}</h2> */}
                   <p>{translate('submit-form-anonymously-explanation')}</p>
                   <p>{translate('submit-form-with-contact-explanation')}</p>
-                  <field>
-                    <input type="email" onChange={handleEmailChange} value={data.email || ''} placeHolder={translate('email-prompt')} />
-                  </field>
+                  <div>
+                    <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
+                  </div>
                   <ul className="buttons-row">
                   <li>
                     <button  onClick={handleSubmit} type="submit">{translate('submit-form-anonymously')}</button>
