@@ -1,4 +1,5 @@
 {
+  "port": "API_PORT",
   "mongo": {
     "db": "MONGO_DB",
     "host": "MONGO_HOST",
