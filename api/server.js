@@ -6,19 +6,22 @@ const MongoClient = require('mongodb').MongoClient;
 const Ajv = require('ajv');
 const morgan = require('morgan');
 const config = require('config-secrets');
+const basicAuth = require('express-basic-auth');
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 
 const PORT = config.get('port');
+const MONGO_CONFIG = config.get('mongo');
 
-let MONGO_CLIENT;
 let ANSWERS;
 
 function connect(callback) {
-  const mongoConfig = config.get('mongo');
+  const auth = `${encodeURIComponent(MONGO_CONFIG.user)}:${encodeURIComponent(
+    MONGO_CONFIG.password
+  )}`;
 
-  const url = `mongodb://${mongoConfig.host}:${mongoConfig.port}/admin`;
+  const url = `mongodb://${auth}@${MONGO_CONFIG.host}:${MONGO_CONFIG.port}/admin`;
 
   const client = new MongoClient(url, {useUnifiedTopology: true});
 
@@ -52,6 +55,38 @@ function timestampMiddleware(req, res, next) {
 
 app.use(timestampMiddleware);
 
+app.post('/answer', (req, res) => {
+  if (!req.body || !req.body.data || typeof req.body.data !== 'object') {
+    return res.status(400).send('Bad request');
+  }
+
+  const item = {
+    timestamp: req.timestamp,
+    fingerprint: req.fingerprint,
+    data: req.body.data
+  };
+
+  return ANSWERS.insertOne(item, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Server error');
+    }
+
+    return res.send('Ok');
+  });
+});
+
+const authMiddleware = basicAuth({
+  users: {
+    [MONGO_CONFIG.user]: MONGO_CONFIG.password
+  },
+  challenge: true
+});
+
+app.get('/data', authMiddleware, (req, res) => {
+  return res.send('Ok');
+});
+
 function start(callback) {
   async.series(
     [
@@ -59,14 +94,13 @@ function start(callback) {
         connect((err, client) => {
           if (err) return next(err);
 
-          MONGO_CLIENT = client;
-          const db = client.db(config.get('mongo').db);
+          const db = client.db(MONGO_CONFIG.db);
 
           ANSWERS = db.collection('answers');
           return next();
         });
       },
-      async.apply(app.listen, PORT)
+      next => app.listen(PORT, next)
     ],
     callback
   );
