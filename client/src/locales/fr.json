@@ -1,0 +1,51 @@
+{
+  "website-title": "où atterrir ?",
+  "questionnaire": "questionnaire",
+  "legal-mentions": "mentions légales",
+  "questionnaire-prompt": "commencer l'exercice d'auto-description",
+
+  "sending": "Envoi de vos propositions",
+  "error": "Oups ! les propositions ne sont pas parvenues à bon port ... êtes vous bien connecté à internet ?",
+  "success": "Succès ! vos propositions sont enregistrées, merci et à bientôt !",
+
+  "add-activity-to-stop": "Que faut-il ne pas reprendre ?",
+  "add-activity-to-develop": "Que faut-il développer ?",
+  "go-to-submit": "partager mes propositions avec l'équipe de 'où atterrir'",
+  "previous-question": "question précédente",
+  "next-question": "question suivante",
+  "validate proposition": "valider la proposition",
+  "go-back-to-summary": "revenir à la vue d'ensemble",
+  "submit-form-title": "partager mes propositions",
+  "submit-form-explanation": "Partager mes propositions avec l'équipe de 'où atterrir'",
+  "write-here": "écrire ici",
+  "email-prompt": "entrer votre email ici",
+  "add-proposition": "ajouter une proposition",
+  "thank-you": "Merci !",
+  "add-another-proposition": "ajouter une autre proposition",
+  "reset-form": "réinitialiser le questionnaire",
+  "summary-title": "Mes propositions",
+  "validate-proposition": "valider la proposition",
+
+  "submit": "envoyer mes propositions !",
+  "edit": "éditer",
+  "delete": "supprimer",
+
+  "review-your-propositions": "relire mes propositions",
+  "hide-existing-propositions": "retour",
+  "submit-form-with-contact": "envoyer mes propositions et entrer en contact",
+  "submit-form-with-contact-explanation": "Si vous nous laissez un email, Bruno Latour et ses collègues vous recontacteront bientôt pour vous proposer de participer à des ateliers-rencontres en ligne en relation avec vos propositions. Votre email ne sera jamais partagé publiquement.",
+  "submit-form-anonymously": "envoyer mes propositions anonymement",
+  "submit-form-anonymously-explanation": "Nous ajouterons votre réponse à notre base de données, sur laquelle conduirons de multiples analyses textuelles dont nous partagerons publiquement les résultats.",
+
+
+  "to-stop-question-1": "Quelle activité, maintenant suspendue, vous souhaiteriez ne pas voir reprendre ? ",
+  "to-stop-question-2": "Décrivez pourquoi cette activité vous apparaît nuisible / superflue / dangereuse / incohérente ?",
+  "to-stop-question-3": "Décrivez en quoi sa disparition / mise en veilleuse / substitution rendrait d’autres activités que vous favorisez plus facile / plus cohérente ?",
+  "to-stop-question-4": "Quelles mesures préconisez-vous pour que les ouvriers / employés / agents / entrepreneurs qui ne pourront plus continuer dans le activité que vous supprimez se voient faciliter la transition vers d’autres activités ?",
+
+  "to-develop-question-1": "Quelle activité, maintenant suspendue, vous souhaiteriez voir se développer/ reprendre ou être inventée en remplacement ?",
+  "to-develop-question-2": "a) Décrivez pourquoi cette activité vous paraît positive ",
+  "to-develop-question-3": "b) Décrivez comment cette activité rend plus faciles / harmonieuses / cohérentes d’autres activités que vous favorisez",
+  "to-develop-question-4": "c) Décrivez comment elle permet de lutter contre les activités que vous jugez problématiques ?",
+  "to-develop-question-5": "Quelles mesures préconisez-vous pour aider les ouvriers / employés / agents / entrepreneurs à acquérir les capacités / moyens / revenus / instruments permettant la reprise / le développement / la création de cette activité ?"
+}

@@ -1,0 +1,5 @@
+Let’s take advantage of the enforced suspension of most activities to set out the inventory of those among them we would like to see not come back and those, on the other hand, that we would like to see developed.
+ 
+It will be all the more useful if the inventory relates to actually lived personal experience. The point is therefore not trying to name abstract entities over which we have little control (capitalism, the "system", oil in general, etc...) but to start from extremely precise cases encountered in your daily life.
+ 
+Warning: this is neither a questionnaire nor a poll. It is an aid to "self-description", being an exercise that starts with your concerns and attachments, and goes on to describe your means of subsistence.
