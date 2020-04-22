@@ -28,8 +28,8 @@ npm run start
 
 You can test the API is properly working by calling:
 ```
-curl -H "Content-Type: application/json" -d '{"data": {"TEST": "OK"}}' localhost:3000/answer
-curl 'admin:password@localhost:3000/data?json'
+curl -H "Content-Type: application/json" -d '{"data": {"TEST": "OK"}}' localhost:4000/answer
+curl 'admin:password@localhost:4000/data?json'
 ```
 
 - Client:
