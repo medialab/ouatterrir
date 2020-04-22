@@ -23,7 +23,7 @@ docker-compose run -p 27117:27017 mongo
 
 In another shell, run the API server with:
 ```
-npm run start
+npm start
 ```
 
 You can test the API is properly working by calling:
