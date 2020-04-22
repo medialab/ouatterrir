@@ -56,6 +56,13 @@ function timestampMiddleware(req, res, next) {
 
 app.use(timestampMiddleware);
 
+function corsMiddleware(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  return next();
+}
+
+app.use(corsMiddleware);
+
 app.post('/answer', (req, res) => {
   if (!req.body || !req.body.data || typeof req.body.data !== 'object') {
     return res.status(400).send('Bad request');
