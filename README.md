@@ -57,7 +57,7 @@ docker-compose pull
 
 Then start the whole website with the credentials and the port of your choice, for instance admin/password and 8000, using:
 ```
-PUBLIC_PORT=8000 MONGO_USER=admin MONGO_PASSWORD=password docker-compose run
+PUBLIC_PORT=8000 MONGO_USER=admin MONGO_PASSWORD=password docker-compose up
 ```
 
 Or set environment variables definitely by creating a .env file such as the example one and edit it:
