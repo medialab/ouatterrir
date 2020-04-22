@@ -1,4 +1,4 @@
-# ouatterrir
+# OuAtterrir
 
 ## API
 
@@ -17,10 +17,11 @@ npm install
 
 Start a MongoDB (at least 4.0), either already installed, or you can start one via Docker on the 27117 port for instance with:
 ```
+cp .env{.example,}
 docker-compose run -p 27117:27017 mongo
 ```
 
-Then run the API server with:
+In another shell, run the API server with:
 ```
 npm run start
 ```
@@ -38,6 +39,9 @@ cd client
 npm install
 npm run start
 ```
+
+It will open automatically the website in your browser on `http://localhost:3000`
+
 
 ## Prod Deployment with Docker
 
@@ -61,7 +65,9 @@ Or set environment variables definitely by creating a .env file such as the exam
 cp .env{.example,}
 ```
 
-Then just run:
+Then just run (or with -d option for production):
 ```
 docker-compose up
 ```
+
+The client is then served on `http://localhost:{PUBLIC_PORT}` and the API on `http://localhost:{PUBLIC_PORT}/api/`
