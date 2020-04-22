@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./api/server.js",
-    "mongo": "docker-compose up mongo",
+    "mongo": "docker pull mongo:4.2 && docker run -p 27117:27017 -e MONGO_INITDB_DATABASE="admin" -e MONGO_INITDB_ROOT_USERNAME="admin" -e MONGO_INITDB_ROOT_PASSWORD="password" -v mongo-data:/data/db mongo --auth",
     "prettier": "prettier 'api/*.js' --write",
     "start": "node ./api/server.js"
   },

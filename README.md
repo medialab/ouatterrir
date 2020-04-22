@@ -15,10 +15,9 @@
 npm install
 ```
 
-Start a MongoDB (at least 4.0), either already installed, or you can start one via Docker on the 27117 port for instance with:
+Start a MongoDB (at least 4.0) on the port 27117, either already installed, or you can do so via Docker using:
 ```
-cp .env{.example,}
-docker-compose run -p 27117:27017 mongo
+npm run mongo
 ```
 
 In another shell, run the API server with:
