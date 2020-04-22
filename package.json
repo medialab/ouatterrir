@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./api/server.js",
-    "docker:build": "kotatsu build server --production ./api/server.js -o ./api/server.docker.js --no-source-maps",
-    "docker:start": "NODE_ENV=production node ./api/server.docker.js",
-    "mongo": "docker-compose run -p 27117:27017 mongo",
+    "mongo": "docker-compose up mongo",
     "prettier": "prettier 'api/*.js' --write",
     "start": "node ./api/server.js"
   },
@@ -36,7 +34,6 @@
   },
   "devDependencies": {
     "@yomguithereal/prettier-config": "^1.1.0",
-    "kotatsu": "^0.19.0",
     "nodemon": "^2.0.3",
     "prettier": "^2.0.4"
   },
