@@ -103,7 +103,6 @@ main > div{
 .question-container > li:not(.active) {
   opacity: .5;
   margin-bottom: var(--gutter);
-  max-height: 10vh;
   overflow: hidden;
   cursor: pointer;
 }
@@ -116,6 +115,7 @@ main > div{
 .question-container > li:not(.active) textarea{
   font-size: .8em;
   pointer-events: none;
+  min-height: unset;
 }
 
 .question-container > li h2,
@@ -423,18 +423,6 @@ input:focus::placeholder{
 /**
  * Propositions review
  */
- .propositions-title{
-  display: flex;
-  align-items: center;
-}
-.propositions-title span{
-  flex: 1;
-}
-.propositions-title button{
-  font-size: .7em;
-  padding: calc(var(--gutter) / 2);
-}
-
 .proposition{
   padding: var(--gutter);
   background: rgba(0,0,0,0.05);
@@ -455,30 +443,19 @@ input:focus::placeholder{
 .proposition h3 .proposition-title{
   flex: 1;
 }
-.proposition h3 .small-buttons-container{
-  opacity: 0;
-  pointer-events: none;
-}
 .proposition h3 .small-buttons-container button:not(:last-of-type){
   border-right: 1px solid white;
-}
-.proposition:hover .small-buttons-container{
-  opacity: 1;
-  pointer-events: all;
 }
 .proposition .question{
   padding: var(--gutter);
   background: rgba(0,0,0,0.05);
   margin-bottom: var(--gutter);
+  cursor: pointer;
 }
-.proposition .question button{
-  opacity: 0;
-  pointer-events: none;
+.proposition .question:hover{
+  background: rgba(0,0,0,0.1);
 }
-.proposition .question:hover button{
-  opacity: 1;
-  pointer-events: all;
-}
+
 .proposition blockquote{
   margin-left: 0;
 }
