@@ -21,7 +21,13 @@ export default function({
         <Link className="important-link" to="questionnaire">
           {translate('questionnaire-prompt')}
         </Link>
+        <footer>
+            <div>
+              <Link to="/mentions"><span>{translate('legal-mentions')}</span></Link>
+            </div>
+          </footer>
       </div>
+      
     </div>
   )
 }

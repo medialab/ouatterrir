@@ -5,12 +5,16 @@
   "questionnaire-prompt": "commencer l'exercice d'auto-description",
 
   "sending": "Envoi de vos propositions",
+  "char-limit-indicator": "Votre texte doit faire au moins 150 caractères",
   "error": "Oups ! les propositions ne sont pas parvenues à bon port ... êtes vous bien connecté à internet ?",
   "success": "Succès ! vos propositions sont enregistrées, merci et à bientôt !",
 
   "add-activity-to-stop": "Que faut-il ne pas reprendre ?",
   "add-activity-to-develop": "Que faut-il développer ?",
-  "go-to-submit": "partager mes propositions avec l'équipe de 'où atterrir'",
+
+  "add-activity-to-stop-bis": "Ajouter une nouvelle proposition de réponse à la question \"Que faut-il ne pas reprendre ?\"",
+  "add-activity-to-develop-bis": "Ajouter une nouvelle proposition de réponse à la question \"Que faut-il développer ?\"",
+  "go-to-submit": "finir l'expérience et partager mes résultats",
   "previous-question": "question précédente",
   "next-question": "question suivante",
   "validate proposition": "valider la proposition",
@@ -18,7 +22,14 @@
   "submit-form-title": "partager mes propositions",
   "submit-form-explanation": "Partager mes propositions avec l'équipe de 'où atterrir'",
   "write-here": "écrire ici",
-  "email-prompt": "entrer votre email ici",
+
+  "email-prompt": "email (optionnel)",
+
+  "workshop-contact-prompt": "Je veux être recontacté si un atelier touchant à mes propositions est organisé",
+  "family-name-prompt": "nom de famille (optionnel)",
+  "given-name-prompt": "prénom (optionnel)",
+  "area-of-expertise-prompt": "aire d'expertise (optionnel)",
+
   "add-proposition": "ajouter une proposition",
   "thank-you": "Merci !",
   "add-another-proposition": "ajouter une autre proposition",
@@ -29,11 +40,13 @@
   "submit": "envoyer mes propositions !",
   "edit": "éditer",
   "delete": "supprimer",
+  "close": "fermer",
 
   "review-your-propositions": "relire mes propositions",
   "hide-existing-propositions": "retour",
+  "submit-form": "envoyer mes propositions",
   "submit-form-with-contact": "envoyer mes propositions et entrer en contact",
-  "submit-form-with-contact-explanation": "Si vous nous laissez un email, Bruno Latour et ses collègues vous recontacteront bientôt pour vous proposer de participer à des ateliers-rencontres en ligne en relation avec vos propositions. Votre email ne sera jamais partagé publiquement.",
+  "submit-form-with-contact-explanation": "Si vous nous laissez un email, Bruno Latour et ses collègues vous recontacteront bientôt pour vous proposer de participer à des ateliers-rencontres en ligne en relation avec vos propositions.",
   "submit-form-anonymously": "envoyer mes propositions anonymement",
   "submit-form-anonymously-explanation": "Nous ajouterons votre réponse à notre base de données, sur laquelle conduirons de multiples analyses textuelles dont nous partagerons publiquement les résultats.",
 

@@ -88,9 +88,6 @@ export default function BasAppicExample() {
               <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('questionnaire')}</span></Link>
             </li>
             <li>
-              <Link to="/mentions"><span>{translate('legal-mentions')}</span></Link>
-            </li>
-            <li>
               <span style={{cursor: 'pointer'}} onClick={handleSwitchLang}>
                 {lang === 'fr' ? <b>fr</b> : 'fr'}/{lang === 'fr' ? 'en' : <b>en</b>}
               </span>
@@ -111,6 +108,7 @@ export default function BasAppicExample() {
             </Route>
           </Switch>
         </main>
+        
       </div>
     </Router>
   );

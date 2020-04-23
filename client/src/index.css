@@ -12,6 +12,16 @@
   --main-font-family: sans-serif;
   --main-color: #345feaff;
   --secondary-color: #193aa3;
+
+  --color-type-1-type-1: #02c39a;
+  --color-type-1-type-2: #00a896;
+  --color-type-1-type-3: #028090;
+  --color-type-1-type-4: #05668d;
+
+  --color-type-2-type-1: #bc3908; 
+  --color-type-2-type-2: #941b0c;
+  --color-type-2-type-3: #621708;
+  --color-type-2-type-4: #220901;
 }
 
 /**
@@ -30,9 +40,18 @@
   justify-content: space-around;
   padding: 0;
   background: white;
-  z-index: 1;
+  z-index: 2;
   height: var(--nav-height);
 }
+
+footer{
+  padding-top: var(--gutter);
+}
+footer > div{
+  max-width: var(--contents-max-width);
+  min-width: var(--contents-max-width);
+}
+
 main{
   position: relative;
   top: calc(var(--nav-height) * 2);
@@ -54,6 +73,15 @@ main > div{
   }
 }
 
+.share-container {
+  transition: all .5s ease;
+  max-height: 1000vh;
+  overflow: hidden;
+}
+
+.share-container.hidden{
+  max-height: 0;
+}
 
 .question-container{
   height: calc(100vh - var(--nav-height) * 2);
@@ -63,6 +91,36 @@ main > div{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.question-container > li.active{
+  margin-bottom: var(--gutter);
+}
+
+.question-container > li:not(.active) {
+  opacity: .5;
+  margin-bottom: var(--gutter);
+  max-height: 10vh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.question-container > li:not(.active) h2{
+  font-size: .7em;
+  margin: 0;
+  margin-bottom: calc(var(--gutter) / 4);
+}
+.question-container > li:not(.active) textarea{
+  font-size: .8em;
+  pointer-events: none;
+}
+
+.question-container > li h2,
+.question-container > li textarea{
+  transition: all .2s ease;
 }
 
 .question-container.normalized{
@@ -111,36 +169,17 @@ button.active:not([disabled])
 {
    color: white;
    background: var(--main-color);
-    background: grey;
+  background: grey;
  }
 button[disabled]{
   border: none;
 }
 
 /**
- * Row of buttons
-**/
-.buttons-row{
-  margin: 0;
-  padding: 0;
-  margin-top: var(--gutter);
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-}
-.buttons-row li{
-  flex: 1;
-}
-.buttons-row li button{
-  width: 100%;
-  padding: var(--gutter);
-  height: 100%;
-}
-.buttons-row li:not(:last-of-type) button{
-  border-right: none;
-}
+ * Types of buttons
+ */
 
-.important-button{
+ .important-button{
   width: 100%;
   padding: var(--gutter);
   background: var(--main-color);
@@ -153,7 +192,7 @@ button[disabled]{
 }
 
 .important-button:not([disabled]):hover{
-  background: var(--secondary-color)!important;
+  background: var(--secondary-color);
 }
 
 .important-link,
@@ -172,6 +211,70 @@ button[disabled]{
   background: var(--secondary-color);
 }
 
+button.stop {
+  background: var(--color-type-2-type-1);
+  color: white;
+}
+button.stop:hover:not([disabled]),
+button.stop.active:not([disabled])
+{
+  background: var(--color-type-2-type-2);
+
+}
+button.stop.important-button {
+  background: var(--color-type-2-type-3);
+}
+button.important-button.stop:hover:not([disabled]),
+button.important-button.stop.active:not([disabled])
+{
+  background: var(--color-type-2-type-4);
+
+}
+
+button.develop {
+  background: var(--color-type-1-type-1);
+  color :white;
+}
+button.develop:hover:not([disabled]),
+button.develop.active:not([disabled])
+{
+  background: var(--color-type-1-type-2); 
+}
+button.develop.important-button {
+  background: var(--color-type-1-type-3);
+}
+button.important-button.develop:hover:not([disabled]),
+button.important-button.develop.active:not([disabled])
+{
+  background: var(--color-type-1-type-4); 
+}
+
+/**
+ * Row of buttons
+**/
+.buttons-row{
+  margin: 0;
+  padding: 0;
+  margin-top: var(--gutter);
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+}
+.buttons-row.reverse{
+  flex-direction : row-reverse;
+}
+.buttons-row li{
+  flex: 1;
+}
+.buttons-row li button{
+  width: 100%;
+  padding: var(--gutter);
+  height: 100%;
+}
+.buttons-row li:not(:last-of-type) button{
+  border-right: none;
+}
+
 /**
  * Nav items
 **/
@@ -185,6 +288,8 @@ nav ul{
   margin: 0;
   padding: 0;
   position: relative;
+  height: calc(var(--gutter) * 3);
+  background: white;
 }
 @media (max-width: 500px) {
   nav ul{
@@ -224,6 +329,7 @@ nav ul li:last-of-type{
   cursor: pointer;
   padding: var(--gutter);
   color: var(--main-color);
+  padding-right: 0;
 }
 @media (max-width: 500px) {
   nav ul li:last-of-type{
@@ -270,7 +376,7 @@ nav ul li:last-of-type{
 textarea{
   width: 100%;
   border: none;
-  max-height: calc(90vh - var(--nav-height));
+  max-height: 40vh;
   min-height: 20vh;
   resize: none;
   padding: 0;
@@ -298,9 +404,37 @@ input:focus::placeholder{
   opacity: .5;
 }
 
+.radio-container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  padding: var(--gutter) 0;
+  padding-top: 0;
+}
+
+.radio-container input{
+  width: unset;
+  margin-right: var(--gutter);
+}
+.radio-container label{
+  flex: 1;
+}
+
 /**
  * Propositions review
  */
+ .propositions-title{
+  display: flex;
+  align-items: center;
+}
+.propositions-title span{
+  flex: 1;
+}
+.propositions-title button{
+  font-size: .7em;
+  padding: calc(var(--gutter) / 2);
+}
+
 .proposition{
   padding: var(--gutter);
   background: rgba(0,0,0,0.05);
@@ -317,6 +451,7 @@ input:focus::placeholder{
   justify-content: stretch;
   align-items: center;
 }
+
 .proposition h3 .proposition-title{
   flex: 1;
 }
@@ -354,6 +489,7 @@ input:focus::placeholder{
 .important-section{
   padding: var(--gutter);
   margin-bottom: var(--gutter);
+  margin-top: var(--gutter);
   background: rgba(0,0,0,0.05);
 }
 
@@ -384,4 +520,9 @@ input:focus::placeholder{
 .padded-container{
   padding-left: var(--gutter);
   padding-right: var(--gutter);
+}
+
+.text-length-indicator{
+  font-size: 0.8em;
+  margin-top: var(--gutter);
 }

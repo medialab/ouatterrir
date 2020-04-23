@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {Helmet} from 'react-helmet';
+import Md from 'react-markdown';
 import Textarea from 'react-textarea-autosize';
 import {v4 as genId} from 'uuid';
 import {getOrInitObject, createProposition, cleanData} from '../helpers/misc';
 import {postAnswer} from '../helpers/client';
+
+import introFr from '!!raw-loader!../locales/texts/intro/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import introEn from '!!raw-loader!../locales/texts/intro/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 const defaultData = {
   id: genId(),
@@ -13,7 +17,7 @@ const defaultData = {
 
 // min text length for answers
 // @todo put in config ?
-const TEXT_LIMIT = 20;
+const TEXT_LIMIT = 150;
 
 export default function({
   translate,
@@ -69,6 +73,8 @@ export default function({
   const [reviewVisible, setReviewVisible] = useState(false);
   // xhr status
   const [sendStatus, setSendStatus] = useState(undefined);
+
+  const [shareVisible, setShareVisible] = useState(false);
   /**
    * ==============
    * Localstorage savings
@@ -87,9 +93,10 @@ export default function({
       setData(cleanData(data))
       setReviewVisible(false);
     }
+    setReviewVisible(false);
     // focusing on active textarea or input at each stage change
     setTimeout(() => {
-      const el  = document.querySelector('textarea, input')
+      const el  = document.querySelector('textarea.active, input')
       if (el) {
         el.focus();
       }
@@ -100,6 +107,33 @@ export default function({
   useEffect(() => {
     localStorage.setItem('mayday/questionnaireIndex', questionnaireIndex);
   }, [questionnaireIndex]);
+
+   // changes for review
+   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [reviewVisible]);
+
+  useEffect(() => {
+    if (shareVisible) {
+      let el = document.querySelector('.share-container');
+      if(el) {
+        setTimeout(() => {
+          const top = el.offsetTop;
+          console.log('go', top)
+          window.scrollTo({
+            top,
+            behavior: 'smooth'
+          });
+        }, 700)
+        
+      }
+      
+    }
+    
+  }, [shareVisible]);
 
   // trick to enable reseting stage if questionnaire is clicked in nav
   const handleEvent = function(type, payload) {
@@ -124,7 +158,7 @@ export default function({
   const numberOfQuestions = questionsLabels.length;
 
   let currentText;
-  if (stage > 0 && stage < numberOfQuestions + 1) {
+  if (stage > 0 && stage !== -1) {
     currentText = data.propositions[questionnaireIndex] ? data.propositions[questionnaireIndex][`question${stage}`] : '';
   }
   const emailIsValid = data.email && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email);
@@ -153,18 +187,16 @@ export default function({
 
   // go to next question
   const handleNextStage = () => {
-    const nextStage = stage + 1;
+    let nextStage = stage + 1;
+    if (nextStage > numberOfQuestions) {
+      nextStage = -1;
+    }
     setStage(nextStage);
   }
   // go to previous question
   const handlePreviousStage = () => {
     const previousStage = stage - 1;
     setStage(previousStage);
-  }
-  // go to proposition choice
-  const handleGoToSummary = () => {
-    setStage(0);
-    setQuestionnaireIndex(0);
   }
   // go to send choice
   const handleGoToFinal = () => {
@@ -199,14 +231,40 @@ export default function({
       email: thatEvent.target.value,
     })
   }
+  // register given name input change
+  const handleGivenNameChange = (thatEvent) => {
+    setData({
+      ...data,
+      givenName: thatEvent.target.value,
+    })
+  }
+  // register family name input change
+  const handleFamilyNameChange = (thatEvent) => {
+    setData({
+      ...data,
+      familyName: thatEvent.target.value,
+    })
+  }
+  const handleWorkshopContactChange = (thatEvent) => {
+    setData({
+      ...data,
+      workshopContact: data.workshopContact !== undefined ? !data.workshopContact : true,
+    })
+  }
+  // register family name input change
+  const handleAreaOfExpertiseChange = (thatEvent) => {
+    setData({
+      ...data,
+      areaOfExpertise: thatEvent.target.value,
+    })
+  }
   // send questionnaire to API
-  const handleSubmit = (e, withEmail) => {
+  const handleSubmit = (e) => {
     if (e) {
       e.preventDefault();
     }
     const finalData = {
       ...data, 
-      email: withEmail ? data.email : undefined,
       lang
     }
     setSendStatus('sending');
@@ -227,144 +285,70 @@ export default function({
     })
     
   }
-  const handleSubmitWithEmail = (e) => {
-    handleSubmit(e, true)
-  }
 
   // reset questionnaire state (ux + data)
-  const handleReset = () => {
-    setStage(0);
-    setData(defaultData);
-    setSendStatus(undefined);
-  }
+  // const handleReset = () => {
+  //   setStage(0);
+  //   setData(defaultData);
+  //   setSendStatus(undefined);
+  // }
 
   // set "review my propositions" visibility
   const handleToggleReviewVisible = () => {
     setReviewVisible(!reviewVisible);
   }
+  const toggleShareVisible = () => {
+    setShareVisible(!shareVisible);
+  }
 
-  return (
-    <div>
-      <Helmet>
-        <title>{translate('website-title')} | {translate('questionnaire')}</title>
-      </Helmet>
+  const renderSubmitForm = () => (
+    <div className="important-section">
+      <h3>{translate('submit-form-explanation')}</h3>
+
+      <p>{translate('submit-form-anonymously-explanation')}</p>
+      <p>{translate('submit-form-with-contact-explanation')}</p>
+      
       <div>
-        {
-          stage === 0 ?
-          <div className={`question-container ${reviewVisible ? 'normalized': ''}`}>
-            <ul className={`big-select ${reviewVisible ? 'hidden' : ''}`}>
-              <li><button onClick={handleStopActivity}>{translate('add-activity-to-stop')}</button></li>
-              <li><button onClick={handleDevelopActivity}>{translate('add-activity-to-develop')}</button></li>
-            </ul>
-
-            <ul className="buttons-row">
-              {
-                data.propositions.length || reviewVisible ?
-              <li><button className={reviewVisible ? 'active' : ''} onClick={handleToggleReviewVisible}>{reviewVisible ? translate('hide-existing-propositions') : translate('review-your-propositions')} {!reviewVisible && `(${data.propositions.length})`}</button></li>
-                : null
-              }
-              {data.propositions.length || reviewVisible ?
-               <li><button className="important-button" onClick={handleGoToFinal} >{translate('go-to-submit')}</button></li>
-              : null}
-              
-            </ul>
-          </div>
-          : null
-        }
-        {
-          stage < numberOfQuestions + 1 && stage > 0 ?
-          <div className="question-container">
-            <h2>{questionsLabels[stage - 1]}</h2>
-            
-            <Textarea value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
-            <ul className="buttons-row">
-            {
-              stage > 1 ?
-              <li><button onClick={handlePreviousStage}>{translate('previous-question')}</button></li>
-              : null
-            }
-            {
-              /*
-              <li>
-              <button onClick={handleGoToSummary}>
-                {translate('go-back-to-summary')}
+        <input type="input" onChange={handleGivenNameChange} value={data.givenName || ''} placeholder={translate('given-name-prompt')} />
+      </div>
+      <div>
+        <input type="input" onChange={handleFamilyNameChange} value={data.familyName || ''} placeholder={translate('family-name-prompt')} />
+      </div>
+      <div>
+        <input type="input" onChange={handleAreaOfExpertiseChange} value={data.areaOfExpertise || ''} placeholder={translate('area-of-expertise-prompt')} />
+      </div>
+      <div>
+        <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
+      </div>
+      <div onClick={handleWorkshopContactChange} className={`radio-container ${emailIsValid ? '' : 'disabled'}`}>
+        <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
+        <label>
+          {translate('workshop-contact-prompt')}
+        </label>
+      </div>
+      <ul className="buttons-row">
+        <li onClick={handleToggleReviewVisible}>
+          <button>
+            {translate('review-your-propositions')}
+          </button>
+        </li>
+        <li>
+            <button disabled={false/*!data.email || !emailIsValid*/} className="important-button" onClick={handleSubmit} type="submit">
+              {translate('submit-form')}
+            </button>
+        </li>
+      </ul>
+    </div>
+  )
+  const renderProofRead = () => (
+    <div className="propositions-container">
+            <h2 className="propositions-title">
+              <span>{translate('summary-title')} ({data.propositions.length})
+              </span>
+              <button onClick={handleToggleReviewVisible}>
+                {translate('close')}
               </button>
-              </li>
-              */
-            }
-            {
-              stage < numberOfQuestions ?
-              <li><button disabled={currentText.length < TEXT_LIMIT} className="important-button" onClick={handleNextStage}>{translate('next-question')}</button></li>
-              : <li><button className="important-button" disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>{translate('validate-proposition')}</button></li>
-            }
-            </ul>
-            
-          </div>
-          : null
-        }
-        {
-          stage === numberOfQuestions + 1 ?
-          <div className="question-container">
-            <h2>{translate('thank-you')}</h2>
-            <ul className="big-select">
-              <li><button onClick={handleGoToSummary}>{translate('add-another-proposition')}</button></li>
-              <li><button className="important-button" onClick={handleGoToFinal}>{translate('go-to-submit')}</button></li>
-            </ul>
-          </div> : null
-        }
-        {
-          stage === null ?
-          <form className={`question-container ${reviewVisible ? 'normalized': ''}`} onSubmit={handleSubmit}>
-            {
-              reviewVisible ? null :
-              <div>
-                <h1 className="padded-container">{translate('submit-form-explanation')}</h1>
-                <div className="important-section">
-                  {/* <h2>{translate('submit-form-with-contact')}</h2> */}
-                  <p>{translate('submit-form-anonymously-explanation')}</p>
-                  <p>{translate('submit-form-with-contact-explanation')}</p>
-                  <div>
-                    <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
-                  </div>
-                  <ul className="buttons-row">
-                  <li>
-                    <button  onClick={handleSubmit} type="submit">{translate('submit-form-anonymously')}</button>
-                  </li>
-                  <li>
-                      <button disabled={!data.email || !emailIsValid} className="important-button" onClick={handleSubmitWithEmail} type="submit">{translate('submit-form-with-contact')}</button>
-                  </li>
-                  
-                    
-                  </ul>
-                </div>
-              </div>
-            }
-            
-            <ul className="buttons-row padded-container">
-              <li>
-                <button className={reviewVisible ? 'active' : ''} type="button" onClick={handleToggleReviewVisible}>{reviewVisible ? translate('hide-existing-propositions') : translate('review-your-propositions')}  {!reviewVisible && `(${data.propositions.length})`}</button>
-              </li>
-              <li>
-                <button onClick={handleGoToSummary}>{translate('add-proposition')}</button>
-              </li>
-            </ul>
-          </form>
-          : null
-        }
-        {
-          sendStatus ?
-          <div className="status-container">
-            <div className="status-content">
-              <i>{translate(sendStatus)}</i>
-            </div>
-          </div>
-          : null
-        }
-        
-        {
-          (stage === 0 || stage === null) && data.propositions.length && reviewVisible ? 
-          <div className="propositions-container">
-            <h2 className="padded-container">{translate('summary-title')} ({data.propositions.length})</h2>
+            </h2>
             {
               data.propositions
               .reverse()
@@ -437,10 +421,141 @@ export default function({
                     }
                   </div>
                 )
-              
               })
             }
           </div>
+  )
+  return (
+    <div>
+      <Helmet>
+        <title>{translate('website-title')} | {translate('questionnaire')}</title>
+      </Helmet>
+      <div>
+        {
+          stage === 0 ?
+          <div className={`question-container ${reviewVisible ? 'normalized': ''}`}>
+            {!reviewVisible && <Md source={lang === 'fr' ? introFr : introEn} />}
+            <ul className={`big-select ${reviewVisible ? 'hidden' : ''}`}>
+              <li><button className="stop" onClick={handleStopActivity}>{translate('add-activity-to-stop')}</button></li>
+              <li><button className="develop" onClick={handleDevelopActivity}>{translate('add-activity-to-develop')}</button></li>
+            </ul>
+
+            <ul className="buttons-row">
+              {
+                data.propositions.length && !reviewVisible ?
+              <li><button className={reviewVisible ? 'active' : ''} onClick={handleToggleReviewVisible}>{reviewVisible ? translate('hide-existing-propositions') : translate('review-your-propositions')} {!reviewVisible && `(${data.propositions.length})`}</button></li>
+                : null
+              }
+              {data.propositions.length && !reviewVisible ?
+               <li><button className="important-button" onClick={handleGoToFinal} >{translate('go-to-submit')}</button></li>
+              : null}
+            </ul>
+          </div>
+          : null
+        }
+        {
+          stage > 0 ?
+          <ul className="question-container">
+              {
+                questionsLabels.map((label, index) => {
+                  if (index === stage - 1) {
+                    return (
+                    <li key={label} className="active">
+                    <h2>{label}</h2>
+                      
+                      <Textarea className="active" value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
+                      {currentText.length < TEXT_LIMIT &&
+                      <div className="text-length-indicator">
+                          <i>{translate('char-limit-indicator')}</i>
+                      </div>
+                      }
+                      <ul className="buttons-row reverse">
+                      
+                      {
+                        stage < numberOfQuestions ?
+                        <li><button disabled={currentText.length < TEXT_LIMIT} className={`important-button ${currentPropositionType}`} onClick={handleNextStage}>{translate('next-question')}</button></li>
+                        : <li><button className={`important-button ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>{translate('validate-proposition')}</button></li>
+                      }
+                      {
+                        stage > 1 ?
+                        <li><button className={currentPropositionType} onClick={handlePreviousStage}>{translate('previous-question')}</button></li>
+                        : null
+                      }
+                      </ul>
+                      
+                    </li>);
+                  }
+                  const thatText = currentProposition[`question${index + 1}`];
+                  if (thatText.trim().length) {
+                    const handleClick = () => {
+                      setStage(index + 1)
+                    }
+                    return (
+                      <li onClick={handleClick} key={label}>
+                        <h2>{label}</h2>
+                        <Textarea value={thatText} />
+                      </li>
+                    )
+                  }
+                  return null;
+                })
+              }
+            
+          </ul>
+          : null
+        }
+        {
+          stage === -1 ?
+          <div>
+            {
+              reviewVisible ?
+              renderProofRead() :
+              <>
+                <h2>{translate('thank-you')}</h2>
+                <ul className={`big-select ${reviewVisible ? 'hidden' : ''}`}>
+                  <li><button className="stop" onClick={handleStopActivity}>{translate('add-activity-to-stop-bis')}</button></li>
+                  <li><button className="develop" onClick={handleDevelopActivity}>{translate('add-activity-to-develop-bis')}</button></li>
+                </ul>
+                <ul className="buttons-row">
+                  
+                  <li>
+                      <button className="important-button" onClick={toggleShareVisible} type="submit">
+                        {translate('go-to-submit')}
+                      </button>
+                  </li>
+                </ul>
+                <div className={`share-container ${shareVisible ? 'visible' : 'hidden'}`}>
+                  {renderSubmitForm()}
+                </div>
+              </>
+            }
+          </div> : null
+        }
+        {
+          stage === null ?
+          <form className={`question-container ${reviewVisible ? 'normalized': ''}`} onSubmit={handleSubmit}>
+            {
+              reviewVisible ? null :
+              <div>
+                {renderSubmitForm()}
+              </div>
+            }
+          </form>
+          : null
+        }
+        {
+          sendStatus ?
+          <div className="status-container">
+            <div className="status-content">
+              <i>{translate(sendStatus)}</i>
+            </div>
+          </div>
+          : null
+        }
+        
+        {
+          (stage === 0 || stage === null) && data.propositions.length && reviewVisible ? 
+          renderProofRead()
           : null
         }
       </div>

@@ -10,15 +10,25 @@
 
   "add-activity-to-stop": "What should we not resume ?",
   "add-activity-to-develop": "What should we develop ?",
-  "go-to-submit": "share your propositions",
+  "add-activity-to-stop-bis": "Add a new answer to the question \"What should we not resume ?\"",
+  "add-activity-to-develop-bis": "Add a new answer to the question \"What should we develop ?\"",
+  "char-limit-indicator": "Your text must be at least 150 characters long",
+  "go-to-submit": "finish the experience and share my propositions",
   "previous-question": "previous question",
   "next-question": "next question",
   "validate proposition": "validate proposition",
   "go-back-to-summary": "go back to overview",
   "submit-form-title": "share my propositions with the 'where to land' team",
-  "submit-form-explanation": "Share my propositions the 'where to land' team",
+  "submit-form-explanation": "Share my propositions with the 'where to land' team",
   "write-here": "write here",
+
   "email-prompt": "enter your email here",
+
+  "workshop-contact-prompt": "I want to be recontacted if a workshop relative to my propositions is organized",
+  "family-name-prompt": "family name",
+  "given-name-prompt": "given name",
+  "area-of-expertise-prompt": "area of expertise",
+
   "add-proposition": "add a proposition",
   "add-another-proposition": "add another proposition",
   "reset-form": "reset form",
@@ -31,9 +41,10 @@
   "hide-existing-propositions": "return",
 
   "submit-form-with-contact": "send my propositions and get in touch",
-  "submit-form-with-contact-explanation": "If you give us an email, Bruno Latour and his colleagues will contact you to propose you to participate to web workshops in relation to your propositions. Your email will never be shared publicly.",
+  "submit-form-with-contact-explanation": "If you give us an email, Bruno Latour and his colleagues will contact you to propose you to participate to web workshops in relation to your propositions.",
   "submit-form-anonymously": "send my propositions anonymously",
   "submit-form-anonymously-explanation": "We will add your response to our database and perform multiple textual analysis inquiries that we will share publicly.",
+  "submit-form": "send my propositions",
 
 
   "to-stop-question-1": "Can you name a suspended activity that you would like to see not coming back? ",
