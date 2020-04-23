@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.API_URL || '//localhost:4000/';
+const API_URL = process.env.REACT_APP_API_URL || '//localhost:4000/';
 
 export const postAnswer = data => {
   return axios({
