@@ -1,5 +1,5 @@
 {
-  "website-title": "Where should we land after the pandemic ?",
+  "website-title": "Where should we land after the pandemic?",
   "questionnaire": "questionnaire",
   "legal-mentions": "mentions",
   "questionnaire-prompt": "let's start",
@@ -15,10 +15,10 @@
   "error": "Oops ! the propositions could not be sent... can you check if you have an internet connection?",
   "success": "Success ! your propositions are recorded, thank you and see you soon !",
 
-  "add-activity-to-stop": "What should we not resume ?",
-  "add-activity-to-develop": "What should we develop ?",
-  "add-activity-to-stop-bis": "Add a new answer to the question \"What should we not resume ?\"",
-  "add-activity-to-develop-bis": "Add a new answer to the question \"What should we develop ?\"",
+  "add-activity-to-stop": "What should we not resume?",
+  "add-activity-to-develop": "What should we develop?",
+  "add-activity-to-stop-bis": "Add a new answer to the question \"What should we not resume?\"",
+  "add-activity-to-develop-bis": "Add a new answer to the question \"What should we develop?\"",
   "char-limit-indicator": "Your text must be at least 150 characters long",
   "go-to-submit": "finish the experience and share my propositions",
   "previous-question": "previous question",
@@ -30,7 +30,7 @@
   "write-here": "write here",
 
   "email-prompt": "enter your email here",
-  "new-proposition-prompt": "Would you add another proposition ?",
+  "new-proposition-prompt": "Would you add another proposition?",
 
   "workshop-contact-prompt": "I want to be recontacted if a workshop relative to my propositions is organized",
   "family-name-prompt": "family name",
@@ -64,5 +64,5 @@
   "to-develop-question-2": "Describe how this activity appears to be positive?",
   "to-develop-question-3": "Describe how it can fight against those that you judge to be inappropriate.",
   "to-develop-question-4": "Describe how it makes other activities that you prefer easier/more harmonious/coherent",
-  "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity ?"
+  "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity?"
 }

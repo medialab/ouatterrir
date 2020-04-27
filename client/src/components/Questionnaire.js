@@ -333,7 +333,7 @@ export default function({
         <div onClick={handleWorkshopContactChange} className={`radio-container ${emailIsValid ? '' : 'disabled'}`}>
           <span>
             <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </span>
           <label>
             {translate('workshop-contact-prompt')}
@@ -436,6 +436,7 @@ export default function({
   )
   const inDarkMode = stage === -1 || shareVisible;
   const stageMarkerLevel = stage > 0 ? stage / (numberOfQuestions + 1) : stage === -1 ? 1 : 0;
+  console.log({stage})
   return (
     <div  className="questionnaire-container">
       <Helmet>
@@ -537,7 +538,7 @@ export default function({
                       </div>
                       <div>
                         <Textarea className="active" value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
-                          {currentText.length < TEXT_LIMIT &&
+                          {stage !== 1 && currentText.length < TEXT_LIMIT &&
                           <div className="text-length-indicator">
                               <i>{translate('char-limit-indicator')}</i>
                           </div>
@@ -546,7 +547,7 @@ export default function({
                           
                           {
                             stage < numberOfQuestions ?
-                            <li><button className={`themed-yellow ${currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                            <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={stage !== 1 && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
                                 {translate('next-question')}
                                 <span className="chevron">
                                   <span />
@@ -555,7 +556,7 @@ export default function({
                                 </span>
                               </button>
                             </li>
-                            : <li><button className={`themed-yellow ${currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                            : <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={stage !== 1 && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
                               {translate('validate-proposition')}
                               <span className="chevron">
                                   <span />

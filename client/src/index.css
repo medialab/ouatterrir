@@ -581,6 +581,10 @@ button:hover .chevron span
   padding: var(--gutter) calc(var(--big-gutter) * 2);
   box-sizing: border-box;
 }
+
+.questionnaire-footer button{
+  font-size: 14px;
+}
 .end-title{
   font-size: 40px;
   color: var(--color-primary);
@@ -614,12 +618,14 @@ button:hover .chevron span
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 14px;
 }
 
 .review-button,
 .review-button:hover,
 .review-button.active
 {
+  font-size: 14px;
   border: none;
   text-decoration: underline;
   text-transform: uppercase;
