@@ -352,7 +352,7 @@ nav ul li:last-of-type{
  * Chevron animation
  */
 .chevron {
-  width: .5em;
+  width: 1em;
   height: .8em;
   display: inline-block;
   position: relative;
@@ -377,7 +377,7 @@ nav ul li:last-of-type{
 }
 .chevron span:nth-child(2){
   width: 0;
-  top: .4em;
+  top: calc(.5em - 2px);
   right: 0;
   opacity: 0;
 }
@@ -411,9 +411,12 @@ button:hover .chevron span
 .themed-yellow .chevron span{
   border-bottom: 2px solid var(--color-primary);
 }
+.themed-yellow .chevron span:nth-child(2){
+  top: calc(.5em - 2px);
+}
 
-.themed-yellow.active .chevron span,
-.themed-yellow:hover .chevron span{
+.themed-yellow:not([disabled]).active .chevron span,
+.themed-yellow:not([disabled]):hover .chevron span{
   border-bottom: 2px solid var(--color-text);
 }
 
@@ -488,6 +491,7 @@ button:hover .chevron span
 .questionnaire-item .buttons-row li{
   flex: unset;
   padding-right: 5px;
+  max-width: 45%;
 }
 
 .questionnaire-item .buttons-row li:last-of-type:not(:first-of-type) {
@@ -503,14 +507,18 @@ button:hover .chevron span
   padding: 1em 2em;
   
   transition: .5s ease all;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .buttons-row li:not(:last-of-type) {
   margin-right: var(--gutter);
 }
 
-.themed-yellow.active,
-.themed-yellow:hover
+.themed-yellow.active:not([disabled]),
+.themed-yellow:hover:not([disabled])
 {
   color: var(--color-text)!important;
   border: 2px solid var(--color-primary)!important;
@@ -558,10 +566,27 @@ button:hover .chevron span
   margin-top: var(--big-gutter);
 }
 
+.questionnaire-intro{
+  margin-bottom: var(--big-gutter);
+}
+
+.questionnaire-footer{
+  list-style: none;
+  width: 100%;
+  position: absolute;
+  top: calc(100vh - var(--big-gutter) * 6);
+  left: 0;
+  border-top: 2px solid var(--color-primary);
+  text-align: right;
+  padding: var(--gutter) calc(var(--big-gutter) * 2);
+  box-sizing: border-box;
+}
 .end-title{
   font-size: 40px;
   color: var(--color-primary);
   font-weight: 400;
+  margin-bottom: 20vh;
+  max-width: 30vw;
 }
 
 .end-columns{
@@ -585,7 +610,6 @@ button:hover .chevron span
 }
 
 .submit-prompt-button{
-  font-size: 14px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -593,13 +617,14 @@ button:hover .chevron span
 }
 
 .review-button,
-.review-button:hover
+.review-button:hover,
+.review-button.active
 {
-  font-size: 14px;
   border: none;
   text-decoration: underline;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary)!important;
+  background: none!important;
 }
 
 /**
@@ -613,8 +638,8 @@ button:hover .chevron span
   flex-flow: row wrap;
   overflow: hidden;
   transition: all .5s ease;
-  max-height : calc(100vh - var(--big-gutter));
-  min-height: calc(70vh - var(--big-gutter));
+  max-height : calc(100vh - var(--big-gutter) * 3);
+  min-height: calc(70vh - var(--big-gutter) * 3);
   display: flex;
   flex-flow: row nowrap;
 }
@@ -683,6 +708,7 @@ button:hover .chevron span
 
 .big-select li:hover .chevron span{
   border-bottom-color: var(--color-secondary-background);
+  border-bottom-width: 2px;
 }
 
 .big-select li:hover button .chevron,
@@ -794,20 +820,11 @@ input:focus::placeholder{
   left: 0;
   height: 1em;
   width: 1em;
-  /* background-color: #eee; */
   border: 2px solid var(--color-primary);
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-  background: var(--color-primary);;
-}
-
-.radio-container:hover input:not(:checked) ~ .checkmark {
-  opacity: .5;
-}
 
 /* When the checkbox is checked, add a blue background */
 .radio-container input:checked ~ .checkmark {
@@ -853,6 +870,11 @@ input:focus::placeholder{
   cursor: pointer;
   display: flex;
   flex-flow: row nowrap;
+  opacity: .6;
+  transition: .5s ease all;
+}
+.proposition .question:hover{
+  opacity: 1;
 }
 
 .proposition .question > div{
@@ -861,24 +883,21 @@ input:focus::placeholder{
 .proposition .question > div:first-of-type{
   padding-right: var(--gutter);
 }
+.proposition .question > div:last-of-type{
+  padding-top: var(--gutter);
+}
 
 .proposition .question h4{
   margin: 0;
   font-weight: 400;
   font-size: 30px;
-  transition: .5s ease all;
 }
 
 .proposition .question .step-indicator{
-  opacity: .5;
   transition: .5s ease all;
-  font-size: 8px;
+  font-size: .8em;
   margin: 0;
   color: var(--color-primary);
-}
-.proposition .question:hover .step-indicator{
-  opacity: 1;
-  font-size:.8em;
 }
 
 
@@ -911,7 +930,7 @@ input:focus::placeholder{
   max-height: 1000vh;
   min-height: calc(100vh - 2 * var(--big-gutter));
   overflow: hidden;
-  margin-top: calc(2 * var(--big-gutter));
+  margin-top: calc(6 * var(--big-gutter));
 }
 
 .share-container.hidden{

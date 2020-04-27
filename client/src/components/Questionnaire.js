@@ -399,7 +399,7 @@ export default function({
                 </span>
                 <span className="small-buttons-container">
                   
-                  <button onClick={handleDeleteProposition}>
+                  <button className="themed-yellow" onClick={handleDeleteProposition}>
                     {translate('delete')}
                   </button>
                 </span>
@@ -491,26 +491,32 @@ export default function({
               </li>
             </ul>
 
-            <ul className="buttons-row">
-              {
-                data.propositions.length ?
-              <li><button className={reviewVisible ? 'active' : ''} onClick={handleToggleReviewVisible}>{translate('review-your-propositions')} {!reviewVisible && `(${data.propositions.length})`}</button></li>
-                : null
-              }
-              {data.propositions.length ?
+            <ul className="questionnaire-footer">
+            {data.propositions.length ?
                <li>
-                 <button className="themed-yellow" onClick={toggleShareVisible} >
+                 <button className={cx("themed-yellow", {'active': shareVisible})} onClick={toggleShareVisible} >
                  {translate('go-to-submit')}
+                 <span className="chevron">
+                   <span/>
+                   <span/>
+                   <span/>
+                 </span>
                  </button>
                 </li>
               : null}
+              {
+                data.propositions.length ?
+              <li><button className={cx('review-button', {'active': reviewVisible})} onClick={handleToggleReviewVisible}>{translate('review-your-propositions')} {!reviewVisible && `(${data.propositions.length})`}</button></li>
+                : null
+              }
+              
             </ul>
-            { reviewVisible &&
-              renderProofRead()
-            }
             <div className={`share-container ${shareVisible ? 'visible' : 'hidden'}`}>
               {renderSubmitForm(false)}
             </div>
+            { reviewVisible &&
+              renderProofRead()
+            }
             
           </div>
           : null
