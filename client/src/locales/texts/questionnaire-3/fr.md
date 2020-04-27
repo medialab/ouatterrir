@@ -1,0 +1,1 @@
+Attention : ceci n’est pas un questionnaire, il ne s’agit pas d’un sondage. C’est une aide à l'auto-description, c'est -à-dire un exercice qui cherche à décrire vos moyens de subsistance et ce à quoi vous êtes attachés.

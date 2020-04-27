@@ -1,8 +1,15 @@
 {
-  "website-title": "où atterrir ?",
+  "website-title": "Où atterrir après la pandémie ?",
   "questionnaire": "questionnaire",
-  "legal-mentions": "mentions légales",
-  "questionnaire-prompt": "commencer l'exercice d'auto-description",
+  "legal-mentions": "mentions",
+  "questionnaire-prompt": "commencer",
+
+  "questionnaire-intro": "Phrase d'intro pour le questionnaire : ça va bien se passer.",
+  "preparatory-exercises": "exercices préparatoires",
+  "proposition-from-collective": "proposition du collectif",
+  "collective-name": "où atterrir",
+  "launching-the": "lancement le",
+  "launching-date": "15 Mai 2020",
 
   "sending": "Envoi de vos propositions",
   "char-limit-indicator": "Votre texte doit faire au moins 150 caractères",

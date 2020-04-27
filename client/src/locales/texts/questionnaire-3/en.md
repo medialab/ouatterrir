@@ -1,0 +1,1 @@
+Warning! this is neither a questionnaire nor a poll. It is an aid to "self-description", being an exercise that starts with your concerns and attachments, and goes on to describe your means of subsistence.

@@ -1,8 +1,15 @@
 {
-  "website-title": "where should we land?",
+  "website-title": "Where should we land after the pandemic ?",
   "questionnaire": "questionnaire",
-  "legal-mentions": "legal mentions",
-  "questionnaire-prompt": "start the auto-description exercize",
+  "legal-mentions": "mentions",
+  "questionnaire-prompt": "let's start",
+
+  "questionnaire-intro": "Intro phrase for the questionnaire.",
+  "preparatory-exercises": "preparatory excercises",
+  "proposition-from-collective": "proposition from the collective",
+  "collective-name": "where to land",
+  "launching-the": "lanching",
+  "launching-date": "May 15th 2020",
 
   "sending": "Sending your propositions",
   "error": "Oops ! the propositions could not be sent... can you check if you have an internet connection?",

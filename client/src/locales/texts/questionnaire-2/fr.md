@@ -1,0 +1,1 @@
+TODO The point is therefore not trying to name abstract entities over which we have little control (capitalism, the "system", oil in general, etc...) but to start from extremely precise cases encountered in your daily life.
