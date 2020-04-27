@@ -3,7 +3,8 @@
 ## API
 
 * `POST /answer`: payload: `{data: answer}`
-* `GET /data`: csv data
+* `GET /data`: csv data (only one set of propositions per user contribution)
+* `GET /data?returnAll`: csv data unfiltered (multiple versions of a user contribution possible)
 * `GET /data?json`: json dump
 
 

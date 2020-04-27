@@ -135,9 +135,23 @@ app.get('/data', authMiddleware, (req, res) => {
     const writer = csvWriter();
     writer.pipe(res);
 
-    data.forEach(answer => {
-      (answer.data.propositions || []).forEach(item => writer.write(formatCsv(item, answer)));
-    });
+    // Filter results coming from same users by default
+    if ('returnAll' in req.query) {
+      data = data.sort((item1, item2) => item1.timestamp - item2.timestamp);
+    } else {
+      let done = {};
+      data = data.sort((item1, item2) => item2.timestamp - item1.timestamp)
+        .filter(item => {
+          if (done[item.data.id]) return false;
+          done[item.data.id] = true;
+          return true;
+        });
+      data.reverse();
+    }
+
+    data.forEach(answer => (answer.data.propositions || [])
+      .forEach(item => writer.write(formatCsv(item, answer)))
+    );
     writer.end();
   });
 });
