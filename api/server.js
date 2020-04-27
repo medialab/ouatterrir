@@ -1,5 +1,6 @@
 const async = require('async');
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const Fingerprint = require('express-fingerprint');
 const MongoClient = require('mongodb').MongoClient;
@@ -56,12 +57,7 @@ function timestampMiddleware(req, res, next) {
 
 app.use(timestampMiddleware);
 
-function corsMiddleware(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  return next();
-}
-
-app.use(corsMiddleware);
+app.use(cors());
 
 app.post('/answer', (req, res) => {
   if (!req.body || !req.body.data || typeof req.body.data !== 'object') {
