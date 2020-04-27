@@ -149,6 +149,7 @@ button[disabled]{
   list-style: none;
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
 }
 .buttons-row.reverse{
   flex-direction : row-reverse;
@@ -369,22 +370,20 @@ nav ul li:last-of-type{
   position: absolute;
   border-bottom: 2px solid var(--color-text);
   transition: .5s ease all;
+  right: .5em;
 }
 .chevron span:nth-child(1){
   transform: rotate(45deg);
   top: .2em;
-  right: 0;
 }
 .chevron span:nth-child(2){
   width: 0;
-  top: calc(.5em - 2px);
-  right: 0;
+  top: calc(.5em - 3px);
   opacity: 0;
 }
 .chevron span:nth-child(3){
   transform: rotate(-45deg);
   top: .55em;
-  right: 0;
 } 
 
 button:hover .chevron,
@@ -393,19 +392,20 @@ button:hover .chevron,
   width: 1em;
 }
 
+.button:hover .chevron span,
+button:hover .chevron span
+{
+  border-bottom: 2px solid white;
+  right: 0;
+}
+
+
 button:hover .chevron span:nth-child(2),
 .button:hover .chevron span:nth-child(2)
 {
   opacity: 1;
   width: 1em;
   right: .1em;
-}
-
-
-.button:hover .chevron span,
-button:hover .chevron span
-{
-  border-bottom: 2px solid white;
 }
 
 .themed-yellow .chevron span{
@@ -486,7 +486,12 @@ button:hover .chevron span
 }
 
 .questionnaire-item .buttons-row{
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.questionnaire-item .buttons-row.reverse{
+    justify-content: flex-start;
 }
 .questionnaire-item .buttons-row li{
   flex: unset;
@@ -528,6 +533,11 @@ button:hover .chevron span
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
+
+.themed-yellow[disabled] {
+  border: 2px solid var(--color-primary);
+  opacity: .5;
+} 
 
 
 .questionnaire-item .buttons-row button[disabled] {
@@ -708,6 +718,10 @@ button:hover .chevron span
 .big-select button .chevron{
   width: .35em;
 }
+
+.big-select button .chevron span{
+  right: 0;
+}
 .big-select li:hover button{
   background: var(--color-primary);
 }
@@ -721,6 +735,12 @@ button:hover .chevron span
 .big-select li:hover .button .chevron
 {
   width: 1em;
+}
+
+.big-select li:hover button .chevron span:nth-child(2),
+.big-select li:hover .button .chevron span:nth-child(2){
+
+  top: calc(.5em - 3px);
 }
 
 .big-select li:hover button .chevron span:nth-child(2),
@@ -804,6 +824,16 @@ input:focus::placeholder{
   margin-left: calc(var(--gutter));
 }
 
+.input-container input:valid{
+  border: none;
+  outline: none;
+}
+
+.input-container .valid-email-prompt{
+  padding-left: calc(var(--gutter));
+  margin: var(--gutter) 0 0 0;
+}
+
 .radio-container{
   display: flex;
   flex-flow: row nowrap;
@@ -811,6 +841,11 @@ input:focus::placeholder{
   align-items: flex-start;
   padding: var(--gutter) 0;
   padding-top: 0;
+}
+
+.radio-container.disabled{
+  pointer-events: none;
+  opacity: .5;
 }
 
 .radio-container > span{
