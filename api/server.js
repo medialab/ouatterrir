@@ -136,16 +136,14 @@ app.get('/data', authMiddleware, (req, res) => {
     writer.pipe(res);
 
     // Filter results coming from same users by default
-    if ('returnAll' in req.query) {
-      data = data.sort((item1, item2) => item1.timestamp - item2.timestamp);
-    } else {
-      let done = {};
-      data = data.sort((item1, item2) => item2.timestamp - item1.timestamp)
-        .filter(item => {
-          if (done[item.data.id]) return false;
-          done[item.data.id] = true;
-          return true;
-        });
+    if (!('returnAll' in req.query)) {
+      let done = new Set();
+      data.reverse();
+      data = data.filter(item => {
+        if (done.has(item.data.id)) return false;
+        done.add(item.data.id);
+        return true;
+      });
       data.reverse();
     }
 
