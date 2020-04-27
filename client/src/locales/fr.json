@@ -32,6 +32,7 @@
 
   "email-prompt": "email (optionnel)",
   "new-proposition-prompt": "Voulez-vous ajouter une nouvelle proposition ?",
+  "please-enter-valid-email": "merci d'entrer un email valide",
 
   "workshop-contact-prompt": "Je veux être recontacté si un atelier touchant à mes propositions est organisé",
   "family-name-prompt": "nom de famille (optionnel)",

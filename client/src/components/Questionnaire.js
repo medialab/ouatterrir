@@ -329,8 +329,14 @@ export default function({
         </div>
         <div className="input-container">
           <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
+          {
+            !emailIsValid && data.email &&
+            <p className="valid-email-prompt">
+              {translate('please-enter-valid-email')}
+            </p>
+          }
         </div>
-        <div onClick={handleWorkshopContactChange} className={`radio-container ${emailIsValid ? '' : 'disabled'}`}>
+        <div onClick={handleWorkshopContactChange} className={cx("radio-container", {disabled: !emailIsValid})}>
           <span>
             <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
             <span className="checkmark"></span>
@@ -340,7 +346,7 @@ export default function({
           </label>
         </div>
         <div className="submit-container">
-         <button disabled={false/*!data.email || !emailIsValid*/} className="themed-yellow" onClick={handleSubmit} type="submit">
+         <button disabled={!data.email || !emailIsValid} className="themed-yellow" onClick={handleSubmit} type="submit">
             {translate('submit-form')}
             <span className="chevron">
               <span />
