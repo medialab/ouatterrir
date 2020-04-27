@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Helmet} from 'react-helmet';
-import Md from 'react-markdown';
 import Textarea from 'react-textarea-autosize';
 import {v4 as genId} from 'uuid';
+import cx from 'classnames';
 import {getOrInitObject, createProposition, cleanData} from '../helpers/misc';
 import {postAnswer} from '../helpers/client';
-
-import introFr from '!!raw-loader!../locales/texts/intro/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
-import introEn from '!!raw-loader!../locales/texts/intro/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 const defaultData = {
   id: genId(),
@@ -96,15 +93,27 @@ export default function({
     setReviewVisible(false);
     // focusing on active textarea or input at each stage change
     setTimeout(() => {
-      const el  = document.querySelector('textarea.active, input')
+      let el  = document.querySelector('textarea.active, input')
       if (el) {
         el.focus();
       }
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-    })
+      if (stage > 0) {
+        el = document.querySelector('.questionnaire-item.active');
+        if (el) {
+          const thatTop = el.offsetTop;
+          window.scrollTo({
+            top: thatTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+      else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }
+    }, 600)
   }, [stage]);
   
   // save currently edited proposition index
@@ -118,8 +127,9 @@ export default function({
       if(el) {
         setTimeout(() => {
           const top = el.offsetTop;
+          console.log('from share scroll to', top);
           window.scrollTo({
-            top,
+            top: top,
             behavior: 'smooth'
           });
         }, 700)
@@ -292,59 +302,59 @@ export default function({
   // set "review my propositions" visibility
   const handleToggleReviewVisible = () => {
     setReviewVisible(!reviewVisible);
+    if (stage === -1) {
+      setShareVisible(false)
+    }
   }
   const toggleShareVisible = () => {
     setShareVisible(!shareVisible);
   }
 
-  const renderSubmitForm = (allowProofread = true) => (
-    <div className="important-section">
-      <h3>{translate('submit-form-explanation')}</h3>
-
-      <p>{translate('submit-form-anonymously-explanation')}</p>
-      <p>{translate('submit-form-with-contact-explanation')}</p>
-      
-      <div>
-        <input type="input" onChange={handleGivenNameChange} value={data.givenName || ''} placeholder={translate('given-name-prompt')} />
+  const renderSubmitForm = () => (
+    <div className="submit-form">
+      <div className="column">
+        <h3>{translate('submit-form-explanation')}</h3>
+        <p>{translate('submit-form-anonymously-explanation')}</p>
+        <p>{translate('submit-form-with-contact-explanation')}</p>
       </div>
-      <div>
-        <input type="input" onChange={handleFamilyNameChange} value={data.familyName || ''} placeholder={translate('family-name-prompt')} />
+      <div className="column">
+        <div className="input-container">
+          <input type="input" onChange={handleGivenNameChange} value={data.givenName || ''} placeholder={translate('given-name-prompt')} />
+        </div>
+        <div className="input-container">
+          <input type="input" onChange={handleFamilyNameChange} value={data.familyName || ''} placeholder={translate('family-name-prompt')} />
+        </div>
+        <div className="input-container">
+          <input type="input" onChange={handleAreaOfExpertiseChange} value={data.areaOfExpertise || ''} placeholder={translate('area-of-expertise-prompt')} />
+        </div>
+        <div className="input-container">
+          <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
+        </div>
+        <div onClick={handleWorkshopContactChange} className={`radio-container ${emailIsValid ? '' : 'disabled'}`}>
+          <span>
+            <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
+            <span class="checkmark"></span>
+          </span>
+          <label>
+            {translate('workshop-contact-prompt')}
+          </label>
+        </div>
+        <div className="submit-container">
+         <button disabled={false/*!data.email || !emailIsValid*/} className="themed-yellow" onClick={handleSubmit} type="submit">
+            {translate('submit-form')}
+            <span className="chevron">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
-      <div>
-        <input type="input" onChange={handleAreaOfExpertiseChange} value={data.areaOfExpertise || ''} placeholder={translate('area-of-expertise-prompt')} />
-      </div>
-      <div>
-        <input type="email" onChange={handleEmailChange} value={data.email || ''} placeholder={translate('email-prompt')} />
-      </div>
-      <div onClick={handleWorkshopContactChange} className={`radio-container ${emailIsValid ? '' : 'disabled'}`}>
-        <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
-        <label>
-          {translate('workshop-contact-prompt')}
-        </label>
-      </div>
-      <ul className="buttons-row">
-        {
-          allowProofread &&
-          <li onClick={handleToggleReviewVisible}>
-            <button className={`${reviewVisible ? 'active': ''}`}>
-              {translate('review-your-propositions')}
-            </button>
-          </li>}
-        
-        <li>
-            <button disabled={false/*!data.email || !emailIsValid*/} className="important-button" onClick={handleSubmit} type="submit">
-              {translate('submit-form')}
-            </button>
-        </li>
-      </ul>
     </div>
   )
   const renderProofRead = () => (
     <div className="propositions-container">
-      {/* <h2 className="propositions-title">
-        <span>{translate('summary-title')} ({data.propositions.length})
-        </span>
-      </h2> */}
+
       {
         data.propositions
         .reverse()
@@ -382,6 +392,7 @@ export default function({
           
           return (
             <div key={propositionIndex} className="proposition">
+              
               <h3>
                 <span className="proposition-title">
                   {translate('Proposition')} {data.propositions.length - propositionIndex} ({translate(proposition.type === 'stop' ? 'add-activity-to-stop': 'add-activity-to-develop' )})
@@ -402,10 +413,17 @@ export default function({
                   }
                   return (
                     <div onClick={handleEdit} className="question" key={questionIndex}>
+                      <div>
+                      <h5 className="step-indicator">
+                        <b>{questionIndex + 1}/</b>{labels.length}
+                      </h5>
                       <h4>{question}</h4>
+                      </div>
+                      <div>
                       <blockquote>
                         {proposition[`question${questionIndex + 1}`]}
                       </blockquote>
+                      </div>
                     </div>
                   )
                 })
@@ -416,19 +434,61 @@ export default function({
       }
     </div>
   )
+  const inDarkMode = stage === -1 || shareVisible;
+  const stageMarkerLevel = stage > 0 ? stage / (numberOfQuestions + 1) : stage === -1 ? 1 : 0;
   return (
-    <div>
+    <div  className="questionnaire-container">
       <Helmet>
         <title>{translate('website-title')} | {translate('questionnaire')}</title>
+        <style>{`
+        body { ${inDarkMode ? 'color: white;': ''} background-color: ${inDarkMode ? '#3E5368' :  '#B8C3CE'}; }
+        nav { background-color: ${inDarkMode ? '#3E5368' :  '#B8C3CE'}; }
+        textarea { color: ${inDarkMode ? 'white' :  'inherit'}; }
+        button{ 
+          color: ${inDarkMode ? 'white' :  'inherit'};
+          border-color: ${inDarkMode ? 'white' :  'var(--color-text)'};
+      }
+        `}</style>
       </Helmet>
+      <div className="stage-marker-container">
+        <div 
+          className="stage-marker"
+          style={{
+            width: stageMarkerLevel * 100 + '%'
+          }}
+        />
+      </div>
       <div>
         {
           stage === 0 ?
           <div>
-            {<Md source={lang === 'fr' ? introFr : introEn} />}
+            <div className="questionnaire-intro">
+              {translate('questionnaire-intro')}
+            </div>
             <ul className={`big-select`}>
-              <li><button className="stop" onClick={handleStopActivity}>{translate('add-activity-to-stop')}</button></li>
-              <li><button className="develop" onClick={handleDevelopActivity}>{translate('add-activity-to-develop')}</button></li>
+              <li onClick={handleStopActivity}>
+                <h3>
+                  {translate('add-activity-to-stop')}
+                </h3>
+                <button className="themed-yellow stop">
+                  <span className="chevron">
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </button></li>
+              <li onClick={handleDevelopActivity}>
+                <h3>
+                  {translate('add-activity-to-develop')}
+                </h3>
+                <button className="themed-yellow develop">
+                  <span className="chevron">
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </button>
+              </li>
             </ul>
 
             <ul className="buttons-row">
@@ -438,7 +498,11 @@ export default function({
                 : null
               }
               {data.propositions.length ?
-               <li><button className="important-button" onClick={toggleShareVisible} >{translate('go-to-submit')}</button></li>
+               <li>
+                 <button className="themed-yellow" onClick={toggleShareVisible} >
+                 {translate('go-to-submit')}
+                 </button>
+                </li>
               : null}
             </ul>
             { reviewVisible &&
@@ -458,28 +522,59 @@ export default function({
                 questionsLabels.map((label, index) => {
                   if (index === stage - 1) {
                     return (
-                    <li key={label} className="active">
-                    <h2>{label}</h2>
-                      
-                      <Textarea className="active" value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
-                      {currentText.length < TEXT_LIMIT &&
-                      <div className="text-length-indicator">
-                          <i>{translate('char-limit-indicator')}</i>
+                    <li key={label} className="questionnaire-item active">
+                      <div>
+                        <h3 className="step-indicator">
+                          <b>{index + 1}/</b>{questionsLabels.length}
+                        </h3>
+                        <h2>{label}</h2>
                       </div>
-                      }
-                      <ul className="buttons-row reverse">
+                      <div>
+                        <Textarea className="active" value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
+                          {currentText.length < TEXT_LIMIT &&
+                          <div className="text-length-indicator">
+                              <i>{translate('char-limit-indicator')}</i>
+                          </div>
+                          }
+                          <ul className="buttons-row reverse">
+                          
+                          {
+                            stage < numberOfQuestions ?
+                            <li><button className={`themed-yellow ${currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                                {translate('next-question')}
+                                <span className="chevron">
+                                  <span />
+                                  <span />
+                                  <span />
+                                </span>
+                              </button>
+                            </li>
+                            : <li><button className={`themed-yellow ${currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                              {translate('validate-proposition')}
+                              <span className="chevron">
+                                  <span />
+                                  <span />
+                                  <span />
+                                </span>
+                            </button></li>
+                          }
+                          {
+                            stage > 1 ?
+                            <li><button className={currentPropositionType} onClick={handlePreviousStage}>
+                              <span className="chevron reversed">
+                                  <span />
+                                  <span />
+                                  <span />
+                                </span>
+                              {translate('previous-question')}
+                            </button></li>
+                            : null
+                          }
+                        </ul>
+
+                      </div>
+                    
                       
-                      {
-                        stage < numberOfQuestions ?
-                        <li><button disabled={currentText.length < TEXT_LIMIT} className={`important-button ${currentPropositionType}`} onClick={handleNextStage}>{translate('next-question')}</button></li>
-                        : <li><button className={`important-button ${currentPropositionType}`} disabled={currentText.length < TEXT_LIMIT} onClick={handleNextStage}>{translate('validate-proposition')}</button></li>
-                      }
-                      {
-                        stage > 1 ?
-                        <li><button className={currentPropositionType} onClick={handlePreviousStage}>{translate('previous-question')}</button></li>
-                        : null
-                      }
-                      </ul>
                       
                     </li>);
                   }
@@ -489,9 +584,16 @@ export default function({
                       setStage(index + 1)
                     }
                     return (
-                      <li onClick={handleClick} key={label}>
-                        <h2>{label}</h2>
-                        <Textarea value={thatText} />
+                      <li className="questionnaire-item" onClick={handleClick} key={label}>
+                        <div>
+                          <h3 className="step-indicator">
+                            <b>{index + 1}/</b>{questionsLabels.length}
+                          </h3>
+                          <h2>{label}</h2>
+                        </div>
+                        <div>
+                          <Textarea value={thatText} />
+                        </div>
                       </li>
                     )
                   }
@@ -506,19 +608,62 @@ export default function({
           stage === -1 ?
           <div>
             
-                <h2>{translate('thank-you')}</h2>
-                <ul className={`big-select`}>
-                  <li><button className="stop" onClick={handleStopActivity}>{translate('add-activity-to-stop-bis')}</button></li>
-                  <li><button className="develop" onClick={handleDevelopActivity}>{translate('add-activity-to-develop-bis')}</button></li>
-                </ul>
-                <ul className="buttons-row">
-                  
-                  <li>
-                      <button className="important-button" onClick={toggleShareVisible} type="submit">
-                        {translate('go-to-submit')}
-                      </button>
-                  </li>
-                </ul>
+                <h2 className="end-title">{translate('thank-you')}</h2>
+                <div className="end-columns">
+                  <div>
+                    <p>{translate('new-proposition-prompt')}</p>
+                    <ul className={`big-select minified`}>
+                      <li onClick={handleStopActivity}>
+                        <h3>
+                          {translate('add-activity-to-stop-bis')}
+                        </h3>
+                        <button className="themed-yellow stop">
+                          <span className="chevron">
+                            <span />
+                            <span />
+                            <span />
+                          </span>
+                        </button>
+                        </li>
+                      <li onClick={handleDevelopActivity}>
+                        <h3>
+                          {translate('add-activity-to-develop-bis')}
+                        </h3>
+                        <button className="themed-yellow develop">
+                          <span className="chevron">
+                            <span />
+                            <span />
+                            <span />
+                          </span>
+                        </button>
+                      </li>
+                     
+                    </ul>
+                  </div>
+
+                  <div>
+                    <ul>
+                      <li>
+                          <button className={cx("themed-yellow submit-prompt-button", {'active': shareVisible})} onClick={toggleShareVisible} type="submit">
+                            {translate('go-to-submit')}
+                            <span className="chevron">
+                              <span />
+                              <span />
+                              <span />
+                            </span>
+                          </button>
+                      </li>
+                      <li>
+                        <button onClick={handleToggleReviewVisible} className={'review-button'}>
+                          {translate('review-your-propositions')} ({data.propositions.length})
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                
+                
                 <div className={`share-container ${shareVisible ? 'visible' : 'hidden'}`}>
                   {renderSubmitForm()}
                 </div>

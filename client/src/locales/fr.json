@@ -31,6 +31,7 @@
   "write-here": "écrire ici",
 
   "email-prompt": "email (optionnel)",
+  "new-proposition-prompt": "Voulez-vous ajouter une nouvelle proposition ?",
 
   "workshop-contact-prompt": "Je veux être recontacté si un atelier touchant à mes propositions est organisé",
   "family-name-prompt": "nom de famille (optionnel)",
@@ -38,7 +39,7 @@
   "area-of-expertise-prompt": "aire d'expertise (optionnel)",
 
   "add-proposition": "ajouter une proposition",
-  "thank-you": "Merci !",
+  "thank-you": "Merci pour votre participation à l'exercice d'auto-description !",
   "add-another-proposition": "ajouter une autre proposition",
   "reset-form": "réinitialiser le questionnaire",
   "summary-title": "Mes propositions",
