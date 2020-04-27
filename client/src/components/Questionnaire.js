@@ -127,7 +127,6 @@ export default function({
       if(el) {
         setTimeout(() => {
           const top = el.offsetTop;
-          console.log('from share scroll to', top);
           window.scrollTo({
             top: top,
             behavior: 'smooth'
@@ -442,7 +441,6 @@ export default function({
   )
   const inDarkMode = stage === -1 || shareVisible;
   const stageMarkerLevel = stage > 0 ? stage / (numberOfQuestions + 1) : stage === -1 ? 1 : 0;
-  console.log({stage})
   return (
     <div  className="questionnaire-container">
       <Helmet>
@@ -454,7 +452,10 @@ export default function({
         button{ 
           color: ${inDarkMode ? 'white' :  'inherit'};
           border-color: ${inDarkMode ? 'white' :  'var(--color-text)'};
-      }
+        }
+        .big-select li:hover .chevron span{
+          border-bottom: 2px solid ${inDarkMode ? 'var(--color-tertiary-background)' :  'var(--color-secondary-background)'};
+        }
         `}</style>
       </Helmet>
       <div className="stage-marker-container">

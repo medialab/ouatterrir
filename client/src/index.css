@@ -174,7 +174,7 @@ nav{
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -183,6 +183,11 @@ nav{
   height: calc(var(--big-gutter) * 2);
   box-sizing: border-box;
   background: white;
+}
+@media (max-width: 800px) {
+  nav{
+    padding: 0 var(--gutter);
+  }
 }
 nav ul{
   list-style: none;
@@ -275,6 +280,11 @@ nav ul li:last-of-type{
   z-index: 3;
   font-weight: 400;
 }
+@media (max-width: 800px) {
+  .site-title{
+    left: var(--gutter);
+  }
+}
 .site-title a,
 .site-title a:hover,
 .site-title a:visited,
@@ -297,6 +307,12 @@ nav ul li:last-of-type{
   font-size: 85px;
   position: absolute;
   font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .site-title.in-home.in-top{
+    font-size: 60px;
+  }
 }
 
 /**
@@ -427,11 +443,20 @@ button:hover .chevron span:nth-child(2),
   padding: 0 calc(2 * var(--big-gutter));
   position: relative;
 }
-
+@media (max-width: 800px) {
+  .questionnaire-container{
+    padding: 0 calc(var(--gutter));
+  }
+}
 .questionnaire-item{
   display: flex;
   flex-flow: row nowrap;
   flex: 1;
+}
+@media (max-width: 800px) {
+  .questionnaire-item{
+    flex-direction: column;
+  }
 }
 
 .questionnaire-item:first-of-type{
@@ -457,7 +482,6 @@ button:hover .chevron span:nth-child(2),
   margin: 0;
   max-width: 800px;
 }
-
 .questionnaire-item > div:first-of-type{
   flex: 3;
   padding-right: var(--big-gutter);
@@ -465,12 +489,20 @@ button:hover .chevron span:nth-child(2),
 .questionnaire-item > div:last-of-type{
   flex: 2;
   position: relative;
-  min-width: 500px;
+  min-width: 10vh;
+  max-width: 60vh;
+}
+@media (max-width: 800px) {
+  .questionnaire-item > div:last-of-type{
+    width: calc(100vw - 3 * var(--gutter));
+    min-width: unset;
+    max-width: unset;
+    box-sizing: border-box;
+  }
 }
 .questionnaire-item.active > div:last-of-type{
   margin-top: 45px;
 }
-
 .questionnaire-item.active > div:last-of-type::before{
   content: "→";
   position: absolute;
@@ -479,17 +511,14 @@ button:hover .chevron span:nth-child(2),
   color: var(--color-primary);
   font-size: 20px;
 }
-
 .questionnaire-item.active textarea{
   border-bottom: 2px solid var(--color-primary);
   padding: 0 0 var(--gutter) 0;
 }
-
 .questionnaire-item .buttons-row{
   align-items: center;
   justify-content: flex-end;
 }
-
 .questionnaire-item .buttons-row.reverse{
     justify-content: flex-start;
 }
@@ -498,7 +527,6 @@ button:hover .chevron span:nth-child(2),
   padding-right: 5px;
   max-width: 45%;
 }
-
 .questionnaire-item .buttons-row li:last-of-type:not(:first-of-type) {
   margin-right: var(--gutter);
 }
@@ -784,6 +812,12 @@ textarea{
   font-size: 1rem;
   background: inherit;
 }
+@media (max-width: 800px) {
+    textarea {
+      min-height: 35vh;
+      max-height: calc(50vh - var(--big-gutter) * 2);
+    }
+}
 
 /**
  * inputs (for now only for email)
@@ -955,6 +989,12 @@ input:focus::placeholder{
   top: calc(var(--big-gutter) * 2 - var(--gutter) / 2);
   z-index: 3;
 }
+@media (max-width: 800px) {
+  .stage-marker-container{
+    left: var(--gutter);
+    width: calc(100vw - var(--gutter) * 2);
+  }
+}
 .stage-marker{
   border-bottom: 3px solid var(--color-primary);
   transition: .5s ease all;
@@ -1039,4 +1079,13 @@ input:focus::placeholder{
 .text-length-indicator{
   font-size: 0.8em;
   margin-top: var(--gutter);
+}
+
+.mentions-container{
+  padding: 0 calc(2 * var(--big-gutter));
+}
+@media (max-width: 800px) {
+  .mentions-container{
+    padding: 0 var(--gutter);
+  }
 }

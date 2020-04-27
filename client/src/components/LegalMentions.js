@@ -10,7 +10,7 @@ export default function({
   lang
 }) {
   return (
-    <div>
+    <div className="mentions-container">
       <Helmet>
         <title>{translate('website-title')} | {translate('legal-mentions')}</title>
       </Helmet>
