@@ -63,11 +63,23 @@ function corsMiddleware(req, res, next) {
 
 app.use(corsMiddleware);
 
-app.post('/answer', (req, res) => {
+function validateMiddleware(req, res, next) {
   if (!req.body || !req.body.data || typeof req.body.data !== 'object') {
     return res.status(400).send('Bad request');
   }
 
+  const valid = validateAnswer(req.body.data);
+
+  if (!valid) {
+    return res.status(400).send({
+      errors: validateAnswer.errors
+    });
+  }
+
+  return next();
+}
+
+app.post('/answer', validateMiddleware, (req, res) => {
   const item = {
     timestamp: req.timestamp,
     fingerprint: req.fingerprint,

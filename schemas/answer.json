@@ -5,8 +5,45 @@
   "additionalProperties": false,
   "type": "object",
   "properties": {
-    "hello": {
+    "id": {
       "type": "string"
+    },
+    "lang": {
+      "type": "string"
+    },
+    "givenName": {
+      "type": "string"
+    },
+    "familyName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "areaOfExpertise": {
+      "type": "string"
+    },
+    "workshopContact": {
+      "type": "boolean"
+    },
+    "propositions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "type": "string"
+        },
+        "required": ["id", "type"]
+      }
     }
-  }
+  },
+  "required": ["id", "lang", "propositions"]
 }
