@@ -99,11 +99,25 @@ const authMiddleware = basicAuth({
   challenge: true
 });
 
-function formatCsv(item) {
+function formatCsv(item, answer) {
   return {
-    id: item._id,
-    timestamp: item.timestamp,
-    fingerprint: item.fingerprint.hash
+    user_id: answer.data.id,
+    user_fingerprint: answer.fingerprint.hash,
+    user_email: answer.data.email,
+    user_given_name: answer.data.givenName,
+    user_family_name: answer.data.familyName,
+    user_area_of_expertise: answer.data.areaOfExpertise,
+    answer_id: answer._id,
+    timestamp: answer.timestamp,
+    datetime: (new Date(answer.timestamp)).toISOString(),
+    lang: answer.data.lang,
+    proposition_id: item.id,
+    proposition_type: item.type,
+    question1: item.question1,
+    question2: item.question2,
+    question3: item.question3,
+    question4: item.question4,
+    question5: item.question5
   };
 }
 
@@ -121,7 +135,9 @@ app.get('/data', authMiddleware, (req, res) => {
     const writer = csvWriter();
     writer.pipe(res);
 
-    data.forEach(item => writer.write(formatCsv(item)));
+    data.forEach(answer => {
+      (answer.data.propositions || []).forEach(item => writer.write(formatCsv(item, answer)));
+    });
     writer.end();
   });
 });
