@@ -478,17 +478,21 @@ export default function({
                 <h3>
                   {translate('add-activity-to-stop')}
                 </h3>
+                <div>
                 <button className="themed-yellow stop">
                   <span className="chevron">
                     <span />
                     <span />
                     <span />
                   </span>
-                </button></li>
+                </button>
+                </div>
+              </li>
               <li onClick={handleDevelopActivity}>
                 <h3>
                   {translate('add-activity-to-develop')}
                 </h3>
+                <div>
                 <button className="themed-yellow develop">
                   <span className="chevron">
                     <span />
@@ -496,6 +500,7 @@ export default function({
                     <span />
                   </span>
                 </button>
+                </div>
               </li>
             </ul>
 
@@ -631,6 +636,7 @@ export default function({
                         <h3>
                           {translate('add-activity-to-stop-bis')}
                         </h3>
+                        <div>
                         <button className="themed-yellow stop">
                           <span className="chevron">
                             <span />
@@ -638,11 +644,13 @@ export default function({
                             <span />
                           </span>
                         </button>
+                        </div>
                         </li>
                       <li onClick={handleDevelopActivity}>
                         <h3>
                           {translate('add-activity-to-develop-bis')}
                         </h3>
+                        <div>
                         <button className="themed-yellow develop">
                           <span className="chevron">
                             <span />
@@ -650,6 +658,7 @@ export default function({
                             <span />
                           </span>
                         </button>
+                        </div>
                       </li>
                      
                     </ul>

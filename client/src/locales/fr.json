@@ -30,6 +30,9 @@
   "submit-form-explanation": "Partager mes propositions avec l'équipe de 'où atterrir'",
   "write-here": "écrire ici",
 
+  "website-source-code": "Code source de ce site web",
+  "latour-website": "Site web de Bruno Latour",
+
   "email-prompt": "email (optionnel)",
   "new-proposition-prompt": "Voulez-vous ajouter une nouvelle proposition ?",
   "please-enter-valid-email": "merci d'entrer un email valide",
