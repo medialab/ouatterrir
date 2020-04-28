@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ouatterrir/static/css/main.ab4b0bc1.chunk.css",
-    "main.js": "/ouatterrir/static/js/main.684c18d1.chunk.js",
-    "main.js.map": "/ouatterrir/static/js/main.684c18d1.chunk.js.map",
+    "main.css": "/ouatterrir/static/css/main.7a887e84.chunk.css",
+    "main.js": "/ouatterrir/static/js/main.14b0f99a.chunk.js",
+    "main.js.map": "/ouatterrir/static/js/main.14b0f99a.chunk.js.map",
     "runtime-main.js": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js",
     "runtime-main.js.map": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js.map",
-    "static/js/2.af7888fe.chunk.js": "/ouatterrir/static/js/2.af7888fe.chunk.js",
-    "static/js/2.af7888fe.chunk.js.map": "/ouatterrir/static/js/2.af7888fe.chunk.js.map",
+    "static/js/2.3f58dba4.chunk.js": "/ouatterrir/static/js/2.3f58dba4.chunk.js",
+    "static/js/2.3f58dba4.chunk.js.map": "/ouatterrir/static/js/2.3f58dba4.chunk.js.map",
     "index.html": "/ouatterrir/index.html",
-    "precache-manifest.45a9296554e2fca90ff069e523124e7b.js": "/ouatterrir/precache-manifest.45a9296554e2fca90ff069e523124e7b.js",
+    "precache-manifest.030fe310bfdc207a9e05f6da84ff78df.js": "/ouatterrir/precache-manifest.030fe310bfdc207a9e05f6da84ff78df.js",
     "service-worker.js": "/ouatterrir/service-worker.js",
-    "static/css/main.ab4b0bc1.chunk.css.map": "/ouatterrir/static/css/main.ab4b0bc1.chunk.css.map",
-    "static/js/2.af7888fe.chunk.js.LICENSE.txt": "/ouatterrir/static/js/2.af7888fe.chunk.js.LICENSE.txt"
+    "static/css/main.7a887e84.chunk.css.map": "/ouatterrir/static/css/main.7a887e84.chunk.css.map",
+    "static/js/2.3f58dba4.chunk.js.LICENSE.txt": "/ouatterrir/static/js/2.3f58dba4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b0d5f4d1.js",
-    "static/js/2.af7888fe.chunk.js",
-    "static/css/main.ab4b0bc1.chunk.css",
-    "static/js/main.684c18d1.chunk.js"
+    "static/js/2.3f58dba4.chunk.js",
+    "static/css/main.7a887e84.chunk.css",
+    "static/js/main.14b0f99a.chunk.js"
   ]
 }
