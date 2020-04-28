@@ -21,6 +21,7 @@ export default function Title({
     <h1 className={cx('site-title', {
         'in-home': location.pathname === '/',
         'in-questionnaire': location.pathname === '/questionnaire',
+        'in-mentions': location.pathname === '/mentions',
         'in-top': scrollY < 100
       })}>
       <Link to="/" className="home-link"><span>{translate('website-title')}</span></Link>

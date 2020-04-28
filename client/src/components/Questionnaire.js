@@ -345,7 +345,7 @@ export default function({
           </label>
         </div>
         <div className="submit-container">
-         <button disabled={!data.email || !emailIsValid} className="themed-yellow" onClick={handleSubmit} type="submit">
+         <button disabled={data.email && data.email.length ? !emailIsValid : false} className="themed-yellow" onClick={handleSubmit} type="submit">
             {translate('submit-form')}
             <span className="chevron">
               <span />

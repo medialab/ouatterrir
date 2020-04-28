@@ -44,17 +44,17 @@ export default function({
       <header>
         <div className="metadata">
           <p>
-            {translate('preparatory-exercises')}
+            <b>{translate('preparatory-exercises')}</b>
           </p>
           <p>
             {translate('proposition-from-collective')}
             <br/>
-            {translate('collective-name')}
+            <b>{translate('collective-name')}</b>
           </p>
           <p>
             {translate('launching-the')}
             <br/>
-            {translate('launching-date')}
+            <b>{translate('launching-date')}</b>
           </p>
         </div>
       </header>
@@ -65,14 +65,6 @@ export default function({
           <Md source={lang === 'fr' ? introLanding1Fr : introLanding1En} />
         </div>
         <div>
-        <Link className="button starter-button" to="questionnaire">
-          <span>{translate('questionnaire-prompt')}</span>
-          <span className="chevron">
-            <span />
-            <span />
-            <span />
-          </span>
-        </Link>
           <Md source={lang === 'fr' ? introLanding2Fr : introLanding2En} />
         </div>
       </div>
@@ -80,8 +72,21 @@ export default function({
       {/* part 2 */}
       <ul className="steps">
         <li>
-          <h2>1</h2>
+          <h2>
+            <span>1</span>
+          </h2>
+          
           <Md source={lang === 'fr' ? introStep1Fr : introStep1En} />
+          <p>
+            <Link className="button starter-button" to="questionnaire">
+              <span>{translate('questionnaire-prompt')}</span>
+              <span className="chevron">
+                <span />
+                <span />
+                <span />
+              </span>
+            </Link>
+          </p>
         </li>
         <li>
           <h2>2</h2>
@@ -98,28 +103,33 @@ export default function({
           <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
         </div>
         <div>
-        <Link className="button starter-button" to="questionnaire">
-          <span>{translate('questionnaire-prompt')}</span>
-          <span className="chevron">
-            <span />
-            <span />
-            <span />
-          </span>
-        </Link>
+        
           <Md source={lang === 'fr' ? introLanding4Fr : introLanding4En} />
         </div>
       </div>
 
       <footer>
-          <p>
-            {translate('for-information-contact')}
-          </p>
-          <p>
-            Project email
-          </p>
-          <p>
-            Project contact
-          </p>
+        <div className="columns">
+          <div>
+            <p>
+              {translate('for-information-contact')}
+            </p>
+            <p>
+              Project email
+            </p>
+            <p>
+              Project contact
+            </p>
+          </div>
+          <div>
+            <p>
+              <a target="blank" href="https://github.com/medialab/ouatterrir">{translate('website-source-code')}</a>
+            </p>
+            <p>
+              <a target="blank" href="https://www.bruno-latour.fr">{translate('latour-website')}</a>
+            </p>
+          </div>
+        </div>
       </footer>
     </>
   )

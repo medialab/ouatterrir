@@ -19,6 +19,7 @@ export default function Nav({
     <nav className={cx({
       'in-home': location.pathname === '/',
       'in-questionnaire': location.pathname === '/questionnaire',
+      'in-mentions': location.pathname === '/mentions',
       'in-top': scrollY < 100
       })}>
 
@@ -27,18 +28,19 @@ export default function Nav({
           {translate('website-title')}
         </li>
         <li>
-          <Link to="/mentions"><span>{translate('legal-mentions')}</span></Link>
+          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('questionnaire')}</span></Link>
         </li>
         <li>
-          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('questionnaire')}</span></Link>
+          <Link to="/mentions"><span>{translate('legal-mentions')}</span></Link>
         </li>
       </ul>
       
       <ul>
-        
         <li>
           <span className="lang-toggler" onClick={handleSwitchLang}>
-            {lang === 'fr' ? <b>fr</b> : 'fr'}/{lang === 'fr' ? 'en' : <b>en</b>}
+            <span>{lang === 'fr' ? <b>fr</b> : 'fr'}</span>
+            <span>/</span>
+            <span>{lang === 'fr' ? 'en' : <b>en</b>}</span>
           </span>
         </li>
       </ul>

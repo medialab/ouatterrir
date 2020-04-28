@@ -1,26 +1,3 @@
-### Le contenu de ce site internet est fourni par :
-
-_Sciences Po  
-27 rue Saint-Guillaume  
-75337 Paris Cedex 07_
-
-<nobr>Téléphone: **(+33) 01 45 49 50 50**</nobr>  
-<nobr>Fax: **(+33) 01 42 22 31 26**</nobr>  
-<nobr>Email: **webmestre@sciencespo.fr**</nobr>
-
-### Directeur de la publication
-
-Frédéric Mion, administrateur de la Fondation nationale des sciences politiques et directeur de l’Institut d’études politiques de Paris.
-
-### Hébergement
-
-Ce site internet est hébergé par la Fondation Nationale des Sciences Politiques (FNSP):  
-
-_Sciences Po - Direction des Systèmes d'Information  
-Code APE : 803Z  
-27, rue saint Guillaume  
-75337 Paris cedex 07_
-
 ### Propriété Industrielle et Intellectuelle
 
 Toutes les informations reproduites dans ce site web (textes, photos, logos...) sont protégées par des droits de propriété intellectuelle détenus par Sciences Po ou par ses partenaires. Par conséquent, aucune de ces informations ne peut être reproduite, modifiée, rediffusée, traduite, exploitée commercialement ou réutilisée de quelque manière que ce soit sans l'accord préalable et écrit de Sciences Po. Le titre, la conception, la forme du site Sciences Po mais aussi son contenu tels que les actualités, descriptions, illustrations et images originales et leur organisation, ainsi que toute compilation de logiciels, code source fondamental et autres éléments contenus sur le site Sciences Po sont la propriété de Sciences Po.
