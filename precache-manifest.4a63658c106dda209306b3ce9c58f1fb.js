@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1fe1f6a885b5656d663089d93780cfd7",
+    "revision": "c4eb4250b652c5de1085bbeea5785787",
     "url": "/ouatterrir/index.html"
   },
   {
-    "revision": "a458aa842176afd63ce6",
-    "url": "/ouatterrir/static/css/main.fc03241e.chunk.css"
+    "revision": "38e6d70263ddb32d5903",
+    "url": "/ouatterrir/static/css/main.5f5b4f17.chunk.css"
   },
   {
     "revision": "fce1e1d4dabaa5b175dc",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ouatterrir/static/js/2.5906d66c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a458aa842176afd63ce6",
+    "revision": "38e6d70263ddb32d5903",
     "url": "/ouatterrir/static/js/main.f1412918.chunk.js"
   },
   {
