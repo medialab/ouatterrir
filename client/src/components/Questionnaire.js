@@ -706,15 +706,12 @@ export default function({
           </form>
           : null
         }
-        {
-          sendStatus ?
-          <div className="status-container">
-            <div className="status-content">
-              <i>{translate(sendStatus)}</i>
-            </div>
+        <div className={cx("status-container", sendStatus)}>
+          <div className="status-content">
+            {translate(sendStatus)}
           </div>
-          : null
-        }
+        </div>
+        
       </div>
     </div>
   )

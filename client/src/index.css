@@ -44,7 +44,7 @@ footer a:hover,
 footer a:active {
   text-decoration: none;
   color: inherit;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 main{
@@ -462,7 +462,7 @@ nav ul li:last-of-type{
   margin-left: 0;
 }
 .chevron span{
-  width: .5em;
+  width: calc(.5em  + 1px);
   position: absolute;
   border-bottom: 2px solid var(--color-text);
   transition: .5s ease all;
@@ -478,7 +478,7 @@ nav ul li:last-of-type{
   opacity: 0;
 }
 .chevron.reversed span:nth-child(2){
-  top: calc(.5em - 1px);
+  top: calc(.5em - 1.5px);
 }
 .chevron span:nth-child(3){
   transform: rotate(-45deg);
@@ -503,7 +503,7 @@ button:hover .chevron span:nth-child(2),
 .button:hover .chevron span:nth-child(2)
 {
   opacity: 1;
-  width: 1em;
+  width: calc(1em - 3px);
   right: .1em;
 }
 
@@ -516,9 +516,8 @@ button:hover .chevron span:nth-child(2),
   border-bottom: 2px solid var(--color-text);
 }
 .themed-yellow .chevron span:nth-child(2){
-  top: calc(.5em - 1.7px);
+  top: calc(50%);
 }
-
 
 /**
  * Questionnaire
@@ -1093,7 +1092,7 @@ input:focus::placeholder{
 
 .proposition h3 .proposition-title{
   flex: 1;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 40px;
 }
 .proposition h3 .small-buttons-container button:not(:last-of-type){
@@ -1230,18 +1229,44 @@ input:focus::placeholder{
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.0);
   display: flex;
   justify-content: center;
   z-index: 2;
   align-items: center;
+  font-style: normal;
+  opacity: 0;
+  pointer-events: all;
+  z-index: -1;
+  transition: all .5s ease;
+}
+.status-container.success,
+.status-container.sending,
+.status-container.error
+{
+  z-index: 5;
+  opacity: 1;
+  background: rgba(0,0,0,0.7);
 }
 
 .status-content{
-  background: black;
-  color: white;
-  padding: 5vmin;
+  background: var(--color-primary);
+  color: var(--color-tertiary-background);
   text-align: center;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0;
+  transition: .5s ease all;
+  max-width: 50vw;
+  min-width: 50vw;
+}
+
+.status-container.success .status-content,
+.status-container.sending .status-content,
+.status-container.error .status-content
+{
+  max-height: 100vh;
+  padding: 5vmin;
 }
 
 .padded-container{
