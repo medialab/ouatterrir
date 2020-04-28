@@ -8,19 +8,7 @@
 :root{
   --contents-max-width: 600px;
   --gutter: 20px;
-  --main-font-family: 'Source Sans Pro', sans-serif;
-  --main-color: #345feaff;
-  --secondary-color: #193aa3;
-
-  --color-type-1-type-1: #02c39a;
-  --color-type-1-type-2: #00a896;
-  --color-type-1-type-3: #028090;
-  --color-type-1-type-4: #05668d;
-
-  --color-type-2-type-1: #bc3908; 
-  --color-type-2-type-2: #941b0c;
-  --color-type-2-type-3: #621708;
-  --color-type-2-type-4: #220901;
+  --main-font-family: 'Poppins', sans-serif;
 
   --color-text: #3E5368;
   --color-secondary-background: #B8C3CE;
@@ -306,7 +294,7 @@ nav ul li:last-of-type{
   top: calc(var(--big-gutter)* 3);
   font-size: 85px;
   position: absolute;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 @media (max-width: 800px) {
@@ -601,7 +589,7 @@ button:hover .chevron span:nth-child(2),
 
 .questionnaire-intro,
 .end-title {
-  margin-top: var(--big-gutter);
+  padding-top: var(--big-gutter);
 }
 
 .questionnaire-intro{
@@ -627,8 +615,9 @@ button:hover .chevron span:nth-child(2),
   font-size: 40px;
   color: var(--color-primary);
   font-weight: 400;
-  margin-bottom: 20vh;
-  max-width: 30vw;
+  max-width: 50vw;
+  max-height: calc(50vh - var(--big-gutter) * 5);
+  min-height: calc(50vh - var(--big-gutter) * 5);
 }
 
 .end-columns{
@@ -982,13 +971,15 @@ input:focus::placeholder{
 }
 
 .stage-marker-container{
-  width: calc(100% - var(--big-gutter) * 4);
+  width: 100%;
   border-bottom: 1px solid var(--color-primary);
   position: fixed;
-  left: calc(2 * var(--big-gutter));
-  top: calc(var(--big-gutter) * 2 - var(--gutter) / 2);
+  left: 0;
+  /* top: calc(var(--big-gutter) * 2 - var(--gutter) / 2); */
+  top: 90px;
   z-index: 3;
 }
+
 @media (max-width: 800px) {
   .stage-marker-container{
     left: var(--gutter);
