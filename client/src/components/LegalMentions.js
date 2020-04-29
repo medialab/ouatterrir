@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import Md from 'react-markdown';
 
@@ -14,6 +14,12 @@ export default function({
   translate,
   lang
 }) {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
   return (
     <div className="mentions-container">
       <Helmet>

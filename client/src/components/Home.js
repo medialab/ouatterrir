@@ -78,13 +78,15 @@ export default function({
       {/* part 2 */}
       <ul className="steps">
         <li>
-          <h2>
-            <span>1</span>
-          </h2>
+          <div>
+            <h2>
+              <span>1</span>
+            </h2>
+          </div>
           <div className="contents">
             <Md source={lang === 'fr' ? introStep1Fr : introStep1En} />
           </div>          
-          <p>
+          <div>
             <Link className="button starter-button" to="questionnaire">
               <span>{translate('questionnaire-prompt')}</span>
               <span className="chevron">
@@ -93,18 +95,42 @@ export default function({
                 <span />
               </span>
             </Link>
-          </p>
-        </li>
-        <li>
-          <h2>2</h2>
-          <div className="contents">
-            <Md source={lang === 'fr' ? introStep2Fr : introStep2En} />
           </div>
         </li>
         <li>
-          <h2>3</h2>
+          <div>
+            <h2>2</h2>
+          </div>
+          <div className="contents">
+            <Md source={lang === 'fr' ? introStep2Fr : introStep2En} />
+          </div>
+          <div>
+            <Link className="button starter-button disabled">
+              <span>{translate('questionnaire-prompt')}</span>
+              <span className="chevron">
+                <span />
+                <span />
+                <span />
+              </span>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>3</h2>
+          </div>
           <div className="contents">
             <Md source={lang === 'fr' ? introStep3Fr : introStep3En} />
+          </div>
+          <div>
+            <Link className="button starter-button disabled">
+              <span>{translate('questionnaire-prompt')}</span>
+              <span className="chevron">
+                <span />
+                <span />
+                <span />
+              </span>
+            </Link>
           </div>
         </li>
       </ul>

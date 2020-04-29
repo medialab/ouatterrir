@@ -32,15 +32,16 @@ export default ({
             <p>
               <a target="blank" rel="noopener" href="https://www.bruno-latour.fr">{translate('latour-website')}</a>
             </p>
-            <p className="logos-container">
+            
+          </div>
+          <div className="logos-container">
               <a target="blank" className="logo" rel="noopener" href="https://medialab.sciencespo.fr">
                 <img src={medialabLogo} />
               </a>
               <a target="blank" className="logo" rel="noopener" href="https://zkm.de">
                 <img src={zkmLogo} />
               </a>
-            </p>
-          </div>
+            </div>
         </div>
       </footer>
 )
