@@ -448,6 +448,7 @@ export default function({
         <style>{`
         body { ${inDarkMode ? 'color: white;': ''} background-color: ${inDarkMode ? '#3E5368' :  '#B8C3CE'}; }
         nav { background-color: ${inDarkMode ? '#3E5368' :  '#B8C3CE'}; }
+        ${inDarkMode ? 'nav span{color: white}' :  ''}
         textarea { color: ${inDarkMode ? 'white' :  'inherit'}; }
         button{ 
           color: ${inDarkMode ? 'white' :  'inherit'};

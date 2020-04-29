@@ -17,6 +17,12 @@ export default function Title({
     scrollY = 0;
   }, [location.pathname])
 
+  /**
+   * @todo
+   * dirty and performance-consuming but works better
+   */
+   scrollY = -document.body.getBoundingClientRect().top;
+
   return (
     <h1 className={cx('site-title', {
         'in-home': location.pathname === '/',

@@ -3,6 +3,8 @@ import Md from 'react-markdown';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
+import Footer from './Footer';
+
 import introLanding1Fr from '!!raw-loader!../locales/texts/intro-landing-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introLanding1En from '!!raw-loader!../locales/texts/intro-landing-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
@@ -26,6 +28,7 @@ import introStep3Fr from '!!raw-loader!../locales/texts/intro-step-3/fr.md';/* e
 import introStep3En from '!!raw-loader!../locales/texts/intro-step-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 
+
 export default function({
   translate,
   lang
@@ -42,7 +45,10 @@ export default function({
         <title>{translate('website-title')}</title>
       </Helmet>
       <header>
-        <div className="metadata">
+        <h1 className="site-big-title">
+          {translate('website-title')}
+        </h1>
+        {/* <div className="metadata">
           <p>
             <b>{translate('preparatory-exercises')}</b>
           </p>
@@ -56,7 +62,7 @@ export default function({
             <br/>
             <b>{translate('launching-date')}</b>
           </p>
-        </div>
+        </div> */}
       </header>
 
       {/* part 1 */}
@@ -75,8 +81,9 @@ export default function({
           <h2>
             <span>1</span>
           </h2>
-          
-          <Md source={lang === 'fr' ? introStep1Fr : introStep1En} />
+          <div className="contents">
+            <Md source={lang === 'fr' ? introStep1Fr : introStep1En} />
+          </div>          
           <p>
             <Link className="button starter-button" to="questionnaire">
               <span>{translate('questionnaire-prompt')}</span>
@@ -90,11 +97,15 @@ export default function({
         </li>
         <li>
           <h2>2</h2>
-          <Md source={lang === 'fr' ? introStep2Fr : introStep2En} />
+          <div className="contents">
+            <Md source={lang === 'fr' ? introStep2Fr : introStep2En} />
+          </div>
         </li>
         <li>
           <h2>3</h2>
-          <Md source={lang === 'fr' ? introStep3Fr : introStep3En} />
+          <div className="contents">
+            <Md source={lang === 'fr' ? introStep3Fr : introStep3En} />
+          </div>
         </li>
       </ul>
       {/* part 3 */}
@@ -103,34 +114,11 @@ export default function({
           <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
         </div>
         <div>
-        
           <Md source={lang === 'fr' ? introLanding4Fr : introLanding4En} />
         </div>
       </div>
 
-      <footer>
-        <div className="columns">
-          <div>
-            <p>
-              {translate('for-information-contact')}
-            </p>
-            <p>
-              Project email
-            </p>
-            <p>
-              Project contact
-            </p>
-          </div>
-          <div>
-            <p>
-              <a target="blank" href="https://github.com/medialab/ouatterrir">{translate('website-source-code')}</a>
-            </p>
-            <p>
-              <a target="blank" href="https://www.bruno-latour.fr">{translate('latour-website')}</a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer {...{translate}} />
     </>
   )
 }

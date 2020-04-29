@@ -24,14 +24,17 @@ export default function Nav({
       })}>
 
       <ul>
-        <li className="title-placeholder">
-          {translate('website-title')}
+        <li>
+          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('1-xxx')}</span></Link>
         </li>
         <li>
-          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('questionnaire')}</span></Link>
+          <span>{translate('2-xxx')}</span>
         </li>
         <li>
-          <Link to="/mentions"><span>{translate('legal-mentions')}</span></Link>
+          <span>{translate('3-xxx')}</span>
+        </li>
+        <li>
+          <span>{translate('4-xxx')}</span>
         </li>
       </ul>
       
