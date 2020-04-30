@@ -768,12 +768,13 @@ button:hover .chevron span:nth-child(2),
 .questionnaire-item > div:first-of-type{
   flex: 1;
   padding-right: var(--big-gutter);
+  max-width: 60vw;
 }
 .questionnaire-item > div:last-of-type{
   flex: 1;
   position: relative;
-  min-width: 20vh;
-  max-width: 70vh;
+  min-width: 20vw;
+  max-width: 70vw;
 }
 
 @media (max-width: 1000px) {
