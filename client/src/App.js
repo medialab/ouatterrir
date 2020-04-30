@@ -103,15 +103,6 @@ export default function App() {
             </Route>
           </Switch>
         </Main>
-
-        <Title
-          {
-            ...{
-              lang,
-              translate,
-            }
-          }
-        />
         
       </div>
     </Router>
