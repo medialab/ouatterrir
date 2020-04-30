@@ -156,6 +156,8 @@ strong{
 }
 .button.starter-button{
   display: inline-block;
+  position: relative;
+  top: -1.2em;
 }
 .button.starter-button > span {
   display: flex;
@@ -983,14 +985,14 @@ button:hover .chevron span:nth-child(2),
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .review-button,
 .review-button:hover,
 .review-button.active
 {
-  font-size: 14px;
+  font-size: 22px;
   border: none;
   text-decoration: underline;
   text-transform: uppercase;
