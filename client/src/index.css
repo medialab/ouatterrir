@@ -1536,6 +1536,12 @@ input:focus::placeholder{
   margin-top: 40px;
 }
 
+.mentions-content a{
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
 @media (max-width: 1000px) {
   .mentions-content{
     padding: 0 var(--gutter);
