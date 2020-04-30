@@ -11,6 +11,9 @@ import introLanding1En from '!!raw-loader!../locales/texts/intro-landing-1/en.md
 import introLanding2Fr from '!!raw-loader!../locales/texts/intro-landing-2/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introLanding2En from '!!raw-loader!../locales/texts/intro-landing-2/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
+import introLanding3Fr from '!!raw-loader!../locales/texts/intro-landing-3/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import introLanding3En from '!!raw-loader!../locales/texts/intro-landing-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
 import introStep1Fr from '!!raw-loader!../locales/texts/intro-step-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introStep1En from '!!raw-loader!../locales/texts/intro-step-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
@@ -71,6 +74,9 @@ export default function({
         </div>
         <div>
           <Md source={lang === 'fr' ? introLanding2Fr : introLanding2En} />
+        </div>
+        <div>
+          <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
         </div>
       </div>
 

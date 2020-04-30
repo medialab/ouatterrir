@@ -494,7 +494,7 @@ nav.is-open .burger-container > div:nth-child(3)
   margin-right: var(--big-gutter);
   flex: 1;
 }
-.columns > div:not(:first-of-type) {
+.columns > div:last-of-type {
   padding-top: calc(var(--gutter) * 4);
 }
 
