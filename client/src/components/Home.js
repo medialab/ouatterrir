@@ -28,6 +28,10 @@ import introStep3Fr from '!!raw-loader!../locales/texts/intro-step-3/fr.md';/* e
 import introStep3En from '!!raw-loader!../locales/texts/intro-step-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 
+import introStep4Fr from '!!raw-loader!../locales/texts/intro-step-4/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import introStep4En from '!!raw-loader!../locales/texts/intro-step-4/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
+
 
 export default function({
   translate,
@@ -88,11 +92,13 @@ export default function({
           </div>          
           <div>
             <Link className="button starter-button" to="questionnaire">
-              <span>{translate('questionnaire-prompt')}</span>
-              <span className="chevron">
-                <span />
-                <span />
-                <span />
+              <span>
+                <span>{translate('prompt-activity-1')}</span>
+                <span className="chevron">
+                  <span />
+                  <span />
+                  <span />
+                </span>
               </span>
             </Link>
           </div>
@@ -106,11 +112,13 @@ export default function({
           </div>
           <div>
             <Link className="button starter-button disabled">
-              <span>{translate('questionnaire-prompt')}</span>
-              <span className="chevron">
-                <span />
-                <span />
-                <span />
+              <span>
+                <span>{translate('prompt-activity-2')}</span>
+                <span className="chevron">
+                  <span />
+                  <span />
+                  <span />
+                </span>
               </span>
             </Link>
           </div>
@@ -124,25 +132,49 @@ export default function({
           </div>
           <div>
             <Link className="button starter-button disabled">
-              <span>{translate('questionnaire-prompt')}</span>
-              <span className="chevron">
-                <span />
-                <span />
-                <span />
+              <span>
+                <span>{translate('prompt-activity-3')}</span>
+                <span className="chevron">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+              </span>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>4</h2>
+          </div>
+          <div className="contents">
+            <Md source={lang === 'fr' ? introStep4Fr : introStep4En} />
+          </div>
+          <div>
+            <Link className="button starter-button disabled">
+              <span>
+                <span>{translate('prompt-activity-4')}</span>
+                <span className="chevron">
+                  <span />
+                  <span />
+                  <span />
+                </span>
               </span>
             </Link>
           </div>
         </li>
       </ul>
+
       {/* part 3 */}
-      <div className="columns">
+      {/* <div className="columns">
         <div>
           <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
         </div>
         <div>
           <Md source={lang === 'fr' ? introLanding4Fr : introLanding4En} />
         </div>
-      </div>
+      </div> */}
+      
 
       <Footer {...{translate}} />
     </>

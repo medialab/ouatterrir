@@ -15,12 +15,8 @@ export default ({
               {translate('for-information-contact')}
             </p>
             <p>
-              Project email
+              <a href="mailto:info@ouatterrir.fr">info@ouatterrir.fr</a>
             </p>
-            <p>
-              Project contact
-            </p>
-            
           </div>
           <div>
             <p>

@@ -28,7 +28,7 @@ export default function({
       translate('to-develop-question-2'),
       translate('to-develop-question-3'),
       translate('to-develop-question-4'),
-      translate('to-develop-question-5'),
+      // translate('to-develop-question-5'),
     ],
     'stop': [
       translate('to-stop-question-1'),
@@ -370,7 +370,7 @@ export default function({
             translate('to-develop-question-2'),
             translate('to-develop-question-3'),
             translate('to-develop-question-4'),
-            translate('to-develop-question-5'),
+            // translate('to-develop-question-5'),
           ] : 
           [
             translate('to-stop-question-1'),

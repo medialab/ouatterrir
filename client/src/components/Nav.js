@@ -25,16 +25,16 @@ export default function Nav({
 
       <ul>
         <li>
-          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('1-xxx')}</span></Link>
+          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('nav-1')}</span></Link>
         </li>
         <li>
-          <span>{translate('2-xxx')}</span>
+          <span>{translate('nav-2')}</span>
         </li>
         <li>
-          <span>{translate('3-xxx')}</span>
+          <span>{translate('nav-3')}</span>
         </li>
         <li>
-          <span>{translate('4-xxx')}</span>
+          <span>{translate('nav-4')}</span>
         </li>
       </ul>
       
