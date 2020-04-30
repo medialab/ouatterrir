@@ -3,12 +3,14 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  NavLink as Link
 } from "react-router-dom";
 
 import Questionnaire from './components/Questionnaire';
 import Home from './components/Home';
 import LegalMentions from './components/LegalMentions';
+import Nav from './components/Nav';
+import Title from './components/Title';
+import Main from './components/Main';
 
 import frLocale from './locales/fr';
 import enLocale from './locales/en';
@@ -30,7 +32,7 @@ const EventListener = function() {
   }
 }
 
-export default function BasAppicExample() {
+export default function App() {
   /**
    * Get initial lang
    */
@@ -67,6 +69,7 @@ export default function BasAppicExample() {
   const translate = id => {
     return locale[id] || id;
   }
+  
 
   const [eventListener] = useState(new EventListener())
 
@@ -77,25 +80,17 @@ export default function BasAppicExample() {
 
   return (
     <Router>
-      
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/" className="home-link"><span>{translate('website-title')}</span></Link>
-            </li>
-            <li>
-              <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('questionnaire')}</span></Link>
-            </li>
-            <li>
-              <span style={{cursor: 'pointer'}} onClick={handleSwitchLang}>
-                {lang === 'fr' ? <b>fr</b> : 'fr'}/{lang === 'fr' ? 'en' : <b>en</b>}
-              </span>
-            </li>
-          </ul>
-        </nav>
-
-        <main>
+        <Nav
+          {...{
+            lang,
+            handleQuestionnaireClick,
+            handleSwitchLang,
+            translate,
+          }}
+        />
+        
+        <Main>
           <Switch>
             <Route exact path="/">
               <Home {...{translate, lang}} />
@@ -107,7 +102,7 @@ export default function BasAppicExample() {
               <LegalMentions {...{translate, lang}} />
             </Route>
           </Switch>
-        </main>
+        </Main>
         
       </div>
     </Router>

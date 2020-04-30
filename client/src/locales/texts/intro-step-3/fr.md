@@ -1,0 +1,3 @@
+## Des ateliers en face à face
+
+Nous travaillons depuis trois ans dans le cadre d’un collectif [« Où atterrir ? »](http://ouatterrir.fr/) à un troisième niveau (le projet pilote), qui exige le face à face et la rencontre longue et méticuleuse, en petits groupes, pour réapprendre à décrire son territoire de façon concrète et controversée. Nous avons appris par expérience que les exercices préparatoires demandent beaucoup de temps, un réapprentissage de la vie collective et une culture artistique qui permettent de s’exprimer d’une nouvelle manière. L'objectif est de créer une expérience unique qui a pour but d’aboutir à ce que nous appelons des « nouveaux cahiers de doléance ».

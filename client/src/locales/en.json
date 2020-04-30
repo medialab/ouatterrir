@@ -1,28 +1,54 @@
 {
-  "website-title": "where should we land?",
+  "website-title": "Where should we land after the pandemic?",
   "questionnaire": "questionnaire",
-  "legal-mentions": "legal mentions",
-  "questionnaire-prompt": "start the auto-description exercize",
+  "legal-mentions": "mentions légales",
+  "questionnaire-prompt": "let's start",
+
+  "for-information-contact" : "for any information contact",
+
+  
+  "nav-1": "1 – questionnaire",
+  "nav-2": "2 – contact groups",
+  "nav-3": "3 – workshops",
+  "nav-4": "4 – territorial actions",
+
+
+  "prompt-activity-1": "let's start", 
+  "prompt-activity-2": "participate (starting 05/15/2020)", 
+  "prompt-activity-3": "participate (starting September 2020)", 
+  "prompt-activity-4": "contact us!", 
+
+  "questionnaire-intro": "Intro phrase for the questionnaire.",
+  "preparatory-exercises": "preparatory excercises",
+  "proposition-from-collective": "proposition from the collective",
+  "collective-name": "where to land",
+  "launching-the": "lanching",
+  "launching-date": "May 15th 2020",
 
   "sending": "Sending your propositions",
   "error": "Oops ! the propositions could not be sent... can you check if you have an internet connection?",
   "success": "Success ! your propositions are recorded, thank you and see you soon !",
 
-  "add-activity-to-stop": "What should we not resume ?",
-  "add-activity-to-develop": "What should we develop ?",
-  "add-activity-to-stop-bis": "Add a new answer to the question \"What should we not resume ?\"",
-  "add-activity-to-develop-bis": "Add a new answer to the question \"What should we develop ?\"",
-  "char-limit-indicator": "Your text must be at least 150 characters long",
+  "add-activity-to-stop": "What should we not resume?",
+  "add-activity-to-develop": "What should we develop?",
+  "add-activity-to-stop-bis": "Add a new proposition for the question \"What should we stop?\"",
+  "add-activity-to-develop-bis": "Add a new proposition for the question \"What should we develop?\"",
+  "char-limit-indicator": "Your text must be at least 90 characters long",
   "go-to-submit": "finish the experience and share my propositions",
-  "previous-question": "previous question",
-  "next-question": "next question",
+  "previous-question": "previous",
+  "next-question": "continue",
   "validate proposition": "validate proposition",
   "go-back-to-summary": "go back to overview",
   "submit-form-title": "share my propositions with the 'where to land' team",
   "submit-form-explanation": "Share my propositions with the 'where to land' team",
   "write-here": "write here",
 
+  "website-source-code": "Source code of this website",
+  "latour-website": "Bruno Latour's website",
+
   "email-prompt": "enter your email here",
+  "new-proposition-prompt": "Would you add another proposition?",
+  "please-enter-valid-email": "please enter a valid email",
 
   "workshop-contact-prompt": "I want to be recontacted if a workshop relative to my propositions is organized",
   "family-name-prompt": "family name",
@@ -32,7 +58,7 @@
   "add-proposition": "add a proposition",
   "add-another-proposition": "add another proposition",
   "reset-form": "reset form",
-  "thank-you": "Thank you !",
+  "thank-you": "Thank you for participating to the self-description exercize!",
   "summary-title": "Your propositions",
   "submit": "send my propositions!",
   "validate-proposition": "validate proposition",
@@ -41,9 +67,9 @@
   "hide-existing-propositions": "return",
 
   "submit-form-with-contact": "send my propositions and get in touch",
-  "submit-form-with-contact-explanation": "If you give us an email, Bruno Latour and his colleagues will contact you to propose you to participate to web workshops in relation to your propositions.",
+  "submit-form-with-contact-explanation": "If you leave us your email address, Bruno Latour and his team will contact you with an invitation to an online workshop, in order to  take this thought process one step further.  The workshops will try to gather groups of  people with relating answers.",
   "submit-form-anonymously": "send my propositions anonymously",
-  "submit-form-anonymously-explanation": "We will add your response to our database and perform multiple textual analysis inquiries that we will share publicly.",
+  "submit-form-anonymously-explanation": "We will add your answers to our database. In order to create an overall picture of the contributions, we will run multiple text inquiries through the database and wish to make the results of this analysis publicly available. Your personal data will not be published.",
   "submit-form": "send my propositions",
 
 
@@ -56,5 +82,5 @@
   "to-develop-question-2": "Describe how this activity appears to be positive?",
   "to-develop-question-3": "Describe how it can fight against those that you judge to be inappropriate.",
   "to-develop-question-4": "Describe how it makes other activities that you prefer easier/more harmonious/coherent",
-  "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity ?"
+  "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity?"
 }

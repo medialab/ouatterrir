@@ -1,21 +1,40 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import Md from 'react-markdown';
 
-import mentionsFr from '!!raw-loader!../locales/texts/legal-mentions/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
-import mentionsEn from '!!raw-loader!../locales/texts/legal-mentions/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import mentionsFr1 from '!!raw-loader!../locales/texts/legal-mentions-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import mentionsEn1 from '!!raw-loader!../locales/texts/legal-mentions-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
+import mentionsFr2 from '!!raw-loader!../locales/texts/legal-mentions-2/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import mentionsEn2 from '!!raw-loader!../locales/texts/legal-mentions-2/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
+import Footer from './Footer';
 
 export default function({
   translate,
   lang
 }) {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  })
   return (
-    <div>
+    <div className="mentions-container">
       <Helmet>
         <title>{translate('website-title')} | {translate('legal-mentions')}</title>
       </Helmet>
-      <h1>{translate('legal-mentions')}</h1>
-      <Md source={lang === 'fr' ? mentionsFr : mentionsEn} />
+      <div className="mentions-content">
+        <div>
+          <Md source={lang === 'fr' ? mentionsFr1 : mentionsEn1} />
+        </div>
+        <div>
+          <Md source={lang === 'fr' ? mentionsFr2 : mentionsEn2} />
+        </div>
+      </div>
+      
+      <Footer {...{translate}} />
     </div>
   )
 }

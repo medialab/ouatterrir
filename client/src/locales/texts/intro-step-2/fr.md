@@ -1,0 +1,5 @@
+## Des groupes de contact en ligne et discussions
+
+Les réponses recueillies au niveau 1 sont analysées pour dégager des thèmes et des sujets qui seront utiles à l'organisation d'ateliers en ligne. 
+
+Si vous êtes intéressés, nous vous invitons à participer à un de ces petits groupes de contact en choisissant *avec l’aide de modérateurs* de prolonger la description pour qu’elle soit plus approfondie et plus ancrée dans la réalité. L’objectif étant qu’à partir du 15 mai 2020 chaque invention de « gestes barrières » s'accompagnera  d’un groupe d’appartenance qui a commencé à enquêter collectivement sur les manières de résister au moment du retour à la « normale ». Ici, les outils web ne servent pas à exprimer une opinion, ni accumuler des statistiques, mais à constituer autant de groupes de contact qu’il y a de situations problématiques, et à repérer les “alliés” tout comme les “adversaires” au moment du déconfinement. L’infrastructure élaboré par le médialab de Sciences Po, en open source, n’a pas d’autre but que de faciliter la constitution de ces groupes de contact.
