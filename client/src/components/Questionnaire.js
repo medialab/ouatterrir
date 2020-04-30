@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {Helmet} from 'react-helmet';
+import Md from 'react-markdown';
 import Textarea from 'react-textarea-autosize';
 import {v4 as genId} from 'uuid';
 import cx from 'classnames';
 import {getOrInitObject, createProposition, cleanData} from '../helpers/misc';
 import {postAnswer} from '../helpers/client';
+
+
+import introFr from '!!raw-loader!../locales/texts/intro-questionnaire/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import introEn from '!!raw-loader!../locales/texts/intro-questionnaire/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
 
 const defaultData = {
   id: genId(),
@@ -473,7 +479,7 @@ export default function({
           stage === 0 ?
           <div>
             <div className="questionnaire-intro">
-              {translate('questionnaire-intro')}
+              <Md source={lang === 'fr' ? introFr : introEn} />
             </div>
             <ul className={`big-select`}>
               <li onClick={handleStopActivity}>
@@ -506,7 +512,7 @@ export default function({
               </li>
             </ul>
 
-            <ul className="questionnaire-footer">
+            <ul className={cx("questionnaire-footer", {active: data.propositions.length > 0})}>
             {data.propositions.length ?
                <li>
                  <button className={cx("themed-yellow", {'active': shareVisible})} onClick={toggleShareVisible} >

@@ -49,9 +49,6 @@ export default function Nav({
         <li className="link-container">
           <span>{translate('nav-3')}</span>
         </li>
-        <li className="link-container">
-          <span>{translate('nav-4')}</span>
-        </li>
       </ul>
       
       <ul className="lang-toggler-wrapper">

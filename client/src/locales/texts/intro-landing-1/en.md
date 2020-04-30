@@ -1,1 +1,3 @@
-TODO
+Where to land? The main trend is obviously a return to the pre-pandemic situation, which is both satisfactory (we are back to normal life) and catastrophic (the climate emergency is only increasing).
+
+The only way to take advantage of the current situation is to learn the political lesson this virus provides us. It is capable of imposing its law everywhere in the world, but obtains this power of globalization without ever leaving the process of contamination from individual to individual. Can we imitate this power by turning it to our advantage?
