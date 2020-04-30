@@ -169,8 +169,8 @@ strong{
   display: inline-block;
   color: white;
   background: var(--color-text);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
 }
 .button.starter-button.disabled{
   pointer-events: none;
