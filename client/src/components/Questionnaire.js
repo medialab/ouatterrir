@@ -558,7 +558,7 @@ export default function({
                       </div>
                       <div>
                         <Textarea className="active" value={currentText} onChange={handleActiveTextChange} placeholder={translate('write-here')} />
-                          {stage !== 1 && currentText.length < TEXT_LIMIT &&
+                          {(stage !== 1 && currentText.length < TEXT_LIMIT) &&
                           <div className="text-length-indicator">
                               <i>{translate('char-limit-indicator')}</i>
                           </div>
@@ -567,7 +567,7 @@ export default function({
                           
                           {
                             stage < numberOfQuestions ?
-                            <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={stage !== 1 && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                            <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={!(stage === 1 && currentText.length) && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
                                 {translate('next-question')}
                                 <span className="chevron">
                                   <span />
@@ -576,7 +576,7 @@ export default function({
                                 </span>
                               </button>
                             </li>
-                            : <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={stage !== 1 && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
+                            : <li><button className={`themed-yellow ${stage === 1 || currentText.length > TEXT_LIMIT ? 'active': ''} ${currentPropositionType}`} disabled={!(stage === 1 && currentText.length ) && currentText.length < TEXT_LIMIT} onClick={handleNextStage}>
                               {translate('validate-proposition')}
                               <span className="chevron">
                                   <span />
