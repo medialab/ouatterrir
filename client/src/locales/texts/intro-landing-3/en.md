@@ -1,2 +1,6 @@
-TODO Quel que soit le niveau auquel vous souhaitiez participer, une fois commencés le déconfinement et le retour à la « normale », le but est de pouvoir très rapidement, par un logiciel ad hoc en cours d’écriture, retrouver les groupes de contact qui ont décidé de tel ou tel 
-« geste barrière ». Soit qu’il s’agisse de groupes liés à un territoire précis, soit que ces groupes soient définis par une question, une activité, une entreprise, un comportement qu’ils ont choisi de modifier par leur action « virale ». 
+To learn more you can read the article:
+
+[What protective measures can you think of so we don’t go back to the pre-crisis production model?](http://www.bruno-latour.fr/sites/default/files/downloads/P-202-AOC-ENGLISH_1.pdf)
+
+Originally published in French by [AOC](https://aoc.media/) media - Analyse Opinion Critique
+

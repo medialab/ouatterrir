@@ -14,18 +14,20 @@ import introLanding2En from '!!raw-loader!../locales/texts/intro-landing-2/en.md
 import introLanding3Fr from '!!raw-loader!../locales/texts/intro-landing-3/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introLanding3En from '!!raw-loader!../locales/texts/intro-landing-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
-import introLanding4Fr from '!!raw-loader!../locales/texts/intro-landing-4/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
-import introLanding4En from '!!raw-loader!../locales/texts/intro-landing-4/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
-
 import introStep1Fr from '!!raw-loader!../locales/texts/intro-step-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introStep1En from '!!raw-loader!../locales/texts/intro-step-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
-
 
 import introStep2Fr from '!!raw-loader!../locales/texts/intro-step-2/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introStep2En from '!!raw-loader!../locales/texts/intro-step-2/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 import introStep3Fr from '!!raw-loader!../locales/texts/intro-step-3/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introStep3En from '!!raw-loader!../locales/texts/intro-step-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
+import part3Landing1Fr from '!!raw-loader!../locales/texts/part3-landing-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import part3Landing1En from '!!raw-loader!../locales/texts/part3-landing-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
+import part3Landing2Fr from '!!raw-loader!../locales/texts/part3-landing-2/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import part3Landing2En from '!!raw-loader!../locales/texts/part3-landing-2/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
 
 
@@ -72,6 +74,9 @@ export default function({
         </div>
         <div>
           <Md source={lang === 'fr' ? introLanding2Fr : introLanding2En} />
+        </div>
+        <div>
+          <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
         </div>
       </div>
 
@@ -144,10 +149,10 @@ export default function({
       {/* part 3 */}
       {/* <div className="columns">
         <div>
-          <Md source={lang === 'fr' ? introLanding3Fr : introLanding3En} />
+          <Md source={lang === 'fr' ? part3Landing1Fr : part3Landing1En} />
         </div>
         <div>
-          <Md source={lang === 'fr' ? introLanding4Fr : introLanding4En} />
+          <Md source={lang === 'fr' ? part3Landing2Fr : part3Landing2En} />
         </div>
       </div> */}
       
