@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ouatterrir/static/css/main.d8c37e74.chunk.css",
+    "main.css": "/ouatterrir/static/css/main.08f0fba4.chunk.css",
     "main.js": "/ouatterrir/static/js/main.cd9c768a.chunk.js",
     "main.js.map": "/ouatterrir/static/js/main.cd9c768a.chunk.js.map",
     "runtime-main.js": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js",
@@ -8,9 +8,9 @@
     "static/js/2.1fb9dca0.chunk.js": "/ouatterrir/static/js/2.1fb9dca0.chunk.js",
     "static/js/2.1fb9dca0.chunk.js.map": "/ouatterrir/static/js/2.1fb9dca0.chunk.js.map",
     "index.html": "/ouatterrir/index.html",
-    "precache-manifest.c897516ee5886ec6a07cb21d8c875b38.js": "/ouatterrir/precache-manifest.c897516ee5886ec6a07cb21d8c875b38.js",
+    "precache-manifest.09144518e99e7ca4b6aa81d1204178ff.js": "/ouatterrir/precache-manifest.09144518e99e7ca4b6aa81d1204178ff.js",
     "service-worker.js": "/ouatterrir/service-worker.js",
-    "static/css/main.d8c37e74.chunk.css.map": "/ouatterrir/static/css/main.d8c37e74.chunk.css.map",
+    "static/css/main.08f0fba4.chunk.css.map": "/ouatterrir/static/css/main.08f0fba4.chunk.css.map",
     "static/js/2.1fb9dca0.chunk.js.LICENSE.txt": "/ouatterrir/static/js/2.1fb9dca0.chunk.js.LICENSE.txt",
     "static/media/medialab-logo.svg": "/ouatterrir/static/media/medialab-logo.b7091081.svg",
     "static/media/zkm-logo.svg": "/ouatterrir/static/media/zkm-logo.07168fdd.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.b0d5f4d1.js",
     "static/js/2.1fb9dca0.chunk.js",
-    "static/css/main.d8c37e74.chunk.css",
+    "static/css/main.08f0fba4.chunk.css",
     "static/js/main.cd9c768a.chunk.js"
   ]
 }
