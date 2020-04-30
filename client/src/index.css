@@ -34,10 +34,11 @@
 
 footer{
   background: var(--color-primary);
-  padding: calc(2 * var(--big-gutter));
+  padding: var(--big-gutter) calc(2 * var(--big-gutter));
   padding-left: 0;
   margin-top: calc(2 * var(--big-gutter));
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 footer .columns > div:not(:first-of-type){
@@ -271,7 +272,7 @@ nav ul{
 }
 
 nav ul li{
-  margin-left: var(--big-gutter);
+  margin-left: calc(var(--big-gutter) / 2);
 }
 
 nav span,
@@ -338,16 +339,17 @@ nav ul li:last-of-type{
   margin: 0;
   transition: .5s all ease;
   font-size: var(--fontsize-title-mini);
-  top: calc(var(--big-gutter) - 18px);
+  top: calc(var(--big-gutter) - 20px);
   left: calc(2*var(--big-gutter));
   max-width: 50vw;
   z-index: 3;
   font-weight: 400;
   opacity: 1;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
   .site-title{
-    left: var(--gutter);
+    font-size: 18px;
+    top: calc(var(--big-gutter) - 10px);
   }
 }
 .site-title a,
@@ -393,10 +395,6 @@ nav ul li:last-of-type{
 }
 
 @media (max-width: 1000px) {
-  .site-title{
-    font-size: 14px;
-    top: calc(var(--big-gutter) - 10px);
-  }
   .site-title.in-home.in-top{
     font-size: 60px;
   }
@@ -409,7 +407,24 @@ nav ul li:last-of-type{
     display: none;
   }
 }
-
+/* 
+@media (max-width: 1350px) {
+  .site-title{
+    font-size: 18px;
+    top: calc(var(--gutter) / 2);
+    left : var(--gutter);
+  }
+  nav{
+    padding: 0 var(--gutter);
+    height: calc(var(--big-gutter) * 3);
+  }
+  nav ul{
+    justify-content: space-between;
+  }
+  nav ul li{
+    padding-left: 0;
+  }
+} */
 /**
  * Landing
  */
