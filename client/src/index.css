@@ -906,7 +906,7 @@ button:hover .chevron span:nth-child(2),
   list-style: none;
   width: 100%;
   position: absolute;
-  top: calc(100vh - var(--big-gutter) * 4.5);
+  top: calc(100vh - var(--big-gutter) * 5);
   left: 0;
   border-top: 2px solid var(--color-primary);
   text-align: right;
@@ -920,7 +920,7 @@ button:hover .chevron span:nth-child(2),
 }
 
 .questionnaire-footer button{
-  font-size: 14px;
+  font-size: 22px;
 }
 @media (max-width: 1000px) {
   .questionnaire-footer{
@@ -934,7 +934,7 @@ button:hover .chevron span:nth-child(2),
   color: var(--color-primary);
   font-weight: 400;
   max-width: 55vw;
-  max-height: calc(40vh - var(--big-gutter) * 5);
+  /* max-height: calc(40vh - var(--big-gutter) * 5); */
   min-height: calc(40vh - var(--big-gutter) * 5);
 }
 
@@ -965,14 +965,21 @@ button:hover .chevron span:nth-child(2),
   }
 }
 
+.actions-container{
+  position: relative;
+  left: calc(-1 * var(--gutter));
+}
+
+.actions-container ul{
+  list-style: none;
+  padding: 0;
+}
 .end-columns > div{
   flex: 1; 
+
 }
 .end-columns > div:first-of-type{
   flex: 2;
-}
-.end-columns > div:last-of-type {
-  text-align: right;
 }
 
 .end-columns ul{
@@ -981,7 +988,6 @@ button:hover .chevron span:nth-child(2),
 }
 
 .submit-prompt-button{
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1294,7 +1300,7 @@ input:focus::placeholder{
 
 .radio-container label{
   flex: 1;
-  margin-left: var(--gutter); 
+  margin-left: calc(2 * var(--gutter)); 
 }
 
 /**
@@ -1411,6 +1417,7 @@ input:focus::placeholder{
 
 .share-container .submit-container{
   text-align: right;
+  margin-top: var(--gutter);
 }
 
 .share-container h3{
@@ -1435,7 +1442,7 @@ input:focus::placeholder{
   flex: 1;
 }
 .submit-form > div:last-of-type{
-  padding-top: 40px;
+  padding-top: 80px;
 }
 @media (max-width: 1000px) {
   .share-container{

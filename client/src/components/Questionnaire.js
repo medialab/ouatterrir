@@ -337,7 +337,7 @@ export default function({
         </div>
         <div onClick={handleWorkshopContactChange} className={cx("radio-container", {disabled: !emailIsValid})}>
           <span>
-            <input onChange={handleWorkshopContactChange} checked={data.workshopContact || false} type="radio"/>
+            <input onChange={handleWorkshopContactChange} checked={emailIsValid && data.email && data.workshopContact || false} type="radio"/>
             <span className="checkmark"></span>
           </span>
           <label>
@@ -521,7 +521,7 @@ export default function({
               : null}
               {
                 data.propositions.length ?
-              <li><button className={cx('review-button', {'active': reviewVisible})} onClick={handleToggleReviewVisible}>{translate('review-your-propositions')} {!reviewVisible && `(${data.propositions.length})`}</button></li>
+              <li><button className={cx('review-button', {'active': reviewVisible})} onClick={handleToggleReviewVisible}>{translate('review-your-propositions')} {data.propositions.length ? `(${data.propositions.length})` : null}</button></li>
                 : null
               }
               
@@ -630,6 +630,25 @@ export default function({
           <div>
             
                 <h2 className="end-title">{translate('thank-you')}</h2>
+                <div className="actions-container">
+                    <ul>
+                      <li>
+                          <button className={cx("themed-yellow submit-prompt-button", {'active': shareVisible})} onClick={toggleShareVisible} type="submit">
+                            {translate('go-to-submit')}
+                            <span className="chevron">
+                              <span />
+                              <span />
+                              <span />
+                            </span>
+                          </button>
+                      </li>
+                      <li>
+                        <button onClick={handleToggleReviewVisible} className={'review-button'}>
+                          {translate('review-your-propositions')} ({data.propositions.length})
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 <div className="end-columns">
                   <div>
                     <p>{translate('new-proposition-prompt')}</p>
@@ -666,25 +685,7 @@ export default function({
                     </ul>
                   </div>
 
-                  <div>
-                    <ul>
-                      <li>
-                          <button className={cx("themed-yellow submit-prompt-button", {'active': shareVisible})} onClick={toggleShareVisible} type="submit">
-                            {translate('go-to-submit')}
-                            <span className="chevron">
-                              <span />
-                              <span />
-                              <span />
-                            </span>
-                          </button>
-                      </li>
-                      <li>
-                        <button onClick={handleToggleReviewVisible} className={'review-button'}>
-                          {translate('review-your-propositions')} ({data.propositions.length})
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
+                  
                 </div>
                 
                 
