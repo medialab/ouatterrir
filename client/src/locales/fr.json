@@ -19,7 +19,7 @@
   "launching-date": "15 Mai 2020",
 
   "sending": "Envoi de vos propositions",
-  "char-limit-indicator": "Votre texte doit faire au moins 150 caractères",
+  "char-limit-indicator": "Votre texte doit faire au moins 90 caractères",
   "error": "Oups ! les propositions ne sont pas parvenues à bon port ... êtes vous bien connecté à internet ?",
   "success": "Succès ! vos propositions sont enregistrées, merci et à bientôt !",
 

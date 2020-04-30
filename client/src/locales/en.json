@@ -33,7 +33,7 @@
   "add-activity-to-develop": "What should we develop?",
   "add-activity-to-stop-bis": "Add a new proposition for the question \"What should we stop?\"",
   "add-activity-to-develop-bis": "Add a new proposition for the question \"What should we develop?\"",
-  "char-limit-indicator": "Your text must be at least 150 characters long",
+  "char-limit-indicator": "Your text must be at least 90 characters long",
   "go-to-submit": "finish the experience and share my propositions",
   "previous-question": "previous",
   "next-question": "continue",

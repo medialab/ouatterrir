@@ -14,7 +14,7 @@ const defaultData = {
 
 // min text length for answers
 // @todo put in config ?
-const TEXT_LIMIT = 150;
+const TEXT_LIMIT = 90;
 
 export default function({
   translate,
