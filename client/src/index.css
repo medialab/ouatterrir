@@ -66,8 +66,12 @@ footer .logo img{
   footer .columns > .logos-container{
     border-left: none;
     border-top: 1px solid var(--color-text);
-    justify-content: flex-start;
-    margin-top: var(--big-gutter);
+    justify-content: space-between;
+    margin-top: calc(var(--big-gutter));
+  }
+  footer .columns > div:not(:first-of-type).logos-container{
+
+    padding-top: calc(var(--big-gutter) /2);
   }
   footer .logo:not(:last-of-type){
     margin: 0;
@@ -273,6 +277,8 @@ nav ul{
 
 nav ul li{
   margin-left: calc(var(--big-gutter) / 2);
+  align-items: center;
+  display: flex;
 }
 
 nav .link-container span,
@@ -298,6 +304,11 @@ nav.in-questionnaire a:visited,
 nav.in-questionnaire a:hover,
 nav.in-questionnaire .lang-toggler {
   color: white;
+}
+
+.lang-toggler
+{
+  min-width: 8em;
 }
 
 .lang-toggler span:first-of-type{
@@ -403,13 +414,6 @@ nav ul li:last-of-type{
   }
 }
 
-@media (max-width: 600px) {
-  .site-title:not(.in-top),
-  .site-title:not(.in-home)
-  {
-    display: none;
-  }
-}
 .burger-container{
   width: .8em;
   height: .6em;
@@ -449,7 +453,7 @@ nav.is-open .burger-container > div:nth-child(3)
 .burger-wrapper {
   display: none;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1300px) {
   .burger-wrapper {
     display: flex;
   }
@@ -457,7 +461,7 @@ nav.is-open .burger-container > div:nth-child(3)
     max-width: 100vw;
     transition: .5s ease all;
     overflow: hidden;
-    max-height: 1em;
+    max-height: 1.5em;
     opacity: 1;
   }
   nav ul:not(.burger-wrapper) {
@@ -465,6 +469,11 @@ nav.is-open .burger-container > div:nth-child(3)
     transition: .5s ease all;
     overflow: hidden;
     opacity: 0;
+  }
+  nav:not(.is-open) ul:not(.burger-wrapper) span {
+    max-height: 1.5em;
+    overflow: hidden;
+    display: inline-block;
   }
   nav.is-open .site-title{
     max-width: 0;
@@ -474,6 +483,9 @@ nav.is-open .burger-container > div:nth-child(3)
     max-width: 100vw;
     opacity: 1;
   }
+  nav ul li{
+    margin-left: var(--gutter);
+  }   
 }
 /**
  * Landing
@@ -605,6 +617,7 @@ nav.is-open .burger-container > div:nth-child(3)
   .site-title.in-home.in-top{
     max-width: 100vh;
     left: var(--gutter);
+    pointer-events: none;
   }
   .site-title {
     left: var(--gutter);
@@ -890,12 +903,17 @@ button:hover .chevron span:nth-child(2),
   list-style: none;
   width: 100%;
   position: absolute;
-  top: calc(100vh - var(--big-gutter) * 5);
+  top: calc(100vh - var(--big-gutter) * 4.5);
   left: 0;
   border-top: 2px solid var(--color-primary);
   text-align: right;
   padding: var(--gutter) calc(var(--big-gutter) * 2);
   box-sizing: border-box;
+}
+@media (max-height: 600px) {
+  .questionnaire-footer{
+    top: calc(100vh - var(--big-gutter) * 2);
+  }
 }
 
 .questionnaire-footer button{

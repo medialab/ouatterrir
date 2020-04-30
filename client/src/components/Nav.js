@@ -54,7 +54,7 @@ export default function Nav({
         </li>
       </ul>
       
-      <ul>
+      <ul className="lang-toggler-wrapper">
         <li>
           <span className="lang-toggler" onClick={handleSwitchLang}>
             <span>{lang === 'fr' ? <b>fr</b> : 'fr'}</span>

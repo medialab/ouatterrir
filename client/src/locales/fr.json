@@ -70,9 +70,10 @@
   "hide-existing-propositions": "retour",
   "submit-form": "envoyer mes propositions",
   "submit-form-with-contact": "envoyer mes propositions et entrer en contact",
-  "submit-form-with-contact-explanation": "Si vous nous laissez un email, Bruno Latour et ses collègues vous recontacteront bientôt pour vous proposer de participer à des ateliers-rencontres en ligne en relation avec vos propositions.",
+  "submit-form-anonymously-explanation": "Nous ajouterons vos réponses à notre base de données. Afin de créer une image globale des contributions, nous effectuerons de multiples recherches textuelles dans la base de données et souhaitons rendre les résultats de cette analyse accessibles au public. Vos données personnelles ne seront pas publiées.",
   "submit-form-anonymously": "envoyer mes propositions anonymement",
-  "submit-form-anonymously-explanation": "Nous ajouterons votre réponse à notre base de données, sur laquelle conduirons de multiples analyses textuelles dont nous partagerons publiquement les résultats.",
+  
+  "submit-form-with-contact-explanation": "Si vous nous laissez votre adresse électronique, Bruno Latour et son équipe vous contacteront pour vous inviter à un atelier en ligne, afin de faire avancer cette réflexion. Les ateliers tenteront de réunir des groupes de personnes ayant des réponses correspondantes.",
 
 
   "to-stop-question-1": "Quelles sont les activités ou comportements maintenant suspendues dont vous souhaiteriez qu’elles ne reprennent pas ?",
