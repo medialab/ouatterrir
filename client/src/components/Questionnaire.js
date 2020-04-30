@@ -185,7 +185,7 @@ export default function({
   if (stage > 0 && stage !== -1) {
     currentText = data.propositions[questionnaireIndex] ? data.propositions[questionnaireIndex][`question${stage}`] : '';
   }
-  const emailIsValid = data.email && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email);
+  const emailIsValid = data.email && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/.test(data.email);
 
   /**
    * =========
@@ -636,6 +636,7 @@ export default function({
           <div>
             
                 <h2 className="end-title">{translate('thank-you')}</h2>
+                {data.propositions.length > 0 &&
                 <div className="actions-container">
                     <ul>
                       <li>
@@ -655,6 +656,7 @@ export default function({
                       </li>
                     </ul>
                   </div>
+                }
                 <div className="end-columns">
                   <div>
                     <p>{translate('new-proposition-prompt')}</p>
@@ -696,7 +698,7 @@ export default function({
                 
                 
                 
-                <div className={`share-container ${shareVisible ? 'visible' : 'hidden'}`}>
+                <div className={`share-container ${shareVisible && data.propositions.length > 0 ? 'visible' : 'hidden'}`}>
                   {renderSubmitForm()}
                 </div>
                 {reviewVisible && renderProofRead()}

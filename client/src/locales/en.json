@@ -14,8 +14,8 @@
 
 
   "prompt-activity-1": "start", 
-  "prompt-activity-2": "participate (from 05/15/2020)", 
-  "prompt-activity-3": "participate (from September 2020)", 
+  "prompt-activity-2": "from 05/15/2020", 
+  "prompt-activity-3": "from September 2020", 
 
   "questionnaire-intro": "Intro phrase for the questionnaire.",
   "preparatory-exercises": "preparatory excercises",
