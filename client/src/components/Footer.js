@@ -26,7 +26,7 @@ export default ({
               <a target="blank" rel="noopener" href="https://github.com/medialab/ouatterrir">{translate('website-source-code')}</a>
             </p>
             <p>
-              <a target="blank" rel="noopener" href="https://www.bruno-latour.fr">{translate('latour-website')}</a>
+              <a target="blank" rel="noopener" href="http://www.bruno-latour.fr">{translate('latour-website')}</a>
             </p>
             
           </div>
