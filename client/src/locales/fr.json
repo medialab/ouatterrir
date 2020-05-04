@@ -77,12 +77,12 @@
 
 
   "to-stop-question-1": "Quels sont les activités ou comportements maintenant suspendus dont vous souhaiteriez qu’ils ne reprennent pas ?",
-  "to-stop-question-2": "En partant d’une activité et d’un comportement qui vous touche personnellement, décrivez pourquoi ils sont nuisibles/ superflus/ dangereux/ incohérents pour votre propre cadre de vie ou pour celui d’autres personnes. (Il est d’ailleurs possible que ce que vous souhaitiez arrêter vous mette vous-même en difficulté.)",
-  "to-stop-question-3": "Quelles mesures préconisez-vous pour que les ouvriers/ employés/ agents/ entrepreneurs  qui ne pourront plus continuer dans les activités ou avoir les comportements que vous supprimez se voient faciliter la transition vers d’autres activités ?",
-  "to-stop-question-4": "Que pourriez-vous faire concrètement (seul ou avec d’autres) pour que l’activité que vous souhaitez voir supprimer (ou ralentir) ne reprenne pas ?",
+  "to-stop-question-2": "En partant d’une activité ou d’un comportement qui vous touche personnellement, décrivez pourquoi il est nuisible/ superflu/ dangereux/ incohérent pour votre propre cadre de vie ou pour celui d’autres personnes. (Il est d’ailleurs possible que ce que vous souhaitiez arrêter de vous mettte vous-même en difficulté.)",
+  "to-stop-question-3": "Quelles mesures préconisez-vous pour que les ouvriers/ employés/ agents/ entrepreneurs qui ne pourront plus continuer ces activités ou avoir les comportements que vous supprimez se voient faciliter la transition vers d’autres activités ?",
+  "to-stop-question-4": "Que pourriez-vous faire concrètement (seul ou avec d’autres) pour que l’activité que vous souhaitez voir supprimée (ou ralentie) ne reprenne pas ?",
 
-  "to-develop-question-1": "Quelles sont les activités et comportements maintenant suspendus, dont vous souhaiteriez qu’elles se développent/ reprennent ou celles qui devraient être inventées en remplacement ?",
-  "to-develop-question-2": "En partant d’une activité et d’un comportement qui vous touche personnellement, décrivez pourquoi ils vous paraissent positifs ;  comment ils rendent plus faciles/ harmonieux/ cohérents d’autres activités et d’autres comportement que vous souhaitez favoriser ; et  permettent de contrecarrer ceux que vous avez souhaité arrêter ?",
+  "to-develop-question-1": "Quels sont les activités et comportements maintenant suspendus, dont vous souhaiteriez qu’ils se développent/ reprennent ou qui devraient être inventés en remplacement ?",
+  "to-develop-question-2": "En partant d’une activité ou d’un comportement qui vous touche personnellement, décrivez pourquoi il vous paraît positif ; comment rend-il plus faciles/ harmonieux/ cohérents d’autres activités et d’autres comportements que vous souhaitez favoriser ; et permet-il de contrecarrer ceux que vous souhaitez voir arrêtés ?",
   "to-develop-question-3": "Quelles mesures préconisez-vous pour aider les ouvriers/ employés/ agents/ entrepreneurs à acquérir les capacités/ moyens/ revenus/ instruments permettant la reprise/ le développement/ la création de cette activité ?",
   "to-develop-question-4": "Que pourriez-vous faire concrètement (seul ou avec d’autres) pour favoriser le développement de cette activité ?"
 }
