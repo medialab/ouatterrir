@@ -56,4 +56,4 @@ const getCalendar = () => {
 	.catch(console.log)
 }
 
-getCalendar
+getCalendar();
