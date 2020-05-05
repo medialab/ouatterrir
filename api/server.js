@@ -160,7 +160,7 @@ app.get('/data', authMiddleware, (req, res) => {
   });
 });
 
-app.get('/summary', authMiddleware, (req, res) => {
+app.get('/summary', (req, res) => {
   return ANSWERS.find({}).toArray((err, data) => {
     if (err) {
       console.error(err);
