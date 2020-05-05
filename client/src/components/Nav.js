@@ -44,7 +44,7 @@ export default function Nav({
           <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('nav-1')}</span></Link>
         </li>
         <li className="link-container">
-          <span>{translate('nav-2')}</span>
+          <Link onClick={handleQuestionnaireClick} to="/events"><span>{translate('nav-2')}</span></Link>
         </li>
         <li className="link-container">
           <span>{translate('nav-3')}</span>

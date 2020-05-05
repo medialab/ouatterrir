@@ -8,8 +8,8 @@ import {
 import Questionnaire from './components/Questionnaire';
 import Home from './components/Home';
 import LegalMentions from './components/LegalMentions';
+import Events from './components/Events';
 import Nav from './components/Nav';
-import Title from './components/Title';
 import Main from './components/Main';
 
 import frLocale from './locales/fr';
@@ -97,6 +97,9 @@ export default function App() {
             </Route>
             <Route path="/questionnaire">
               <Questionnaire {...{translate, lang, eventListener}} />
+            </Route>
+            <Route path="/events">
+              <Events {...{translate, lang}} />
             </Route>
             <Route path="/mentions">
               <LegalMentions {...{translate, lang}} />
