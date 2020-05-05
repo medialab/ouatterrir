@@ -6,5 +6,8 @@
     "port": 27117,
     "user": "admin",
     "password": "password"
-  }
+  },
+  "calendarIcal": "https://calendar.google.com/calendar/ical/sciencespo.fr_l8mmfsplqkul5b8kgkng83b60g%40group.calendar.google.com/public/basic.ics",
+  "calendarAPIKey": "AIzaSyAc2MLSxPz-FhhUcyKurTyD_GVNlVmEIDc",
+  "calendarId": "c2NpZW5jZXNwby5mcl9sOG1tZnNwbHFrdWw1YjhrZ2tuZzgzYjYwZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
 }
