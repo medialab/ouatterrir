@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Md from 'react-markdown';
-import events from '../assets/calendar.json';
+import {getEvents} from '../helpers/client';
 
 import Footer from './Footer';
 
@@ -9,6 +9,21 @@ export default function({
   translate,
   lang
 }) {
+
+  const [events, setEvents] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+   getEvents()
+   .then(({data}) => {
+     setEvents(data);
+   }) 
+   .catch((e) => {
+     console.error(e);
+     setError(e);
+   })
+  }, [])
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -18,7 +33,6 @@ export default function({
   const now = new Date().getTime();
   const pastEvents = events.filter(event => event.end < now);
   const currentEvents = events.filter(event => event.end >= now);
-  console.log({currentEvents})
   const renderEventsList = evs => (
     <table className="events-list-container">
       <thead>
@@ -41,7 +55,7 @@ export default function({
               </td>
               <td className="moderators-container">
                 {
-                  event.moderators.map(moderator => <span key={moderator}>{moderator}</span>)
+                  event.moderators.map((moderator, index) => <span key={index}>{moderator}</span>)
                 }
               </td>
             </tr>
@@ -56,16 +70,25 @@ export default function({
         <title>{translate('website-title')} | {translate('events')}</title>
       </Helmet>
       <div className="events-content">
-        <div className="current-events events-section">
-          <h1>{translate('events')}</h1>
-          {renderEventsList(currentEvents)}
-        </div>
-        <div className="past-events events-section">
-          <h1>{translate('past-events')}</h1>
-          {renderEventsList(pastEvents)}
-        </div>
+        {
+          events.length ?
+          <>
+            <div className="current-events events-section">
+              <h1>{translate('events')}</h1>
+              {renderEventsList(currentEvents)}
+            </div>
+            <div className="past-events events-section">
+              <h1>{translate('past-events')}</h1>
+              {renderEventsList(pastEvents)}
+            </div>
+          </>
+        : error ?
+            <div>
+              {translate('events-could-not-be-retrieved')}
+            </div>
+            : null
+        }      
       </div>
-      
       <Footer {...{translate}} />
     </div>
   )

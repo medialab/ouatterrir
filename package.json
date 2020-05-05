@@ -7,8 +7,7 @@
     "dev": "nodemon ./api/server.js",
     "mongo": "docker pull mongo:4.2 && docker run -p 27117:27017 -e MONGO_INITDB_DATABASE=admin -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password -v mongo-data:/data/db mongo --auth",
     "prettier": "prettier 'api/*.js' --write",
-    "start": "node ./api/server.js",
-    "update-calendar": "node scripts/getCalendar"
+    "start": "node ./api/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,7 @@
     "async": "^3.2.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "chron": "^0.1.1",
     "config": "^3.3.1",
     "config-secrets": "^1.0.6",
     "cors": "^2.8.5",

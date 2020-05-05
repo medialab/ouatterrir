@@ -1,9 +1,7 @@
 const {calendarIcalURL} = require('config');
 const ical = require('ical');
 const axios = require('axios');
-const fs = require('fs');
 const path = require('path');
-const TARGET_FILE_PATH = path.resolve(`${__dirname}/../client/src/assets/calendar.json`);
 
 /**
  * Parses description html data of a google calendar event
@@ -28,27 +26,27 @@ const parseDescription = str => {
 }
 
 const getCalendar = () => {
-	axios(calendarIcalURL)
-	.then(({data: str}) => {
-		const data = ical.parseICS(str)
-		const events = [];
-		for (key in data) {
-			const obj = data[key];
-			if (obj.type === 'VEVENT') {
-				events.push({
-					title: obj.summary,
-					start: new Date(obj.start).getTime(),
-					end: new Date(obj.end).getTime(),
-					...parseDescription(obj.description)
-				})
+	return new Promise((resolve, reject) => {
+		axios(calendarIcalURL)
+		.then(({data: str}) => {
+			const data = ical.parseICS(str)
+			const events = [];
+			for (key in data) {
+				const obj = data[key];
+				if (obj.type === 'VEVENT') {
+					events.push({
+						title: obj.summary,
+						start: new Date(obj.start).getTime(),
+						end: new Date(obj.end).getTime(),
+						...parseDescription(obj.description)
+					})
+				}
 			}
-		}
-		fs.writeFile(TARGET_FILE_PATH, JSON.stringify(events, null, 2), 'utf8', err => {
-			if (err) console.error(err)
-			else console.log('done updating calendar')
+			return resolve(events);
 		})
+		.catch(reject)
 	})
-	.catch(console.log)
+	
 }
 
-getCalendar();
+module.exports = getCalendar;

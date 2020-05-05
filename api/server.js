@@ -9,6 +9,8 @@ const morgan = require('morgan');
 const config = require('config-secrets');
 const basicAuth = require('express-basic-auth');
 const csvWriter = require('csv-write-stream');
+const getCalendar = require('./getCalendar');
+const  chron = new require("chron")();
 
 const ajv = new Ajv();
 const validateAnswer = ajv.compile(require('../schemas/answer.json'));
@@ -16,7 +18,20 @@ const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 const PORT = config.get('port');
 const MONGO_CONFIG = config.get('mongo');
 
+const DAY = 24 * 3600;
+const UPDATE_CALENDAR_DELAY = 7 * DAY;
+
 let ANSWERS;
+
+let events = [];
+
+function updateCalendar() {
+  getCalendar()
+  .then(res => {
+    events = res;
+  })
+  .catch(console.log)
+}
 
 function connect(callback) {
   const auth = `${encodeURIComponent(MONGO_CONFIG.user)}:${encodeURIComponent(
@@ -121,6 +136,10 @@ function formatCsv(item, answer) {
   };
 }
 
+app.get('/events', (req, res) => {
+  res.json(events);
+})
+
 app.get('/data', authMiddleware, (req, res) => {
   return ANSWERS.find({}).toArray((err, data) => {
     if (err) {
@@ -178,3 +197,6 @@ start(err => {
 
   console.log(`Server listening to port ${PORT}`);
 });
+
+updateCalendar();
+chron.add(UPDATE_CALENDAR_DELAY, updateCalendar)
