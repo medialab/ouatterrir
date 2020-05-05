@@ -121,6 +121,26 @@ function formatCsv(item, answer) {
   };
 }
 
+function prepareData(data, returnAll) {
+  // Filter results coming from same users by default
+  if (!returnAll) {
+    let done = new Set();
+    data.reverse();
+    data = data.filter(item => {
+      if (done.has(item.data.id)) return false;
+      done.add(item.data.id);
+      return true;
+    });
+    data.reverse();
+  }
+
+  let res = [];
+  data.forEach(answer => (answer.data.propositions || [])
+    .forEach(item => res.push(formatCsv(item, answer)))
+  );
+  return res;
+}
+
 app.get('/data', authMiddleware, (req, res) => {
   return ANSWERS.find({}).toArray((err, data) => {
     if (err) {
@@ -134,23 +154,45 @@ app.get('/data', authMiddleware, (req, res) => {
 
     const writer = csvWriter();
     writer.pipe(res);
+    prepareData(data, 'returnAll' in req.query)
+      .forEach(item => writer.write(item));
+    writer.end();
+  });
+});
 
-    // Filter results coming from same users by default
-    if (!('returnAll' in req.query)) {
-      let done = new Set();
-      data.reverse();
-      data = data.filter(item => {
-        if (done.has(item.data.id)) return false;
-        done.add(item.data.id);
-        return true;
-      });
-      data.reverse();
+app.get('/summary', authMiddleware, (req, res) => {
+  return ANSWERS.find({}).toArray((err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Server error');
     }
 
-    data.forEach(answer => (answer.data.propositions || [])
-      .forEach(item => writer.write(formatCsv(item, answer)))
+    let users = new Set(),
+      n_propos = 0,
+      n_develop = 0,
+      n_stop = 0,
+      n_fr = 0,
+      n_en = 0;
+
+    prepareData(data).forEach(propos => {
+      users.add(propos.user_id);
+      n_propos++;
+      if (propos.lang === "fr")
+        n_fr++;
+      else n_en++;
+      if (propos.type === "develop")
+        n_develop++;
+      else n_stop++;
+    })
+
+    //res.header('Content-Type', 'text/text; charset=utf-8');
+    return res.send(
+      "<center><h3>OùAtterrir après la pandémie<br>" +
+      "<small>Questionnaire results summary</small></h3>" +
+      users.size + " users posted " + n_propos + " propositions, including:<br>"
+      + n_develop + " develops and " + n_stop + " stops,<br>"
+      + n_fr + " in french and " + n_en + " in english.</center>"
     );
-    writer.end();
   });
 });
 
