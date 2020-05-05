@@ -1,4 +1,4 @@
-const {calendarIcalURL} = require('config');
+const {calendarIcalURL} = require('config-secrets');
 const ical = require('ical');
 const axios = require('axios');
 const path = require('path');
@@ -29,20 +29,25 @@ const getCalendar = () => {
 	return new Promise((resolve, reject) => {
 		axios(calendarIcalURL)
 		.then(({data: str}) => {
-			const data = ical.parseICS(str)
-			const events = [];
-			for (key in data) {
-				const obj = data[key];
-				if (obj.type === 'VEVENT') {
-					events.push({
-						title: obj.summary,
-						start: new Date(obj.start).getTime(),
-						end: new Date(obj.end).getTime(),
-						...parseDescription(obj.description)
-					})
+			let data;
+			try {
+				data = ical.parseICS(str)
+				const events = [];
+				for (key in data) {
+					const obj = data[key];
+					if (obj.type === 'VEVENT') {
+						events.push({
+							title: obj.summary,
+							start: new Date(obj.start).getTime(),
+							end: new Date(obj.end).getTime(),
+							...parseDescription(obj.description)
+						})
+					}
 				}
+				return resolve(events);
+			} catch(e) {
+				reject(e);
 			}
-			return resolve(events);
 		})
 		.catch(reject)
 	})

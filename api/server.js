@@ -186,7 +186,11 @@ function start(callback) {
           return next();
         });
       },
-      next => app.listen(PORT, next)
+      next => {
+        setTimeout(updateCalendar);
+        return next();
+      },
+      next => app.listen(PORT, next),
     ],
     callback
   );
@@ -198,5 +202,4 @@ start(err => {
   console.log(`Server listening to port ${PORT}`);
 });
 
-updateCalendar();
 chron.add(UPDATE_CALENDAR_DELAY, updateCalendar)
