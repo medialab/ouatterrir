@@ -43,15 +43,10 @@ const getCalendar = () => {
 				})
 			}
 		}
-		return new Promise((res, rej) => {
-			fs.writeFile(TARGET_FILE_PATH, JSON.stringify(events, null, 2), 'utf8', err => {
-				if (err) rej(err)
-				res()
-			})
+		fs.writeFile(TARGET_FILE_PATH, JSON.stringify(events, null, 2), 'utf8', err => {
+			if (err) console.error(err)
+			else console.log('done updating calendar')
 		})
-	})
-	.then(() => {
-		console.log('done updating calendar');
 	})
 	.catch(console.log)
 }
