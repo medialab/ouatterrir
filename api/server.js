@@ -180,7 +180,7 @@ app.get('/summary', (req, res) => {
       if (propos.lang === "fr")
         n_fr++;
       else n_en++;
-      if (propos.type === "develop")
+      if (propos.proposition_type === "develop")
         n_develop++;
       else n_stop++;
     })
