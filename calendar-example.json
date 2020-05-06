@@ -1,0 +1,35 @@
+[
+  {
+    "title": "test event title",
+    "start": 1588946400000,
+    "end": 1588953600000,
+    "description": "All information on this web site (text, photos, logos...) is protected by the copyrights held by Sciences Po.",
+    "lang": "en",
+    "moderators": [
+      "john doe",
+      "john doe"
+    ]
+  },
+  {
+    "title": "Test de titre pour l'évènement du futur 2",
+    "start": 1589524200000,
+    "end": 1589527800000,
+    "description": "All information on this web site (text, photos, logos...) is protected by the copyrights held by Sciences Po.",
+    "lang": "fr",
+    "moderators": [
+      "john doe",
+      "john doe"
+    ]
+  },
+  {
+    "title": "test past event",
+    "start": 1587538800000,
+    "end": 1587550500000,
+    "description": "All information on this web site (text, photos, logos...) is protected by the copyrights held by Sciences Po. Description for the past event",
+    "lang": "fr",
+    "moderators": [
+      "john doe",
+      "john doe"
+    ]
+  }
+]
