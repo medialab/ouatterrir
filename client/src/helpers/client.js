@@ -12,6 +12,8 @@ export const postAnswer = data => {
 
 
 export const getEvents = () => {
-  console.log('get', `${API_URL}events`)
+  if (!process.env.REACT_APP_API_URL) {
+    return axios(`${process.env.PUBLIC_URL || ''}/calendar-example.json`)
+  }
   return axios(`${API_URL}events`)
 }
