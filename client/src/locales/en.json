@@ -12,6 +12,9 @@
   "nav-3": "3 – workshops",
   "nav-4": "4 – territorial actions",
 
+  "events-could-not-be-retrieved": "Events could not be retrieved.",
+  "loading-events": "Loading events",
+
   "events": "Workshops and events",
   "past-events": "Past events",
   "when": "when",

@@ -1560,12 +1560,21 @@ input:focus::placeholder{
  */
 .events-container{
   min-height: 100vh;
+  padding-bottom: 20vh;
 }
 .events-content{
   padding: 0 calc(2 * var(--big-gutter));
   display: flex;
   flex-flow: column nowrap;
   padding-bottom: calc(3 * var(--big-gutter));
+}
+
+.events-container footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .events-section h1{
@@ -1614,4 +1623,13 @@ input:focus::placeholder{
 .moderators-container{
   display: flex;
   flex-flow: column nowrap;
+}
+
+.events-info{
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
 }

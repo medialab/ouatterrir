@@ -83,10 +83,13 @@ export default function({
             </div>
           </>
         : error ?
-            <div>
+            <div className="events-info">
               {translate('events-could-not-be-retrieved')}
             </div>
-            : null
+            :
+            <div className="events-info">
+              {translate('loading-events')}
+            </div>
         }      
       </div>
       <Footer {...{translate}} />

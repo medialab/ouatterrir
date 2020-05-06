@@ -11,6 +11,9 @@
   "nav-3": "3 – ateliers",
   "nav-4": "4 – actions territoriales",
 
+  "events-could-not-be-retrieved": "Les évènements n'ont pas pu être récupérés.",
+  "loading-events": "Chargement des évènements",
+
 
   "events": "Ateliers et évènements",
   "past-events": "Événements passés",
