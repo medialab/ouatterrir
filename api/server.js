@@ -25,14 +25,22 @@ let ANSWERS;
 
 let events = [];
 
-function updateCalendar() {
+function updateCalendar(callback) {
   getCalendar()
   .then(res => {
     if (res && res.length) {
       events = res;
+      if (typeof callback === 'function') {
+        callback(null)
+      }
     }
   })
-  .catch(console.log)
+  .catch(err => {
+    console.log(err);
+    if (typeof callback === 'function') {
+      callback(err);
+    }
+  })
 }
 
 function connect(callback) {
@@ -179,6 +187,19 @@ app.get('/data', authMiddleware, (req, res) => {
       .forEach(item => writer.write(item));
     writer.end();
   });
+});
+
+/**
+ * Protected route triggering immediate events refresh
+ */
+app.get('/refresh-events', authMiddleware, (req, res) => {
+  updateCalendar(err => {
+    if (!err) {
+      res.json(events);
+    } else {
+      res.error(err);
+    }
+  })
 });
 
 app.get('/summary', (req, res) => {
