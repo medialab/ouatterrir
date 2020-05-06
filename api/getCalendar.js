@@ -8,17 +8,21 @@ const path = require('path');
  * according to a template we have defined
  * @param {str} str 
  */
-const parseDescription = str => {
+const parseDescription = (str = '') => {
 	const parts = str.replace(/<br>/g, '\n')
 	.replace(/<[^>]*>/g, '')
 	.split('---');
-	const description = parts[1].trim();
-	const props = parts[0].split('\n').map(t => t.split(':'))
-	.filter(t => t[0].trim().length)
-	.reduce((res, [key, value]) => ({
-		...res,
-		[key.trim()]: key.includes('moderators') ? value.split(',').map(t => t.trim()) : value.trim()
-	}), {})
+	const description = parts.length > 1 ? parts[1].trim() : parts[0].trim();
+	let props = {};
+	// parse props only if compliant
+	if (parts.length > 1) {
+		props = parts[0].split('\n').map(t => t.split(':'))
+		.filter(t => t[0].trim().length)
+		.reduce((res, [key, value]) => ({
+			...res,
+			[key.trim()]: key.includes('moderators') ? value.split(',').map(t => t.trim()) : value.trim()
+		}), {});
+	}
 	return {
 		description,
 		...props

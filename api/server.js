@@ -28,7 +28,9 @@ let events = [];
 function updateCalendar() {
   getCalendar()
   .then(res => {
-    events = res;
+    if (res && res.length) {
+      events = res;
+    }
   })
   .catch(console.log)
 }
@@ -218,16 +220,16 @@ app.get('/summary', (req, res) => {
 function start(callback) {
   async.series(
     [
-      // next => {
-      //   connect((err, client) => {
-      //     if (err) return next(err);
+      next => {
+        connect((err, client) => {
+          if (err) return next(err);
 
-      //     const db = client.db(MONGO_CONFIG.db);
+          const db = client.db(MONGO_CONFIG.db);
 
-      //     ANSWERS = db.collection('answers');
-      //     return next();
-      //   });
-      // },
+          ANSWERS = db.collection('answers');
+          return next();
+        });
+      },
       next => {
         setTimeout(updateCalendar);
         return next();
