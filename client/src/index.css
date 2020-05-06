@@ -1633,3 +1633,10 @@ input:focus::placeholder{
   justify-content: center;
   font-size: 40px;
 }
+
+@media (max-width: 1000px) {
+  .events-content{
+    padding: 0 var(--gutter);
+    padding-bottom: 20vh;
+  }
+}
