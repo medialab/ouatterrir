@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ouatterrir/static/css/main.50099009.chunk.css",
-    "main.js": "/ouatterrir/static/js/main.c48e3e84.chunk.js",
-    "main.js.map": "/ouatterrir/static/js/main.c48e3e84.chunk.js.map",
+    "main.js": "/ouatterrir/static/js/main.e2b351ff.chunk.js",
+    "main.js.map": "/ouatterrir/static/js/main.e2b351ff.chunk.js.map",
     "runtime-main.js": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js",
     "runtime-main.js.map": "/ouatterrir/static/js/runtime-main.b0d5f4d1.js.map",
     "static/js/2.7ef88f8f.chunk.js": "/ouatterrir/static/js/2.7ef88f8f.chunk.js",
     "static/js/2.7ef88f8f.chunk.js.map": "/ouatterrir/static/js/2.7ef88f8f.chunk.js.map",
     "index.html": "/ouatterrir/index.html",
-    "precache-manifest.2e4ac82bdfc9e5d440f621d752164ab9.js": "/ouatterrir/precache-manifest.2e4ac82bdfc9e5d440f621d752164ab9.js",
+    "precache-manifest.d84eb69934f517cc742832d405847239.js": "/ouatterrir/precache-manifest.d84eb69934f517cc742832d405847239.js",
     "service-worker.js": "/ouatterrir/service-worker.js",
     "static/css/main.50099009.chunk.css.map": "/ouatterrir/static/css/main.50099009.chunk.css.map",
     "static/js/2.7ef88f8f.chunk.js.LICENSE.txt": "/ouatterrir/static/js/2.7ef88f8f.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.b0d5f4d1.js",
     "static/js/2.7ef88f8f.chunk.js",
     "static/css/main.50099009.chunk.css",
-    "static/js/main.c48e3e84.chunk.js"
+    "static/js/main.e2b351ff.chunk.js"
   ]
 }
