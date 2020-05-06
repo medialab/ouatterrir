@@ -208,7 +208,7 @@ app.get('/summary', (req, res) => {
 
     //res.header('Content-Type', 'text/text; charset=utf-8');
     return res.send(
-      "<center><h3>OùAtterrir après la pandémie<br>" +
+      "<center><h3>Où Atterrir après la pandémie<br>" +
       "<small>Questionnaire results summary</small></h3>" +
       users.size + " users posted " + n_propos + " propositions, including:<br>"
       + n_develop + " develops and " + n_stop + " stops,<br>"
