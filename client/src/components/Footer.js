@@ -32,10 +32,10 @@ export default ({
           </div>
           <div className="logos-container">
               <a target="blank" className="logo" rel="noopener" href="https://medialab.sciencespo.fr">
-                <img src={medialabLogo} />
+                <img alt="medialab logo" src={medialabLogo} />
               </a>
               <a target="blank" className="logo" rel="noopener" href="https://zkm.de">
-                <img src={zkmLogo} />
+                <img alt="zkm logo" src={zkmLogo} />
               </a>
             </div>
         </div>

@@ -23,14 +23,6 @@ import introStep2En from '!!raw-loader!../locales/texts/intro-step-2/en.md';/* e
 import introStep3Fr from '!!raw-loader!../locales/texts/intro-step-3/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
 import introStep3En from '!!raw-loader!../locales/texts/intro-step-3/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
 
-import part3Landing1Fr from '!!raw-loader!../locales/texts/part3-landing-1/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
-import part3Landing1En from '!!raw-loader!../locales/texts/part3-landing-1/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
-
-import part3Landing2Fr from '!!raw-loader!../locales/texts/part3-landing-2/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
-import part3Landing2En from '!!raw-loader!../locales/texts/part3-landing-2/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
-
-
-
 export default function({
   translate,
   lang
@@ -145,18 +137,6 @@ export default function({
           </div>
         </li>
       </ul>
-
-      {/* part 3 */}
-      {/* <div className="columns">
-        <div>
-          <Md source={lang === 'fr' ? part3Landing1Fr : part3Landing1En} />
-        </div>
-        <div>
-          <Md source={lang === 'fr' ? part3Landing2Fr : part3Landing2En} />
-        </div>
-      </div> */}
-      
-
       <Footer {...{translate}} />
     </>
   )
