@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Md from 'react-markdown';
+import moment from 'moment';
+import 'moment/locale/fr.js';
 import {getEvents} from '../helpers/client';
 
 import Footer from './Footer';
@@ -33,6 +35,7 @@ export default function({
   const now = new Date().getTime();
   const pastEvents = events.filter(event => event.end < now);
   const currentEvents = events.filter(event => event.end >= now);
+  moment.locale(lang)
   const renderEventsList = evs => (
     <table className="events-list-container">
       <thead>
@@ -47,7 +50,7 @@ export default function({
           evs.map((event, index) => (
             <tr key={index}>
               <td className="dates-container">
-                {new Date(event.start).toDateString()} — {new Date(event.end).toDateString()}
+                {moment(event.start).local().format(lang === 'fr' ? "dddd Do MMMM YYYY, HH:mm" : "dddd MMMM, Do YYYY, HH:mm")} — {moment(event.end).local().format('HH:mm')}
               </td>
               <td className="event-container">
                 <h2>{event.title}</h2>
