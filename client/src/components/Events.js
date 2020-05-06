@@ -78,12 +78,17 @@ export default function({
           <>
             <div className="current-events events-section">
               <h1>{translate('events')}</h1>
-              {renderEventsList(currentEvents)}
+              {currentEvents.length ? renderEventsList(currentEvents) : <h3>{translate('no-events')}</h3>}
             </div>
-            <div className="past-events events-section">
-              <h1>{translate('past-events')}</h1>
-              {renderEventsList(pastEvents)}
-            </div>
+            {
+              pastEvents.length ? 
+              <div className="past-events events-section">
+                <h1>{translate('past-events')}</h1>
+                {renderEventsList(pastEvents)}
+              </div>
+              : null
+            }
+            
           </>
         : error ?
             <div className="events-info">
