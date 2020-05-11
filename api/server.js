@@ -107,6 +107,7 @@ function formatCsv(item, answer) {
     user_given_name: answer.data.givenName,
     user_family_name: answer.data.familyName,
     user_area_of_expertise: answer.data.areaOfExpertise,
+    user_interested_in_workshops: !!answer.data.workshopContact,
     answer_id: answer._id,
     timestamp: answer.timestamp,
     datetime: (new Date(answer.timestamp)).toISOString(),
