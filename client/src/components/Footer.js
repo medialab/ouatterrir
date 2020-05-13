@@ -26,18 +26,28 @@ export default ({
               <a target="blank" rel="noopener" href="https://github.com/medialab/ouatterrir">{translate('website-source-code')}</a>
             </p>
             <p>
+              <a target="blank" rel="noopener" href="https://zkm.de/en/exhibition/2020/05/critical-zones">{translate('critical-zones-website')}</a>
+            </p>
+            <p>
               <a target="blank" rel="noopener" href="http://www.bruno-latour.fr">{translate('latour-website')}</a>
             </p>
             
           </div>
-          <div className="logos-container">
-              <a target="blank" className="logo" rel="noopener" href="https://medialab.sciencespo.fr">
-                <img alt="medialab logo" src={medialabLogo} />
-              </a>
-              <a target="blank" className="logo" rel="noopener" href="https://zkm.de">
-                <img alt="zkm logo" src={zkmLogo} />
-              </a>
+
+          <div className="logos-wrapper">
+            <div className="logos-foreword">
+              {translate('logo-foreword')} <a target="blank" rel="noopener" href="http://ouatterrir.fr/">Où atterrir ?</a>
             </div>
+            <div className="logos-container">
+                <a target="blank" className="logo" rel="noopener" href="https://medialab.sciencespo.fr">
+                  <img src={medialabLogo} />
+                </a>
+                <a target="blank" className="logo" rel="noopener" href="https://zkm.de">
+                  <img src={zkmLogo} />
+                </a>
+              </div>
+          </div>
+            
         </div>
       </footer>
 )

@@ -1,7 +1,7 @@
 {
   "website-title": "Where to land after the pandemic?",
   "questionnaire": "questionnaire",
-  "legal-mentions": "legal mentions",
+  "legal-mentions": "legal notices",
   "questionnaire-prompt": "start",
 
   "for-information-contact" : "for any information contact",
@@ -28,7 +28,7 @@
   "prompt-activity-3": "from September 2020", 
 
   "questionnaire-intro": "Intro phrase for the questionnaire.",
-  "preparatory-exercises": "preparatory excercises",
+  "preparatory-exercises": "preparatory exercises",
   "proposition-from-collective": "proposition from the collective",
   "collective-name": "where to land",
   "launching-the": "lanching",
@@ -39,9 +39,9 @@
   "success": "Success ! your propositions are recorded, thank you and see you soon !",
 
   "add-activity-to-stop": "What should be stopped?",
-  "add-activity-to-develop": "What should be developped?",
+  "add-activity-to-develop": "What should be developed?",
   "add-activity-to-stop-bis": "Add a new proposition for the question \"what should be stopped?\"",
-  "add-activity-to-develop-bis": "Add a new proposition for the question \"what should be developped?\"",
+  "add-activity-to-develop-bis": "Add a new proposition for the question \"what should be developed?\"",
   "char-limit-indicator": "Your text must be at least 90 characters long",
   "go-to-submit": "finish the experience and share my propositions",
   "previous-question": "previous",
@@ -81,14 +81,18 @@
   "submit-form-anonymously-explanation": "We will add your propositions to our database. In order to get an overall picture of the contributions, we will analyze them with natural language processing methods, and wish to make the results of this analysis publicly available. Your personal data will never be published.",
   "submit-form": "send my propositions",
 
+  "critical-zones-website": "Critical zones website",
+
+  "logo-foreword": "This website is an initiative by Bruno Latour with the Science Po médialab, the ZKM | Center for art and Media Karlsruhe, and the Consortium",
+
 
   "to-stop-question-1": "What are the suspended activities and behaviors that you would like to see not coming back?",
-  "to-stop-question-2": "Starting from an activity or behavior that touches you personally, describe why this activity seems to you to be noxious/superfluous/dangerous/incoherent in the framework of your own life or in the life of others. (It is also possible that what you want to stop may put you in trouble as well).",
+  "to-stop-question-2": "Starting with an activity or behavior that affects you personally, describe why you find it harmful/ superfluous/ dangerous/ inconsistent for you or others.",
   "to-stop-question-3": "What kinds of measures do you advocate so that workers/employees/agents/entrepreneurs, who can no longer continue in the activities that you have eliminated, are able to facilitate the transition to other activities?",
   "to-stop-question-4": "What could you concretely do (alone or with others) to ensure that the activity you wish to remove (or slow down) does not resume?",
 
   "to-develop-question-1": "What are the activities and behaviors, now suspended, that you hope might develop/begin again, or even be created from scratch?",
-  "to-develop-question-2": "Starting from an activity or behavior that touches you personally, describe how it may appear to be positive to you, and how it makes other activities easier/more harmonious/coherent that you prefer and can fight against those that you want to stop?",
+  "to-develop-question-2": "How would this make other activities and behaviors that you want to promote easier/ more harmonious/ more consistent?",
   "to-develop-question-3": "What kinds of measures do you advocate to help workers/employees/agents/entrepreneurs to acquire capacities/means/finances/instruments allowing for restarting/development/creation of this activity?",
   "to-develop-question-4": "What could you concretely do (alone or with others) to ensure that the activity you wish to develop could resume?",
   "to-develop-question-5": "What kinds of measures do you advocate to help workers/employees/agents/ entrepreneurs to acquire the capacities/means/finances/instruments that would allow for the restarting/development/creation of this activity?"

@@ -83,17 +83,21 @@
   "submit-form-with-contact": "envoyer mes propositions et entrer en contact",
   "submit-form-anonymously-explanation": "Nous ajouterons vos réponses à notre base de données. Afin d'obtenir une vue d'ensemble des contributions, nous les analyserons avec des méthodes de traitement automatique du langage et souhaitons rendre les résultats de cette analyse accessibles publiquement. Vos données personnelles ne seront jamais publiées.",
   "submit-form-anonymously": "envoyer mes propositions anonymement",
+
+  "critical-zones-website": "Site web critical zones",
+
+  "logo-foreword": "Ce site web est une initiative de Bruno Latour avec le médialab de Sciences Po et le ZKM | Centre des Arts et Médias de Karlsruhe, et du Consortium",
   
   "submit-form-with-contact-explanation": "Si vous nous laissez votre adresse électronique, Bruno Latour et son équipe vous contacteront pour vous inviter à un atelier en ligne, afin de faire avancer cette réflexion. Les ateliers tenteront de réunir des groupes de personnes ayant des réponses correspondantes.",
 
 
   "to-stop-question-1": "Quels sont les activités ou comportements maintenant suspendus dont vous souhaiteriez qu’ils ne reprennent pas ?",
-  "to-stop-question-2": "En partant d’une activité ou d’un comportement qui vous touche personnellement, décrivez pourquoi il est nuisible/ superflu/ dangereux/ incohérent pour votre propre cadre de vie ou pour celui d’autres personnes. (Il est d’ailleurs possible que ce que vous souhaitiez arrêter de vous mettte vous-même en difficulté.)",
+  "to-stop-question-2": "En partant d’une activité ou d’un comportement qui vous touche personnellement, décrivez pourquoi vous les trouvez nuisibles/ superflus/ dangereux/ incohérents pour vous ou pour les autres.",
   "to-stop-question-3": "Quelles mesures préconisez-vous pour que les ouvriers/ employés/ agents/ entrepreneurs qui ne pourront plus continuer ces activités ou avoir les comportements que vous supprimez se voient faciliter la transition vers d’autres activités ?",
   "to-stop-question-4": "Que pourriez-vous faire concrètement (seul ou avec d’autres) pour que l’activité que vous souhaitez voir supprimée (ou ralentie) ne reprenne pas ?",
 
   "to-develop-question-1": "Quels sont les activités et comportements maintenant suspendus, dont vous souhaiteriez qu’ils se développent/ reprennent ou qui devraient être inventés en remplacement ?",
-  "to-develop-question-2": "En partant d’une activité ou d’un comportement qui vous touche personnellement, décrivez pourquoi il vous paraît positif ; comment rend-il plus faciles/ harmonieux/ cohérents d’autres activités et d’autres comportements que vous souhaitez favoriser ; et permet-il de contrecarrer ceux que vous souhaitez voir arrêtés ?",
+  "to-develop-question-2": "En quoi cela rendrait plus faciles/ harmonieux/ cohérents d’autres activités et d’autres comportements que vous souhaitez favoriser ?",
   "to-develop-question-3": "Quelles mesures préconisez-vous pour aider les ouvriers/ employés/ agents/ entrepreneurs à acquérir les capacités/ moyens/ revenus/ instruments permettant la reprise/ le développement/ la création de cette activité ?",
   "to-develop-question-4": "Que pourriez-vous faire concrètement (seul ou avec d’autres) pour favoriser le développement de cette activité ?"
 }

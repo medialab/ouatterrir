@@ -44,16 +44,30 @@ footer{
 footer .columns > div:not(:first-of-type){
   padding-top: 0;
 }
-footer .columns > .logos-container{
+footer .columns .logos-wrapper{
   border-left: 1px solid var(--color-text);
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-end;
   padding-top: 0;
+  padding-left: var(--big-gutter);
+}
+footer .columns .logos-container{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  /*padding-top: 0;*/
+  padding: calc(var(--gutter) * 2) 0;
+  width: 100%;
+}
+
+footer .logos-foreword{
+  text-transform: none;
+  padding-top: 0;
 }
 footer .logo:not(:last-of-type){
-  margin: calc(var(--gutter) * 2);
 }
 footer .logo img{
   height: 5vh;
@@ -63,15 +77,14 @@ footer .logo img{
   footer{
     padding: var(--gutter);
   }
-  footer .columns > .logos-container{
+  footer .columns .logos-wrapper{
     border-left: none;
     border-top: 1px solid var(--color-text);
-    justify-content: space-between;
     margin-top: calc(var(--big-gutter));
+    padding-left: 0;
   }
-  footer .columns > div:not(:first-of-type).logos-container{
-
-    padding-top: calc(var(--big-gutter) /2);
+  footer .logos-foreword{
+    padding-top: calc(var(--big-gutter) / 2);
   }
   footer .logo:not(:last-of-type){
     margin: 0;
