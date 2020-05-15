@@ -7,6 +7,10 @@ import {getEvents} from '../helpers/client';
 
 import Footer from './Footer';
 
+
+import introFr from '!!raw-loader!../locales/texts/calendar-intro/fr.md';/* eslint import/no-webpack-loader-syntax : 0 */
+import introEn from '!!raw-loader!../locales/texts/calendar-intro/en.md';/* eslint import/no-webpack-loader-syntax : 0 */
+
 export default function({
   translate,
   match: {
@@ -80,6 +84,9 @@ export default function({
         <title>{translate('website-title')} | {translate('events')}</title>
       </Helmet>
       <div className="events-content">
+        <div className="questionnaire-intro">
+          <Md source={lang === 'fr' ? introFr : introEn} />
+        </div>
         {
           events.length ?
           <>
