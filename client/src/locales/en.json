@@ -7,10 +7,10 @@
   "for-information-contact" : "for any information contact",
 
   
-  "nav-1": "1 – questionnaire",
-  "nav-2": "2 – contact groups",
-  "nav-3": "3 – workshops",
-  "nav-4": "4 – territorial actions",
+  "nav-1": "questionnaire",
+  "nav-2": "contact groups",
+  "nav-3": "workshops",
+  "nav-4": "territorial actions",
 
   "events-could-not-be-retrieved": "Events could not be retrieved.",
   "loading-events": "Loading events",

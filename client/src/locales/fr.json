@@ -6,10 +6,10 @@
 
   "for-information-contact": "pour toute information contacter",
 
-  "nav-1": "1 – questionnaire",
-  "nav-2": "2 – groupes de contact",
-  "nav-3": "3 – ateliers",
-  "nav-4": "4 – actions territoriales",
+  "nav-1": "questionnaire",
+  "nav-2": "groupes de contact",
+  "nav-3": "ateliers",
+  "nav-4": "actions territoriales",
 
   "events-could-not-be-retrieved": "Les évènements n'ont pas pu être récupérés.",
   "loading-events": "Chargement des évènements",

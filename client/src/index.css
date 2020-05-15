@@ -82,6 +82,7 @@ footer .logo img{
     border-top: 1px solid var(--color-text);
     margin-top: calc(var(--big-gutter));
     padding-left: 0;
+    width: 100%;
   }
   footer .logos-foreword{
     padding-top: calc(var(--big-gutter) / 2);
@@ -333,6 +334,24 @@ nav ul li a.active:not(.home-link){
 }
 nav.in-home{
   justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
+  nav .lang-toggler{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .lang-toggler span:last-of-type{
+    margin-left: 0;
+  }
+
+  nav .label-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start!important;
+    align-items: flex-start!important;
+  }
 }
 
 
@@ -1648,8 +1667,19 @@ input:focus::placeholder{
 }
 
 @media (max-width: 1000px) {
+  main > div {
+    padding: 0;
+  }
   .events-content{
-    padding: 0 var(--gutter);
+    padding: 0 0 var(--gutter) var(--gutter);
     padding-bottom: 20vh;
+  }
+  .events-section > h1,
+  .events-section > h2,
+  .events-section > h3 {
+    padding-right: var(--gutter);
+  }
+  .events-section thead th:last-of-type{
+    padding-right: var(--gutter);
   }
 }

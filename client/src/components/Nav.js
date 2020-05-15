@@ -41,21 +41,33 @@ export default function Nav({
 
       <ul>
         <li className="link-container">
-          <Link onClick={handleQuestionnaireClick} to="/questionnaire"><span>{translate('nav-1')}</span></Link>
+          <Link onClick={handleQuestionnaireClick} to="/questionnaire">
+            <span className="label-container">
+              <span>1 —&nbsp;</span><span>{translate('nav-1')}</span>
+            </span>
+          </Link>
         </li>
         <li className="link-container">
-          <Link onClick={handleQuestionnaireClick} to="/events"><span>{translate('nav-2')}</span></Link>
+          <Link onClick={handleQuestionnaireClick} to="/events">
+            <span className="label-container">
+              <span>2 —&nbsp;</span><span>{translate('nav-2')}</span>
+            </span>
+          </Link>
         </li>
         <li className="link-container">
-          <span>{translate('nav-3')}</span>
+          <span className="label-container">
+            <span>1 —&nbsp;</span><span>{translate('nav-3')}</span>
+          </span>
         </li>
       </ul>
       
       <ul className="lang-toggler-wrapper">
         <li>
           <span className="lang-toggler" onClick={handleSwitchLang}>
-            <span>{lang === 'fr' ? <b>fr</b> : 'fr'}</span>
-            <span>/</span>
+            <span>
+              <span>{lang === 'fr' ? <b>fr</b> : 'fr'}</span>
+              <span>/</span>
+            </span>
             <span>{lang === 'fr' ? 'en' : <b>en</b>}</span>
           </span>
         </li>
