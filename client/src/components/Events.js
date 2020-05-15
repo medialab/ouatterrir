@@ -20,7 +20,7 @@ export default function({
   const [rawEvents, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
-  const events = showDrafts ? rawEvents : rawEvents.filter(e => !e.draft);
+  const events = showDrafts === 'drafts' ? rawEvents : rawEvents.filter(e => !e.draft);
 
   useEffect(() => {
    getEvents()
