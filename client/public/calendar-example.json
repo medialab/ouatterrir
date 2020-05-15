@@ -1,5 +1,14 @@
 [
   {
+    "title": "test oa draft",
+    "start": 1589562000000,
+    "end": 1589569200000,
+    "description": "Draft description",
+    "lang": "fr",
+    "moderators": ["john doe"],
+    "draft": "1"
+  },
+  {
     "title": "test event title",
     "start": 1588946400000,
     "end": 1588953600000,

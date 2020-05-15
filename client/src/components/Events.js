@@ -9,11 +9,18 @@ import Footer from './Footer';
 
 export default function({
   translate,
+  match: {
+    params: {
+      showDrafts = false
+    }
+  },
   lang
 }) {
 
-  const [events, setEvents] = useState([]);
+  const [rawEvents, setEvents] = useState([]);
   const [error, setError] = useState(null);
+
+  const events = showDrafts ? rawEvents : rawEvents.filter(e => !e.draft);
 
   useEffect(() => {
    getEvents()

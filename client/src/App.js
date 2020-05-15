@@ -98,9 +98,7 @@ export default function App() {
             <Route path="/questionnaire">
               <Questionnaire {...{translate, lang, eventListener}} />
             </Route>
-            <Route path="/events">
-              <Events {...{translate, lang}} />
-            </Route>
+            <Route path="/events/:showDrafts?" component={props => <Events {...{...props, translate, lang}} />} />
             <Route path="/mentions">
               <LegalMentions {...{translate, lang}} />
             </Route>
