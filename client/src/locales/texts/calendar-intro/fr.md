@@ -1,4 +1,4 @@
-Si le premier niveau de nos exercices permet d'exprimer des préoccupations personelles, le deuxième niveau a pour objectif de creuser et d'explorer plus en profondeur ces expressions et d'amplifier collectivement leurs résonances.
+Si le premier niveau de nos exercices permet d'exprimer des préoccupations personnelles, le deuxième niveau a pour objectif de creuser et d'explorer plus en profondeur ces expressions et d'amplifier collectivement leurs résonances.
 
 Dans cette mesure, l'analyse de ce qui a été recueilli par le biais du questionnaire nous donne la possibilité de proposer des groupes de contact thématiques. Sur la base de ce que vous avez décrit dans vos réponses, vous serez invités à participer à des activités en ligne organisées autour de procédures descriptives simples et courtes, mais, nous l'espérons, significatives, d'une durée de 2 heures.
 
