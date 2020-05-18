@@ -508,7 +508,7 @@ nav.is-open .burger-container > div:nth-child(3)
 }
 
 .columns{
-  padding: 0 calc(var(--big-gutter) * 2);
+  padding: 0 0 0 calc(var(--big-gutter) * 2);
   display: flex;
   flex-flow: row nowrap;
 }
