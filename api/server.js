@@ -18,8 +18,9 @@ const validateAnswer = ajv.compile(require('../schemas/answer.json'));
 const PORT = config.get('port');
 const MONGO_CONFIG = config.get('mongo');
 
-const DAY = 24 * 3600;
-const UPDATE_CALENDAR_DELAY = 7 * DAY;
+// const DAY = 24 * 3600;
+// const UPDATE_CALENDAR_DELAY = 7 * DAY;
+const UPDATE_CALENDAR_DELAY = 3600; // update every hour
 
 let ANSWERS;
 
