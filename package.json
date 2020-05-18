@@ -8,7 +8,7 @@
     "mongo": "docker pull mongo:4.2 && docker run -p 27117:27017 -e MONGO_INITDB_DATABASE=admin -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password -v mongo-data:/data/db mongo --auth",
     "prettier": "prettier 'api/*.js' --write",
     "start": "node ./api/server.js",
-    "docker-publish": "if [ -z \"$VERSION\" ]; then echo 'Set a VERSION to run, e.g.: VERSION=1.3 npm run docker-publish'; else docker-compose build --force-rm --no-cache && docker tag scpomedialab/ouatterrir-api:latest scpomedialab/ouatterrir-api:$VERSION && docker tag scpomedialab/ouatterrir-api:latest scpomedialab/ouatterrir-client:$VERSION && docker push scpomedialab/ouatterrir-api:$VERSION && docker push scpomedialab/ouatterrir-client:$VERSION; fi"
+    "docker-publish": "if [ -z \"$VERSION\" ]; then echo 'Set a VERSION to run, e.g.: VERSION=1.3 npm run docker-publish'; else docker-compose build --force-rm --no-cache && docker tag scpomedialab/ouatterrir-api:latest scpomedialab/ouatterrir-api:$VERSION && docker tag scpomedialab/ouatterrir-client:latest scpomedialab/ouatterrir-client:$VERSION && docker push scpomedialab/ouatterrir-api:$VERSION && docker push scpomedialab/ouatterrir-client:$VERSION; fi"
   },
   "repository": {
     "type": "git",
