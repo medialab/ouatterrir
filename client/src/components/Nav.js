@@ -56,7 +56,7 @@ export default function Nav({
         </li>
         <li className="link-container">
           <span className="label-container">
-            <span>1 —&nbsp;</span><span>{translate('nav-3')}</span>
+            <span>3 —&nbsp;</span><span>{translate('nav-3')}</span>
           </span>
         </li>
       </ul>
