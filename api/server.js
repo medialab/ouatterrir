@@ -132,6 +132,7 @@ function formatCsv(item, answer) {
     user_given_name: answer.data.givenName,
     user_family_name: answer.data.familyName,
     user_area_of_expertise: answer.data.areaOfExpertise,
+    user_interested_in_workshops: !!answer.data.workshopContact,
     answer_id: answer._id,
     timestamp: answer.timestamp,
     datetime: (new Date(answer.timestamp)).toISOString(),
@@ -210,6 +211,7 @@ app.get('/summary', (req, res) => {
     }
 
     let users = new Set(),
+      users_workshops = new Set(),
       n_propos = 0,
       n_develop = 0,
       n_stop = 0,
@@ -218,6 +220,8 @@ app.get('/summary', (req, res) => {
 
     prepareData(data).forEach(propos => {
       users.add(propos.user_id);
+      if (propos.user_interested_in_workshops)
+        users_workshops.add(propos.user_id)
       n_propos++;
       if (propos.lang === "fr")
         n_fr++;
@@ -225,7 +229,7 @@ app.get('/summary', (req, res) => {
       if (propos.proposition_type === "develop")
         n_develop++;
       else n_stop++;
-    })
+    });
 
     //res.header('Content-Type', 'text/text; charset=utf-8');
     return res.send(
@@ -233,7 +237,9 @@ app.get('/summary', (req, res) => {
       "<small>Questionnaire results summary</small></h3>" +
       users.size + " users posted " + n_propos + " propositions, including:<br>"
       + n_develop + " develops and " + n_stop + " stops,<br>"
-      + n_fr + " in french and " + n_en + " in english.</center>"
+      + n_fr + " in french and " + n_en + " in english.<br>"
+      + users_workshops.size + " are interested in participating to workshops."
+      + "</center>"
     );
   });
 });
