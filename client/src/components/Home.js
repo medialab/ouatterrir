@@ -112,7 +112,7 @@ export default function({
             <Md source={lang === 'fr' ? introStep2Fr : introStep2En} />
           </div>
           <div>
-            <Link className="button starter-button disabled">
+            <Link className="button starter-button" to="events">
               <span>
                 <span>{translate('prompt-activity-2')}</span>
                 <span className="chevron">
