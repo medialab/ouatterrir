@@ -22,17 +22,21 @@ export default function({
 }) {
 
   const [rawEvents, setEvents] = useState([]);
+  const [loaded, setLoaded] = useState(null);
   const [error, setError] = useState(null);
 
   const events = showDrafts === 'drafts' ? rawEvents : rawEvents.filter(e => !e.draft);
 
   useEffect(() => {
+   setLoaded(false);
    getEvents()
    .then(({data}) => {
+     setLoaded(true);
      setEvents(data);
    }) 
    .catch((e) => {
      console.error(e);
+     setLoaded(true);
      setError(e);
    })
   }, [])
@@ -88,7 +92,7 @@ export default function({
           <Md source={lang === 'fr' ? introFr : introEn} />
         </div>
         {
-          events.length ?
+          loaded ?
           <>
             <div className="current-events events-section">
               <h1>{translate('events')}</h1>

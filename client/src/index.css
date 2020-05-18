@@ -1599,6 +1599,7 @@ input:focus::placeholder{
   display: flex;
   flex-flow: column nowrap;
   padding-bottom: calc(3 * var(--big-gutter));
+  min-height: 100vh;
 }
 
 .events-container footer{
@@ -1670,6 +1671,9 @@ input:focus::placeholder{
   main > div {
     padding: 0;
   }
+  .events-container{
+    padding-bottom: 0;
+  }
   .events-content{
     padding: 0 0 var(--gutter) var(--gutter);
     padding-bottom: 20vh;
@@ -1681,5 +1685,9 @@ input:focus::placeholder{
   }
   .events-section thead th:last-of-type{
     padding-right: var(--gutter);
+  }
+
+  .events-container footer{
+    position: relative;
   }
 }
