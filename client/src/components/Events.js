@@ -62,23 +62,32 @@ export default function({
       </thead>
       <tbody>
         {
-          evs.map((event, index) => (
-            <tr key={index}>
-              <td className="dates-container">
-                {moment(event.start).local().format(lang === 'fr' ? "dddd Do MMMM YYYY, HH:mm" : "dddd MMMM, Do YYYY, HH:mm")} — {moment(event.end).local().format('HH:mm')}
-              </td>
-              <td className="event-container">
-                <h2>{event.title}</h2>
-                <Md source={event.description} />
-              </td>
-              <td className="moderators-container">
-                {
-                  event.moderators.map((moderator, index) => <span key={index}>{moderator}</span>)
-                }
-              </td>
-            </tr>
-          ))
-        }
+          evs.map((event = {}, index) => {
+            const {
+              title = '',
+              description = '',
+              moderators = [],
+              start = 0,
+              end = 0
+            } = event;
+            return (
+              <tr key={index}>
+                <td className="dates-container">
+                  {moment(start).local().format(lang === 'fr' ? "dddd Do MMMM YYYY, HH:mm" : "dddd MMMM, Do YYYY, HH:mm")} — {moment(end).local().format('HH:mm')}
+                </td>
+                <td className="event-container">
+                  <h2>{title}</h2>
+                  <Md source={description} />
+                </td>
+                <td className="moderators-container">
+                  {
+                    moderators.map((moderator, index) => <span key={index}>{moderator}</span>)
+                  }
+                </td>
+              </tr>
+            );
+        })
+      }
       </tbody>
     </table>
   )
