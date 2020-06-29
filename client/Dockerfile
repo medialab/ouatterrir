@@ -8,7 +8,7 @@ RUN apk add --update --virtual --no-cache python build-base \
     && npm ci --production false \
     && PUBLIC_URL="/" REACT_APP_API_URL="/api/" npm run build \
     && rm -rf ./node_modules /root/.npm /root/.node-gyp /root/.config /usr/lib/node_modules \
-    && apk del python build-base 
+    && apk del python build-base
 
 FROM nginx:alpine
 
@@ -20,6 +20,8 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 COPY --from=builder --chown=nginx:nginx /frontend/docker-nginx.conf /etc/nginx/conf.d/ouatterrir.template
 
-COPY --from=builder --chown=nginx:nginx /frontend/docker-entrypoint.sh /
+COPY --from=builder --chown=root:root /frontend/docker-entrypoint.sh /
+
+RUN chmod +x /docker-entrypoint.sh
 
 CMD ["/bin/sh", "/docker-entrypoint.sh"]
