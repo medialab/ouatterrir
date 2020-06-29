@@ -6,6 +6,7 @@ resources:
   - db/pvc.yml
   - db/deployment.yml
   - db/service.yml
+  - db/cronjob.yml
   - api/deployment.yml
   - api/service.yml
   - client/deployment.yml
