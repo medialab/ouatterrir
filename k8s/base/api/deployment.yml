@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+        - name: api
+          image: scpomedialab/ouatterrir-api:latest
+          env:
+            - name: MONGO_HOST
+              value: ouatterrir-db.ouatterrir.svc.cluster.local
+            - name: MONGO_PORT
+              value: '27017'
+            - name: API_PORT
+              value: '4000'
+            - name: SECRET_PATH
+              value: '/etc/ouatterrir/..data/'
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: mongodb-secrets
+              mountPath: /etc/ouatterrir
+      volumes:
+        - name: mongodb-secrets
+          secret:
+            secretName: mongodb
+            defaultMode: 288
+            items:
+              - key: database
+                path: MONGO_DB
+              - key: root_username
+                path: MONGO_USER
+              - key: root_password
+                path: MONGO_PASSWORD

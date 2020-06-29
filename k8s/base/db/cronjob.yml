@@ -1,0 +1,46 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: db-backup
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: db-backup
+              image: mongo:latest
+              env:
+                - name: MONGO_HOST
+                  value: ouatterrir-db.ouatterrir.svc.cluster.local
+                - name: MONGO_PORT
+                  value: '27017'
+                - name: MONGO_DB
+                  valueFrom:
+                    secretKeyRef:
+                      name: mongodb
+                      key: database
+                - name: MONGO_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: mongodb
+                      key: root_username
+                - name: MONGO_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: mongodb
+                      key: root_password
+              args:
+                - /bin/bash
+                - -c
+                - mkdir -p /backup/ouatterrir-db; mongodump --username=$MONGO_USER --password=$MONGO_PASSWORD --host=$MONGO_HOST --port=$MONGO_PORT  --out=/backup/ouatterrir-db/dump_mongo_$(date +%F_%H_%M_%S);
+              volumeMounts:
+                - name: vol-backup
+                  mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+          - name: vol-backup
+            persistentVolumeClaim:
+              claimName: backup-pvc
