@@ -51,7 +51,7 @@ deploy:
     - build_client
     - build_api
   script:
-    - NS=ouatterir
+    - NS=ouatterrir
     - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_PEM_FILE"
     - kubectl config set-credentials gitlab-admin --token="$KUBE_TOKEN"
     - kubectl config set-context default --cluster=k8s --user=gitlab-admin
