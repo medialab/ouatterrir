@@ -17,7 +17,7 @@ commonLabels:
 secretGenerator:
 - name: mongodb
   literals:
-    - database=admin
+    - database=ouatterrir
     - root_password=password
     - root_username=admin
 

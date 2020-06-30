@@ -17,10 +17,7 @@ spec:
           image: mongo:latest
           env:
             - name: MONGO_INITDB_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: mongodb
-                  key: database
+              value: 'admin'
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 secretKeyRef:
