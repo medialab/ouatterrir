@@ -35,7 +35,7 @@ spec:
               args:
                 - /bin/bash
                 - -c
-                - mkdir -p /backup/ouatterrir-db; mongodump --username=$MONGO_USER --password=$MONGO_PASSWORD --host=$MONGO_HOST --port=$MONGO_PORT  --out=/backup/ouatterrir-db/dump_mongo_$(date +%F_%H_%M_%S);
+                - mkdir -p /backup/ouatterrir-db; find /backup/ouatterrir-db -mtime +7 -delete; mongodump --username=$MONGO_USER --password=$MONGO_PASSWORD --host=$MONGO_HOST --port=$MONGO_PORT  --out=/backup/ouatterrir-db/dump_mongo_$(date +%F_%H_%M_%S);
               volumeMounts:
                 - name: vol-backup
                   mountPath: /backup
