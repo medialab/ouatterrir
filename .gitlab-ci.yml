@@ -1,4 +1,4 @@
-image: docker:stable
+image: docker:19.03.13
 
 stages:
   - build
@@ -7,11 +7,9 @@ stages:
 variables:
   CLIENT_IMAGE_NAME: $CI_REGISTRY/scpomedialab/ouatterrir-client:$CI_COMMIT_REF_SLUG
   API_IMAGE_NAME: $CI_REGISTRY/scpomedialab/ouatterrir-api:$CI_COMMIT_REF_SLUG
-  DOCKER_HOST: tcp://127.0.0.1:2375
-  DOCKER_TLS_CERTDIR: ""
 
 services:
-    - docker:stable-dind
+    - docker:19.03.13
 
 build_client:
   stage: build
@@ -21,6 +19,8 @@ build_client:
     - docker push $CLIENT_IMAGE_NAME
   environment:
     name: $CI_COMMIT_REF_SLUG
+  tags:
+    - proxy
   only:
     - master
     - staging
@@ -36,6 +36,8 @@ build_api:
     - docker push $API_IMAGE_NAME
   environment:
     name: $CI_COMMIT_REF_SLUG
+  tags:
+    - proxy
   only:
     - master
     - staging
@@ -63,6 +65,8 @@ deploy:
     - kubectl -n ${NS} rollout restart deployment ${NS}-client
   environment:
     name: $CI_COMMIT_REF_SLUG
+  tags:
+    - proxy
   only:
    - staging
    - prod
