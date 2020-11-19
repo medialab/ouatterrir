@@ -8,9 +8,6 @@ variables:
   CLIENT_IMAGE_NAME: $CI_REGISTRY/scpomedialab/ouatterrir-client:$CI_COMMIT_REF_SLUG
   API_IMAGE_NAME: $CI_REGISTRY/scpomedialab/ouatterrir-api:$CI_COMMIT_REF_SLUG
 
-services:
-    - docker:19.03.13
-
 build_client:
   stage: build
   script:
