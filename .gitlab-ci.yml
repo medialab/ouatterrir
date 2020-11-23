@@ -16,8 +16,6 @@ build_client:
     - docker push $CLIENT_IMAGE_NAME
   environment:
     name: $CI_COMMIT_REF_SLUG
-  tags:
-    - proxy
   only:
     - master
     - staging
@@ -33,8 +31,6 @@ build_api:
     - docker push $API_IMAGE_NAME
   environment:
     name: $CI_COMMIT_REF_SLUG
-  tags:
-    - proxy
   only:
     - master
     - staging
@@ -62,8 +58,6 @@ deploy:
     - kubectl -n ${NS} rollout restart deployment ${NS}-client
   environment:
     name: $CI_COMMIT_REF_SLUG
-  tags:
-    - proxy
   only:
    - staging
    - prod
