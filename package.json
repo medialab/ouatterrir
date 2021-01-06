@@ -23,7 +23,7 @@
   "dependencies": {
     "ajv": "^6.12.1",
     "async": "^3.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "chron": "^0.1.1",
     "config": "^3.3.1",
